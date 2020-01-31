@@ -1,0 +1,9 @@
+*.o
+*.out
+*.pvt
+../../exercises/ex01_robot_classes/.#robot.cc
+../../exercises/ex01_robot_classes/DEADJOE
+../../exercises/ex01_robot_classes/main.o
+../../exercises/ex01_robot_classes/robot
+../../exercises/ex01_robot_classes/robot.o
+ducks
