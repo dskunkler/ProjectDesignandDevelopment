@@ -1,0 +1,33 @@
+
+*** These modified files were found in JOE when it aborted on Wed Jan 29 13:05:26 2020
+*** JOE was aborted by UNIX signal 1
+
+*** File '/home/kunkl007/3081_s20/repo-kunkl007/exercises/ex01_robot_classes/robot.cc'
+#include <cmath>
+#include <iostream>
+
+#include "robot.h"
+
+void Robot::MoveForward(int distance) {
+  position_[0] = position_[0] + distance*cos(direction_angle_);
+  position_[1] = position_[1] + distance*sin(direction_angle_);
+}
+
+void Robot::Display() {
+  std::cout
+  << "Pos [" << position_[0] << " " << position_[1] << "]. angle "
+  << direction_angle_ << std::endl;
+}
+
+
+*** File '(Unnamed)'
+/home/kunkl007/3081_s20/repo-kunkl007/.git/MERGE_MSG
+/home/kunkl007/3081_s20/repo-kunkl007/.git/MERGE_MSG
+/home/kunkl007/3081_s20/repo-kunkl007/.git/MERGE_MSG
+/home/kunkl007/3081_s20/repo-kunkl007/exercises/ex01_robot_classes/robot.cc
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jpicorc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jpicorc
