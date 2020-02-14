@@ -1,36 +1,32 @@
 ### Feedback for Lab 06
 
-Run on February 14, 10:50:49 AM.
+Run on February 14, 12:20:54 PM.
 
 
 #### System Files and Directory Structure
 
 + Pass: Check that directory "labs" exists.
 
-+ Fail: Check that directory "labs/lab06_gdb" exists.
++ Pass: Check that directory "labs/lab06_gdb" exists.
 
-     "labs/lab06_gdb" not found.
-
-+ Skip: Change into directory "labs/lab06_gdb".
-
-  This test was not run because of an earlier failing test.
++ Pass: Change into directory "labs/lab06_gdb".
 
 
 #### Test that code compiles and creates the exectuable
 
-+ Skip: Check that make compiles.
++ Pass: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that file "date" exists.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "date" exists.
 
-+ Skip: Program executes flawlessly.
++ Pass: Program executes flawlessly.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check for correct output.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check for correct output.
+
+    Complete.
+
+
 
