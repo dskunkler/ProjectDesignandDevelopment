@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 08
 
-Run on February 18, 21:38:01 PM.
+Run on February 19, 01:22:40 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -57,6 +57,22 @@ Run on February 18, 21:38:01 PM.
 
 
 #### Results
+
++ Skip: Check that a GoogleTest test passes.
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that a GoogleTest test passes.
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that a GoogleTest test passes.
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that a GoogleTest test passes.
+
+  This test was not run because of an earlier failing test.
 
 + Skip: Check that a GoogleTest test passes.
 
