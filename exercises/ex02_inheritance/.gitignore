@@ -1,0 +1,6 @@
+*.o
+*.out
+*.pvt
+exercises/ex02_inheritance/inherit
+exercises/ex02_inheritance/main.o
+inherit

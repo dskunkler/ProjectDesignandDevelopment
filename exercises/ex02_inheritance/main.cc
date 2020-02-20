@@ -30,12 +30,12 @@ int main() {
   cout << "Derived default : ";
   isa_object_default.Print();
 
-  /*
+
   cout << endl;
   DerivedClass isa_object_4_5(4,5);
   cout << "Derived 4,5 : ";
   isa_object_4_5.Print();
-  */
+  
 
   return 1;
 }
