@@ -1,6 +1,6 @@
 ### Basic Feedback for Lab 08
 
-Run on February 20, 12:15:45 PM.
+Run on February 21, 09:56:47 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -9,90 +9,60 @@ Run on February 20, 12:15:45 PM.
 
 + Pass: Check that directory "labs" exists.
 
-+ Fail: Check that directory "labs/lab08_google_tests" exists.
++ Pass: Check that directory "labs/lab08_google_tests" exists.
 
-     "labs/lab08_google_tests" not found.
++ Pass: Make directory "Lab08_Testing".
 
-+ Skip: Make directory "Lab08_Testing".
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Change into directory "Lab08_Testing".
-
-  This test was not run because of an earlier failing test.
++ Pass: Change into directory "Lab08_Testing".
 
 
 #### Essential Files Exist
 
-+ Skip: Check that file "../labs/lab08_google_tests/date_unittest.cc" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "../labs/lab08_google_tests/date_unittest.cc" exists.
 
 
 ### Testing correct implementation
 
-+ Skip: Copy directory "Lab08 files.".
++ Pass: Copy directory "Lab08 files.".
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Copy directory "Files for correct version".
 
-  This test was not run because of an earlier failing test.
++ Pass: Copy directory "Files for correct version".
 
-+ Skip: Change into directory "correct".
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that make compiles.
++ Pass: Change into directory "correct".
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that make compiles.
 
-+ Skip: Check that file "date_unittest" exists.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Get all google tests.
++ Pass: Check that file "date_unittest" exists.
 
-  This test was not run because of an earlier failing test.
++ Pass: Get all google tests.
+    3 tests found.
+
+
 
 
 #### Results
 
-+ Skip: Check that a GoogleTest test passes.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintDateTests.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that a GoogleTest test passes.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintDateTestsWithoutNewline.
 
-+ Skip: Check that a GoogleTest test passes.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that a GoogleTest test passes.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.DaysBetweenTests.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that a GoogleTest test passes.
 
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that a GoogleTest test passes.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that a GoogleTest test passes.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that a GoogleTest test passes.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that a GoogleTest test passes.
-
-  This test was not run because of an earlier failing test.
++ Pass: 100.0% of the tests passed. Expected at least 100%.
 
 
 ### Testing Mutants
