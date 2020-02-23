@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 08
 
-Run on February 23, 09:29:47 AM.
+Run on February 23, 14:47:45 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -33,36 +33,39 @@ Run on February 23, 09:29:47 AM.
 
 + Pass: Change into directory "correct".
 
-+ Pass: Check that make compiles.
++ Fail: Check that make compiles.
+
+    Make compile fails with errors:.
+<pre>g++ -isystem ../../googletest/include -g -Wall -Wextra -pthread -c ./date.cc
+g++ -isystem ../../googletest/include -g -Wall -Wextra -pthread -c ./date_unittest.cc
+./date_unittest.cc:14:10: fatal error: lab08_google_tests/date.h: No such file or directory
+ #include "lab08_google_tests/date.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+Makefile:85: recipe for target 'date_unittest.o' failed
+make: *** [date_unittest.o] Error 1
+</pre>
 
 
 
-+ Pass: Check that file "date_unittest" exists.
++ Skip: Check that file "date_unittest" exists.
 
-+ Pass: Get all google tests.
-    3 tests found.
+  This test was not run because of an earlier failing test.
 
++ Skip: Get all google tests.
 
+  This test was not run because of an earlier failing test.
 
 
 #### Results
 
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: DateTest.PrintDateTests.
++ Skip: Check that a GoogleTest test passes.
 
+  This test was not run because of an earlier failing test.
 
++ Skip: Check that a GoogleTest test passes.
 
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: DateTest.PrintDateTestsWithoutNewline.
-
-
-
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: DateTest.DaysBetweenTests.
-
-
-
-+ Pass: 100.0% of the tests passed. Expected at least 100%.
+  This test was not run because of an earlier failing test.
 
 
 ### Testing Mutants
@@ -70,50 +73,63 @@ Run on February 23, 09:29:47 AM.
 
 #### Testing Mutant 1 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates constructed with epoch are about 70 years in the future
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 2 for failure
 
-+ Pass: At least one test failed for Mutant 2
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 3 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates from GetDate are missing a character
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 4 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Today's date month off by one
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 5 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - 1/1/2016 to 3/1/2016 is 60 days, but this version returns 59
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 6 for failure
 
-+ Pass: At least one test failed for Mutant 6
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 7 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - operator-: Probably a copy paste error
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 8 for failure
 
-+ Pass: At least one test failed for Mutant 8
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
 
 #### Testing Mutant 9 for failure
 
-+ Pass: At least one test failed for Mutant 9
++ Skip: Abstract test class.
+
+  This test was not run because of an earlier failing test.
 
