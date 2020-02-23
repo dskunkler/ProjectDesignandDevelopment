@@ -11,7 +11,7 @@
 #include <math.h>
 #include <ctime>
 #include <iostream>
-#include "lab08_google_tests/date.h"
+#include "./date.h"
 #include "gtest/gtest.h"
 
 class DateTest : public ::testing::Test {
