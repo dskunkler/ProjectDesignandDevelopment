@@ -1,0 +1,5 @@
+.DS_Store
+*.o
+*.out
+*.pvt
+labs/lab08_google_tests/date.correct.cc
