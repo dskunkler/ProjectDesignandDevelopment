@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 08
 
-Run on February 24, 17:42:11 PM.
+Run on February 24, 21:09:12 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -150,63 +150,45 @@ Run on February 24, 17:42:11 PM.
 
 #### Testing Mutant 1 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 1
 
 
 #### Testing Mutant 2 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 2
 
 
 #### Testing Mutant 3 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 3
 
 
 #### Testing Mutant 4 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 4
 
 
 #### Testing Mutant 5 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 5
 
 
 #### Testing Mutant 6 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 6
 
 
 #### Testing Mutant 7 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 7
 
 
 #### Testing Mutant 8 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 8
 
 
 #### Testing Mutant 9 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 9
 
