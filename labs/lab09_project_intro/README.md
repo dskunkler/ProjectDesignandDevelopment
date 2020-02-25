@@ -1,3 +1,5 @@
+Hello, Robot
+
 # Base Version of the Transit Simulation Project for 3081W
 
 This lab provides you with the base code (Initial Version) of the transit simulator project for 3081W this semester. The objective of this lab is to get you oriented with the visual version of the transit simulation that you will be working with and on quite a bit for the rest of the semester!
@@ -96,6 +98,8 @@ To trigger a feedback regeneration for this lab, you must modify a (any) file in
 The feedback server looks for changes in that folder and only regenerates if something within it has changed. Since the work for this lab will be done in `/project`, it will not regenerate automatically when you change files in that directory.
 
 I would recommend that you just make a trivial change to the this file (e.g. add a word) to trigger the feedback regeneration!
+
+
 
 
 ---
