@@ -4,8 +4,8 @@
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_PASSENGER_GENERATOR_H_
-#define SRC_PASSENGER_GENERATOR_H_
+#ifndef PASSENGER_GENERATOR_H_
+#define PASSENGER_GENERATOR_H_
 
 #include <list>
 #include "src/passenger_factory.h"
@@ -23,6 +23,6 @@ class PassengerGenerator {
   std::list<Stop *> stops_;
 
   // should we be using a singleton here somehow?
-  //PassengerFactory * pass_factory;
+  // PassengerFactory * pass_factory;
 };
-#endif  // SRC_PASSENGER_GENERATOR_H_
+#endif  // PASSENGER_GENERATOR_H_

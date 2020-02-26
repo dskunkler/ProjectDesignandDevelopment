@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef SRC_BUS_H_
-#define SRC_BUS_H_
+#ifndef BUS_H_
+#define BUS_H_
 
 #include <iostream>
 #include <list>
@@ -61,8 +61,7 @@ class Bus {
   Stop * next_stop_;
   // bool trip_complete_;  // [DERIVED data] when BOTH routes are at end, trip
   // is complete
-  
   // Vis data for bus
   BusData bus_data_;
 };
-#endif  // SRC_BUS_H_
+#endif  // BUS_H_

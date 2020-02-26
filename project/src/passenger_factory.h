@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef SRC_PASSENGER_FACTORY_H_
-#define SRC_PASSENGER_FACTORY_H_
+#ifndef PASSENGER_FACTORY_H_
+#define PASSENGER_FACTORY_H_
 
 #include <string>
 
@@ -16,4 +16,4 @@ class PassengerFactory {
  private:
   static std::string NameGeneration();
 };
-#endif  // SRC_PASSENGER_FACTORY_H_
+#endif  // PASSENGER_FACTORY_H_
