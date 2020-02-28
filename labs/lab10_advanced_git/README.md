@@ -1,3 +1,4 @@
+Hello TA's and robots. Thanks for the informative and fun lab!
 ## Lab 10 : The Process of using Git for Developing the Project: Merging, Branching, and GitHub Issues
 
 In this lab, you will prepare the iteration1 code (in the _project_ folder) and learn about how to develop code using best practices. The project base code will be added to your repo and you will establish a system for using Github _issues_ and creating branches to track and address those issues.
