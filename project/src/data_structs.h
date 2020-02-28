@@ -1,10 +1,6 @@
-/**
- * @file data_structs.h
- *
- * @copyright 2019 3081 Staff, All rights reserved.
- */
-#ifndef SRC_DATA_STRUCTS_H_
-#define SRC_DATA_STRUCTS_H_
+
+#ifndef DATA_STRUCTS_H_
+#define DATA_STRUCTS_H_
 
 #include <string>
 #include <vector>
@@ -37,4 +33,4 @@ struct RouteData {
     std::vector<StopData> stops;
 };
 
-#endif  // SRC_DATA_STRUCTS_H_
+#endif // DATA_STRUCTS_H_

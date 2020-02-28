@@ -5,7 +5,6 @@
  */
 
 #include "src/random_passenger_generator.h"
-#include "src/stop.h"
 
 std::minstd_rand0 RandomPassengerGenerator::my_rand(time(0));
 
@@ -22,7 +21,7 @@ RandomPassengerGenerator::RandomPassengerGenerator(std::list<double> probs,
  */
 
 
-
+/*
 int RandomPassengerGenerator::GeneratePassengers() {
   int passengers_added = 0;
   std::list<double>::iterator prob_iter;
@@ -68,3 +67,4 @@ int RandomPassengerGenerator::GeneratePassengers() {
 
   return passengers_added;
 }
+*/
