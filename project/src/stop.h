@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef STOP_H_
-#define STOP_H_
+#ifndef SRC_STOP_H_
+#define SRC_STOP_H_
 
 #include <list>
 #include <iostream>
@@ -39,4 +39,4 @@ class Stop {
   // data structure implementation?
   // int passengers_present_;
 };
-#endif  // STOP_H_
+#endif  // SRC_STOP_H_

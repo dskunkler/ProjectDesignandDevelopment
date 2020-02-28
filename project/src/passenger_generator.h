@@ -4,8 +4,8 @@
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef PASSENGER_GENERATOR_H_
-#define PASSENGER_GENERATOR_H_
+#ifndef SRC_PASSENGER_GENERATOR_H_
+#define SRC_PASSENGER_GENERATOR_H_
 
 #include <list>
 #include "src/passenger_factory.h"
@@ -25,4 +25,4 @@ class PassengerGenerator {
   // should we be using a singleton here somehow?
   // PassengerFactory * pass_factory;
 };
-#endif  // PASSENGER_GENERATOR_H_
+#endif  // SRC_PASSENGER_GENERATOR_H_
