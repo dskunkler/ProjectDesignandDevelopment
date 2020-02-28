@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on February 25, 22:28:30 PM.
+Run on February 28, 16:01:59 PM.
 
 
 ### Necessary Files and Structure
@@ -20,13 +20,13 @@ Run on February 25, 22:28:30 PM.
 
 + Pass: Run git ls-remote gather all branches in repo
 
-		0af28c39b827e8d4616a200e0254e0663444d5ad	refs/heads/devel
+		efda4594c8c6118f22c5de58fae8d4fb6c598a9b	refs/heads/devel
 
 		94343bc82982c5a2c8b1e75ce455b1b70f5287f8	refs/heads/fix/01-compilation-errors
 
 		ca64e54e715904923d3f9934f4d604521c3bab1c	refs/heads/fix/02-style-errors
 
-		7020b1c179fb67be45b8dc3f41754e6c7df6ab0f	refs/heads/master
+		90451b47088c446a8699ad8d1caed3cbbb03cca8	refs/heads/master
 
 		d5335a0ab4637887f51807b93c4bd2c05ada3db1	refs/heads/support-code
 
@@ -34,9 +34,11 @@ Run on February 25, 22:28:30 PM.
 
 + Pass: Checking for the correct number of branches
 
-Insufficient branches found (found=-2, required=2):
+Sufficient branches found (found=2, required=2):
 
+fix/01-compilation-errors
 
+fix/02-style-errors
 
 
 #### Counting commits on devel
@@ -47,12 +49,135 @@ Insufficient branches found (found=-2, required=2):
 
 + Pass: Gather commit history
 
+However, that didn't seem right to me so I posted to piazza and was told to run with root=..
+This told me to add them all back in so I did.
 
 
 
 
-+ Fail: Check git commit history
-Insufficient commits (found=0,required=4)
+
+passenger_factory.h, passenger_generator.h, passenger_loader.h, passenger_unloader.h,
+random_passenger_generator.h, route.cc/h and stop.h Google style compliant.
+I left one warning.
+/export/scratch/cpplint-kunkl007/./passenger_unloader.h:18:  Is this a non-const reference? If so, make const or use a pointer: std::list<Passenger*>& passengers  [runtime/references] [2]
+Done processing /export/scratch/cpplint-kunkl007/./passenger_unloader.h
+I'm not sure what it actually wants me to do there because I think that's
+vital to the code. I will discuss this with a TA on friday.
+
+
+
+
+undid commenting in passenger.cc and random_passenger_generator that was blocking required methods.
+These changes were all neccessary to allow compilation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++ Pass: Check git commit history
+Sufficient commits (found=26,required=4)
 
 
 ### Git Issue Usage
@@ -61,13 +186,23 @@ Insufficient commits (found=0,required=4)
 
 + Pass: Run ghi for total number of open issues in Github repo (Found: 0)
 
-+ Pass: Run ghi for total number of closed issues in Github repo (Found: 0)
++ Pass: Run ghi for total number of closed issues in Github repo (Found: 2)
 
-+ Fail: Run ghi for total number of issues in Github repo (Found: 0, Expected: 2) 
+[CLOSED issue #2] :  Style error according to cpplint [enhancement]
+
+[CLOSED issue #1] :  compilation error [bug] 1
+
+
+
+
+
++ Pass: Run ghi for total number of issues in Github repo (Found: 2, Expected: 2) 
 
  [OPEN issue #] : 
 
-[CLOSED issue #] : 
+[CLOSED issue #2] :  Style error according to cpplint [enhancement]
+
+[CLOSED issue #1] :  compilation error [bug] 1
 
  
 
@@ -80,15 +215,13 @@ Insufficient commits (found=0,required=4)
 
 
 
-+ Pass: Check that directory "project" exists.
++ Pass: Check that directory "project/src" exists.
 
-+ Pass: Change into directory "project".
++ Pass: Change into directory "project/src".
 
-+ Fail: Check that file "makefile" exists.
++ Pass: Check that file "makefile" exists.
 
-     "makefile" not found.
++ Pass: Check that make compiles.
 
-+ Skip: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
 
