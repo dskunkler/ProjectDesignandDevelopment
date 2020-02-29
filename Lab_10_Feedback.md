@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on February 28, 16:01:59 PM.
+Run on February 29, 13:26:02 PM.
 
 
 ### Necessary Files and Structure
@@ -26,7 +26,7 @@ Run on February 28, 16:01:59 PM.
 
 		ca64e54e715904923d3f9934f4d604521c3bab1c	refs/heads/fix/02-style-errors
 
-		90451b47088c446a8699ad8d1caed3cbbb03cca8	refs/heads/master
+		1cab4782a38e882c2ee9f5bee13e9415ef0ec546	refs/heads/master
 
 		d5335a0ab4637887f51807b93c4bd2c05ada3db1	refs/heads/support-code
 
@@ -184,7 +184,13 @@ Sufficient commits (found=26,required=4)
 
 + Pass: Configuring GHI
 
-+ Pass: Run ghi for total number of open issues in Github repo (Found: 0)
++ Pass: Run ghi for total number of open issues in Github repo (Found: 1)
+
+[OPEN issue #3] :  missing files
+
+
+
+
 
 + Pass: Run ghi for total number of closed issues in Github repo (Found: 2)
 
@@ -196,9 +202,9 @@ Sufficient commits (found=26,required=4)
 
 
 
-+ Pass: Run ghi for total number of issues in Github repo (Found: 2, Expected: 2) 
++ Pass: Run ghi for total number of issues in Github repo (Found: 3, Expected: 2) 
 
- [OPEN issue #] : 
+ [OPEN issue #3] :  missing files
 
 [CLOSED issue #2] :  Style error according to cpplint [enhancement]
 
