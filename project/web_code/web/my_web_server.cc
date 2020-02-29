@@ -1,4 +1,8 @@
-
+/**
+ * @file Bus.cc
+ *
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ */
 #include "my_web_server.h"
 #include <algorithm>
 #include <string>
@@ -30,7 +34,7 @@ void MyWebServer::UpdateBus(const BusData& bData, bool deleted) {
 }
 
 void MyWebServer::UpdateRoute(const RouteData& rData, bool deleted) {
-    
+
     auto it = std::find_if(routes.begin(), routes.end(), [&](const RouteData& r) { return r.id == rData.id; });
 
     if (it != routes.end()) {
@@ -39,15 +43,13 @@ void MyWebServer::UpdateRoute(const RouteData& rData, bool deleted) {
             routes.erase(it);
             return;
         }
-        
+
         int index = std::distance(routes.begin(), it);
 
         routes[index].id = rData.id;
         routes[index].stops = rData.stops;
-    
+
     } else {
         routes.push_back(rData);
     }
 }
-
-

@@ -1,7 +1,7 @@
 /**
  * @file config_manager.h
  *
- * @copyright 2019 3081 Staff, All rights reserved.
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 #include <sstream>
 #include <fstream>

@@ -1,4 +1,8 @@
-
+/**
+ * @file Bus.cc
+ *
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ */
 #ifndef VISUALIZATION_SIMULATOR_H_
 #define VISUALIZATION_SIMULATOR_H_
 
@@ -23,7 +27,7 @@ class VisualizationSimulator {
     private:
         WebInterface* webInterface_;
         ConfigManager* configManager_;
-       
+
         std::vector<int> busStartTimings_;
         std::vector<int> timeSinceLastBus_;
         int numTimeSteps_;

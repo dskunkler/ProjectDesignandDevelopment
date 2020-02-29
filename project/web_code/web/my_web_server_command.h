@@ -1,4 +1,8 @@
-
+/**
+ * @file Bus.cc
+ *
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ */
 #ifndef MY_WEB_SERVER_COMMAND_H
 #define MY_WEB_SERVER_COMMAND_H
 

@@ -1,7 +1,7 @@
 /**
  * @file route.h
  *
- * @Copyright 2019 3081 Staff, All rights reserved.
+ * @Copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 
 #ifndef SRC_ROUTE_H_

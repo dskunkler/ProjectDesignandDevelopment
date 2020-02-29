@@ -1,4 +1,8 @@
-
+/**
+ * @file Bus.cc
+ *
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ */
 #ifndef WEB_INTERFACE_H
 #define WEB_INTERFACE_H
 
@@ -10,7 +14,7 @@ class WebInterface {
 
 public:
     virtual ~WebInterface() {}
-    
+
     virtual void UpdateBus(const BusData& bus, bool deleted = false) = 0;
     virtual void UpdateRoute(const RouteData& route, bool deleted = false) = 0;
 
