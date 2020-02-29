@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 #include "config_manager.h"
 
@@ -5,6 +6,13 @@
 #include "stop.h"
 #include "random_passenger_generator.h"
 
+=======
+/**
+ * @file config_manager.h
+ *
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ */
+>>>>>>> devel
 #include <sstream>
 #include <fstream>
 #include <list>
