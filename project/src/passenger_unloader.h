@@ -1,7 +1,8 @@
 /**
  * @file passenger_unloader.h
  *
- * @copyright 2019 3081 Staff, All rights reserved. modified by Daniel Kunkler
+ * @copyright 2019 3081 Staff, All rights reserved.
+ * modified by Daniel Kunkler
  */
 
 #ifndef SRC_PASSENGER_UNLOADER_H_
