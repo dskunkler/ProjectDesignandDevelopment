@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 #include "config_manager.h"
 
@@ -6,13 +6,12 @@
 #include "stop.h"
 #include "random_passenger_generator.h"
 
-=======
 /**
  * @file config_manager.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
->>>>>>> devel
+
 #include <sstream>
 #include <fstream>
 #include <list>
@@ -50,17 +49,17 @@ void ConfigManager::ReadConfig(const std::string filename) {
 
     std::string line;
     while (std::getline(configFile, line)) {
-        
+
         std::istringstream stringStream(line);
         std::string chunk;
 
         if (!std::getline(stringStream, chunk, ',')) { continue; }
-        
+
         if (chunk == "ROUTE_GENERAL") {
-            
+
             currGeneralName = "";
             std::getline(stringStream, currGeneralName);
-        
+
         } else if (chunk == "ROUTE") {
 
             // If we are coming to a route besides our first one, save all our
@@ -75,7 +74,7 @@ void ConfigManager::ReadConfig(const std::string filename) {
                     rawStops[it] = s;
                     it++;
                 }
-                
+
                 int numDists = static_cast<int>(distances.size());
                 double * rawDists = new double [numDists];
                 it = 0;
@@ -83,7 +82,7 @@ void ConfigManager::ReadConfig(const std::string filename) {
                     rawDists[it] = d;
                     it++;
                 }
-                
+
                 routes.push_back(
                         new Route(
                             currGeneralName + " " + currRouteName,
@@ -111,17 +110,17 @@ void ConfigManager::ReadConfig(const std::string filename) {
             std::string stopName;
             std::getline(stringStream, stopName, ',');
             stopName.erase(std::remove(stopName.begin(), stopName.end(), ' '), stopName.end());
-            
+
             // Check if the stop already exists
             std::vector<std::string>::iterator it = std::find(stopNames.begin(), stopNames.end(), stopName);
             if (it != stopNames.end()) {
-                
+
                 // We have already seen this stop
                 int index = std::distance(stopNames.begin(), it);
-                
+
                 std::list<Stop *>::iterator iter = stops.begin();
                 std::advance(iter, index);
-                
+
                 stops.push_back(*iter);
                 continue;
             }
@@ -144,16 +143,16 @@ void ConfigManager::ReadConfig(const std::string filename) {
             // This means moving 1 speed in a time click moves 1 mile. That's a bit far, so I multiply * 2 so that a speed of 1 moves 1/2 mile
             latitude *= 69 * 2;
             longitude *= 55 * 2;
-            
+
             // Grabbing last element from list is hard, so cache position
             // instead
             if (stops.size() > 1) {
                 double dist = sqrt((latitude-oldLat)*(latitude-oldLat) + (longitude-oldLon)*(longitude-oldLon));
                 distances.push_back(dist);
-            }    
+            }
             oldLat = latitude;
             oldLon = longitude;
-            
+
             std::string probString;
             std::getline(stringStream, probString);
             double probability = std::stod(probString);
@@ -161,10 +160,10 @@ void ConfigManager::ReadConfig(const std::string filename) {
             currProbabilities.push_back(probability);
         }
     }
-    
+
     // Generatre our last route
     if (stops.size() > 0) {
-        
+
         // Convert our variables into the necessary raw memory
         int numStops = static_cast<int>(stops.size());
         Stop ** rawStops = new Stop *[numStops];
@@ -173,7 +172,7 @@ void ConfigManager::ReadConfig(const std::string filename) {
             rawStops[it] = s;
             it++;
         }
-            
+
         int numDists = static_cast<int>(distances.size());
         double * rawDists = new double [numDists];
         it = 0;
@@ -181,7 +180,7 @@ void ConfigManager::ReadConfig(const std::string filename) {
             rawDists[it] = d;
             it++;
         }
-            
+
         routes.push_back(
                 new Route(
                     currGeneralName + " " + currRouteName,
