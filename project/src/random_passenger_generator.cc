@@ -1,5 +1,5 @@
 /**
- * @file  random_passenger_generator.cc
+ * @file random_passenger_generator.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */

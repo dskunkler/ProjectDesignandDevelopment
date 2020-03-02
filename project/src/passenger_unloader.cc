@@ -1,11 +1,11 @@
 /**
- * @file  passenger_unloader.cc
+ * @file passenger_unloader.cc
  *
- * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ * @copyright 2019 3081 Staff, All rights reserved.
  */
 #include "src/passenger_unloader.h"
 
-int PassengerUnloader::UnloadPassengers(std::list<Passenger *> * passengers,
+int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
                                         Stop * current_stop) {
   // TODO(wendt): may need to do end-of-life here
   // instead of in Passenger or Simulator

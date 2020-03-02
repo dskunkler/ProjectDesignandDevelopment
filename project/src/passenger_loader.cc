@@ -1,5 +1,5 @@
 /**
- * @file  passenger_loader.cc
+ * @file passenger_loader.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */

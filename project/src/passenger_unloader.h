@@ -1,8 +1,7 @@
 /**
- * @file  passenger_unloader.h
+ * @file passenger_unloader.h
  *
  * @copyright 2019 3081 Staff, All rights reserved.
- * modified by Daniel Kunkler
  */
 
 #ifndef SRC_PASSENGER_UNLOADER_H_
@@ -16,6 +15,8 @@ class Passenger;
 class PassengerUnloader {
  public:
   // UnloadPassengers returns the number of passengers removed from the bus.
-  int UnloadPassengers(std::list<Passenger*>* passengers, Stop * current_stop);
+
+  int UnloadPassengers(std::list<Passenger*> *passengers, Stop * current_stop);
+
 };
 #endif  // SRC_PASSENGER_UNLOADER_H_
