@@ -1,5 +1,5 @@
 /**
- * @file bus.cc
+ * @file  bus.cc
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
@@ -201,8 +201,15 @@ void Bus::UpdateBusData() {
     // This ratio shows us how far from the previous stop are we in a ratio
     // from 0 to 1
     Position p;
+<<<<<<< HEAD
     p.x = (nextStop->GetLongitude() * (1 - ratio) + prevStop->GetLongitude() * ratio);
     p.y = (nextStop->GetLatitude() * (1 - ratio) + prevStop->GetLatitude() * ratio);
+=======
+    p.x = (nextStop->GetLongitude() * (1 - ratio) + prevStop->GetLongitude()
+      * ratio);
+    p.y = (nextStop->GetLatitude() * (1 - ratio) + prevStop->GetLatitude()
+      * ratio);
+>>>>>>> devel
     bus_data_.position = p;
 
     bus_data_.num_passengers = static_cast<int>(passengers_.size());
