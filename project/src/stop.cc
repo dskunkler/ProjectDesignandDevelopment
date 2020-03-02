@@ -1,5 +1,5 @@
 /**
- * @file  stop.cc
+ * @file stop.cc
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */

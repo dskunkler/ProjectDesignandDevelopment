@@ -1,5 +1,5 @@
 /**
- * @file  config_manager.cc
+ * @file config_manager.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
