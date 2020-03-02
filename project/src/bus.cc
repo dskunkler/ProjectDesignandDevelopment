@@ -29,7 +29,7 @@ bool Bus::IsTripComplete() {
   return is_complete;
 }
 
-/*
+
 bool Bus::LoadPassenger(Passenger * new_passenger) {
   bool added_passenger = false;
   if (loader_->LoadPassenger(new_passenger, passenger_max_capacity_,
@@ -39,7 +39,7 @@ bool Bus::LoadPassenger(Passenger * new_passenger) {
   }
   return added_passenger;
 }
-*/
+
 
 bool Bus::Move() {
   // update all passengers FIRST
@@ -75,10 +75,10 @@ bool Bus::Move() {
         if (outgoing_route_->IsAtEnd()) {
             current_route = incoming_route_;
             if (!incoming_route_->IsAtEnd()) {
-        
+
 
                 // Only get here if we are on our incoming route
-                
+
 
                 passengers_handled += UnloadPassengers();  // unload
                 passengers_handled += next_stop_->LoadPassengers(this);  // load
@@ -96,13 +96,13 @@ bool Bus::Move() {
                 next_stop_ = current_route->GetDestinationStop();
                 distance_remaining_ += current_route->GetNextStopDistance();
                 return did_move;
-            
+
             } else {
-                
+
                 speed_ = 0;
                 distance_remaining_ = 999;
                 return did_move;
-            
+
             }
         }
 
@@ -121,7 +121,7 @@ bool Bus::Move() {
             distance_remaining_ = 0;
             did_move = true;
         }
-        
+
         current_route->NextStop();
 
         // If we have incremented past the end of the outgoing route, set our
@@ -131,7 +131,7 @@ bool Bus::Move() {
             distance_remaining_ += incoming_route_->GetNextStopDistance();
         } else {
             next_stop_ = current_route->GetDestinationStop();
-            
+
             // adding here in case negative time still remains
             // // (see passengers_handled above)
             distance_remaining_ += current_route->GetNextStopDistance();
@@ -180,10 +180,10 @@ void Bus::UpdateBusData() {
         if (incoming_route_->IsAtEnd()) { return; }
         current_route = incoming_route_;
     }
- 
+
     Stop * prevStop = current_route->PrevStop();
     Stop * nextStop = current_route->GetDestinationStop();
-     
+
     double distanceBetween = current_route->GetNextStopDistance();
     double ratio;
 
@@ -197,19 +197,15 @@ void Bus::UpdateBusData() {
             distance_remaining_ = 0;
         }
     }
-    
+
     // This ratio shows us how far from the previous stop are we in a ratio
     // from 0 to 1
     Position p;
-<<<<<<< HEAD
-    p.x = (nextStop->GetLongitude() * (1 - ratio) + prevStop->GetLongitude() * ratio);
-    p.y = (nextStop->GetLatitude() * (1 - ratio) + prevStop->GetLatitude() * ratio);
-=======
+
     p.x = (nextStop->GetLongitude() * (1 - ratio) + prevStop->GetLongitude()
       * ratio);
     p.y = (nextStop->GetLatitude() * (1 - ratio) + prevStop->GetLatitude()
       * ratio);
->>>>>>> devel
     bus_data_.position = p;
 
     bus_data_.num_passengers = static_cast<int>(passengers_.size());
