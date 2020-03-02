@@ -15,18 +15,16 @@
 class Route;
 
 class ConfigManager {
+ public:
+  ConfigManager();
+  ~ConfigManager();
 
-    public:
-        ConfigManager();
-        ~ConfigManager();
+  void ReadConfig(const std::string filename);
 
-        void ReadConfig(const std::string filename);
+  std::vector<Route *> GetRoutes() const { return routes; }
 
-        std::vector<Route *> GetRoutes() const { return routes; };
-
-    private:
-        std::vector<Route *> routes;
-
+ private:
+  std::vector<Route *> routes;
 };
 
-#endif // CONFIG_MANAGER_H_
+#endif  // SRC_CONFIG_MANAGER_H_

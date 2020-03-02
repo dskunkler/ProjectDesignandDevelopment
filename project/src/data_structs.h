@@ -39,4 +39,4 @@ struct RouteData {
     std::vector<StopData> stops;
 };
 
-#endif // DATA_STRUCTS_H_
+#endif  // SRC_DATA_STRUCTS_H_
