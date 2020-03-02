@@ -1,7 +1,7 @@
 /**
  * @file  random_passenger_generator.h
  *
- * @copyright 2019 3081 Staff, All rights reserved.
+ * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 
 #ifndef SRC_RANDOM_PASSENGER_GENERATOR_H_

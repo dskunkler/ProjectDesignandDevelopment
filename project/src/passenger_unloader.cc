@@ -5,7 +5,7 @@
  */
 #include "src/passenger_unloader.h"
 
-int PassengerUnloader::UnloadPassengers(std::list<Passenger *>* passengers,
+int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
                                         Stop * current_stop) {
   // TODO(wendt): may need to do end-of-life here
   // instead of in Passenger or Simulator
