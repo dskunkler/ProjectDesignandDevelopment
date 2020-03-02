@@ -1,10 +1,12 @@
+
 /**
- * @file config_manager.h
+ * @file  config_manager.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 #ifndef SRC_CONFIG_MANAGER_H_
 #define SRC_CONFIG_MANAGER_H_
+
 
 #include <vector>
 #include <string>
@@ -13,16 +15,18 @@
 class Route;
 
 class ConfigManager {
- public:
+
+    public:
         ConfigManager();
         ~ConfigManager();
 
         void ReadConfig(const std::string filename);
 
-        std::vector<Route *> GetRoutes() const { return routes; }
+        std::vector<Route *> GetRoutes() const { return routes; };
 
- private:
+    private:
         std::vector<Route *> routes;
+
 };
 
-#endif  // SRC_CONFIG_MANAGER_H_
+#endif // CONFIG_MANAGER_H_

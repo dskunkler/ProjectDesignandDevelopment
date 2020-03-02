@@ -1,5 +1,5 @@
 /**
- * @file passenger.h
+ * @file  passenger.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */

@@ -1,13 +1,11 @@
 /**
- * @file stop.cc
+ * @file  stop.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 #include <iostream>
 #include <vector>
 #include "src/stop.h"
-#include "src/passenger.h"
-#include "src/bus.h"
 
 // Defaults to Westbound Coffman Union stop
 Stop::Stop(int id, double longitude,

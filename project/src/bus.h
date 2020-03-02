@@ -1,5 +1,5 @@
 /**
- * @file bus.h
+ * @file  bus.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
@@ -61,6 +61,7 @@ class Bus {
   Stop * next_stop_;
   // bool trip_complete_;  // [DERIVED data] when BOTH routes are at end, trip
   // is complete
+
   // Vis data for bus
   BusData bus_data_;
 };
