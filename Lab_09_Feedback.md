@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on March 02, 08:41:46 AM.
+Run on March 02, 10:22:21 AM.
 
 
 #### Necessary Files and Structure
@@ -38,14 +38,14 @@ Run on March 02, 08:41:46 AM.
 + Fail: Check that make compiles.
 
     Make compile fails with errors:.
-<pre>==== Auto-Generating Dependencies for passenger_factory.cc. ====
-==== Compiling passenger_factory.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/passenger_factory.o. ====
-==== Auto-Generating Dependencies for bus.cc. ====
+<pre>==== Auto-Generating Dependencies for bus.cc. ====
 ==== Compiling bus.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/bus.o. ====
 ==== Auto-Generating Dependencies for random_passenger_generator.cc. ====
 ==== Compiling random_passenger_generator.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/random_passenger_generator.o. ====
 ==== Auto-Generating Dependencies for passenger_loader.cc. ====
 ==== Compiling passenger_loader.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/passenger_loader.o. ====
+==== Auto-Generating Dependencies for passenger_factory.cc. ====
+==== Compiling passenger_factory.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/passenger_factory.o. ====
 ==== Auto-Generating Dependencies for passenger.cc. ====
 ==== Compiling passenger.cc into /project/grades/Spring-2020/csci3081/ungxx028/grading-environment/grading-scripts/grading/Lab_09_Feedback/repo-kunkl007/project/build/obj/transit_sim/passenger.o. ====
 ==== Auto-Generating Dependencies for passenger_generator.cc. ====
