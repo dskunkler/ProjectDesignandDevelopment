@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on March 02, 10:29:34 AM.
+Run on March 02, 19:21:12 PM.
 
 
 ### Necessary Files and Structure
@@ -20,13 +20,13 @@ Run on March 02, 10:29:34 AM.
 
 + Pass: Run git ls-remote gather all branches in repo
 
-		5b47647c8674f2b51823b17a73e92de1d03c288e	refs/heads/devel
+		220b762ea70c0b78899e82018b50bb6955b822c1	refs/heads/devel
 
 		94343bc82982c5a2c8b1e75ce455b1b70f5287f8	refs/heads/fix/01-compilation-errors
 
 		ca64e54e715904923d3f9934f4d604521c3bab1c	refs/heads/fix/02-style-errors
 
-		161b1781442ac1ae81372d985a0ff814f2893d9a	refs/heads/master
+		cc485edb5689f903c40b4cd3123017f9998b0a86	refs/heads/master
 
 		d5335a0ab4637887f51807b93c4bd2c05ada3db1	refs/heads/support-code
 
@@ -48,6 +48,12 @@ fix/02-style-errors
 
 
 + Pass: Gather commit history
+
+
+
+
+
+
 
 
 
@@ -184,20 +190,14 @@ These changes were all neccessary to allow compilation.
 
 
 + Pass: Check git commit history
-Sufficient commits (found=27,required=4)
+Sufficient commits (found=30,required=4)
 
 
 ### Git Issue Usage
 
 + Pass: Configuring GHI
 
-+ Pass: Run ghi for total number of open issues in Github repo (Found: 1)
-
-[OPEN issue #3] :  missing files
-
-
-
-
++ Pass: Run ghi for total number of open issues in Github repo (Found: 0)
 
 + Pass: Run ghi for total number of closed issues in Github repo (Found: 2)
 
@@ -209,9 +209,9 @@ Sufficient commits (found=27,required=4)
 
 
 
-+ Pass: Run ghi for total number of issues in Github repo (Found: 3, Expected: 2) 
++ Pass: Run ghi for total number of issues in Github repo (Found: 2, Expected: 2) 
 
- [OPEN issue #3] :  missing files
+ [OPEN issue #] : 
 
 [CLOSED issue #2] :  Style error according to cpplint [enhancement]
 
