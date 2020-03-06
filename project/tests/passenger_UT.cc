@@ -120,7 +120,6 @@ TEST_F(PassengerTests, Update) {
   std::string output3 = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output3, expected_out3) << " Update failed on bus, passenger1";
-
 }
 
 TEST_F(PassengerTests, GetOnBus) {
@@ -167,5 +166,4 @@ TEST_F(PassengerTests, Report) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, expected_out) << "Report doesn't match expected outcome";
-
 }

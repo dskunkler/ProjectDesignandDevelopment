@@ -11,10 +11,10 @@
 #include <iostream>
 #include <string>
 
-#include "./data_structs.h"
+#include "src/data_structs.h"
 
-#include "./passenger_generator.h"
-#include "./stop.h"
+#include "src/passenger_generator.h"
+#include "src/stop.h"
 
 class PassengerGenerator;
 
@@ -27,7 +27,7 @@ class Route {
   void Report(std::ostream&);
   bool IsAtEnd() const;
 
-  Stop *  PrevStop();  // Returns stop before destination stop
+  Stop * PrevStop();  // Returns stop before destination stop
   void NextStop();  // Change destination_stop_ to next stop
   Stop * GetDestinationStop() const;    // Get pointer to next stop
   double GetTotalRouteDistance() const;
