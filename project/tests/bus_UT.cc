@@ -37,12 +37,13 @@ protected:
   virtual void SetUp() {
     passenger = new Passenger();
     passenger1 = new Passenger(3, "Tim");
-    currProbabilities.push_back(.9);
-    currProbabilities.push_back(0);
+    currProbabilities.push_back(1);
+    currProbabilities.push_back(1);
+    currProbabilities.push_back(1);
     stop1 = new Stop(1);
     stop2 = new Stop(2, 1, 1);
     stop3 = new Stop(3);
-    stop1->AddPassengers(passenger1);
+    stop2->AddPassengers(passenger1);
     stops.push_back(stop1);
     stops.push_back(stop2);
     stops.push_back(stop3);
@@ -54,13 +55,13 @@ protected:
     distance[0] = 4;
     distance[1] = 5;
     distance[2] = 3;
-    route = new Route("run1", rawStops, distance, 2,
+    route = new Route("run1", rawStops, distance, 3,
                        new RandomPassengerGenerator(currProbabilities, stops));
     route1 = new Route("run2", rawStops, distance, 1,
                        new RandomPassengerGenerator(currProbabilities, stops));
     bus1 = new Bus("PartyBus", route, route1);
     bus2 = new Bus("StudyBus", route1, route, 30, 5);
-    bus3 = new Bus("LimoBus", route, route1, 1, 5);
+    bus3 = new Bus("LimoBus", route, route1, 1, 1);
     bus4 = new Bus("BrokedownBus", route, route1, 100, 0);
 }
 
@@ -111,9 +112,12 @@ TEST_F(BusTests, IsTripComplete) {
   EXPECT_EQ(route->IsAtEnd(), false) <<
     "Incorrect end at first stop  route";
   route->NextStop();
-  EXPECT_EQ(route->IsAtEnd(), true) << "Incorrect false at end of route";
+  EXPECT_EQ(route->IsAtEnd(), false) << "Route has one more stop";
   EXPECT_EQ(bus1->IsTripComplete(), false) <<
-   "Incorrect bus at end with only out route finished";
+   "Incorrect, but route out has one more stop";
+  route->NextStop();
+  EXPECT_EQ(route->IsAtEnd(), true) << "route should be over";
+  EXPECT_EQ(bus1->IsTripComplete(), false) << "Still needs to do incoming route";
   EXPECT_EQ(route1->IsAtEnd(), false) << "Incorrect end in start route1";
   route1->NextStop();
   EXPECT_EQ(route1->IsAtEnd(), true) << "Incorrect false end route1";
@@ -131,10 +135,11 @@ TEST_F(BusTests, LoadPassenger) {
 TEST_F(BusTests, Move) {
   EXPECT_EQ(bus4->Move(), false) << "Bus with speed 0 shouldn't move";
   EXPECT_EQ(route->IsAtEnd(), false) << "first stop";
-  EXPECT_EQ(bus4->Move(), true) << "move 1";
-    EXPECT_EQ(route->IsAtEnd(), false) << "2nd stop";
-  EXPECT_EQ(bus4->Move(), true) << "move2";
-    EXPECT_EQ(route->IsAtEnd(), false) << "3rd stop";
-  EXPECT_EQ(bus4->Move(), true) << "move3";
-  EXPECT_EQ(route->IsAtEnd(), true) << "4th stop/ in route";
+  bus3->UpdateBusData();
+  EXPECT_EQ(bus3->Move(), true) << "Bus should move from first stop";
+  bus3->UpdateBusData();
+  EXPECT_EQ(route->IsAtEnd(), false) << "2nd stop";
+  EXPECT_EQ(bus3->Move(), true) << "move2";
+  EXPECT_EQ(route->IsAtEnd(), false) << "At 3rd stop in route";
+
 }
