@@ -29,7 +29,7 @@ var numTimeSteps;
 
 var startButton;
 var started;
-
+var pauseButton;
 var simInfoYRectPos = 1; // Magic numbers for GUI elements
 var simInfoYPos = 15;
 var numTimeStepsTextYPos = 50;
@@ -64,10 +64,10 @@ function Route(id, stopIndices) {
 
 
 function setupSocket() {
-    try {	    
+    try {
 	// Handles commands sent up from C++
         socket.onmessage =function got_packet(msg) {
-            
+
             var data = JSON.parse(msg.data);
 
             if (data.command == "initRoutes") {
@@ -75,14 +75,14 @@ function setupSocket() {
                 initRouteSliders();
             }
             if (data.command == "updateBusses") {
-                
+
                 busses = [];
 
                 for (let i = 0; i < data.busses.length; i++) {
                     id = data.busses[i].id;
                     numPassengers = data.busses[i].numPassengers;
                     capacity = data.busses[i].capacity;
-                    
+
                     x = data.busses[i].position.x;
                     y = data.busses[i].position.y;
                     position = new Position(x, y);
@@ -91,9 +91,9 @@ function setupSocket() {
                 }
             }
             if (data.command == "updateRoutes") {
-                
+
                 routes = [];
-                
+
                 for (let i = 0; i < data.routes.length; i++) {
                     id = data.routes[i].id;
 
@@ -101,7 +101,7 @@ function setupSocket() {
 
                     for (let j = 0; j < data.routes[i].stops.length; j++) {
                         stop_id = data.routes[i].stops[j].id;
-                        
+
                         let index = stops.findIndex(x => x.id == stop_id);
                         if (index == -1) {
                             numPeople = data.routes[i].stops[j].numPeople;
@@ -121,9 +121,9 @@ function setupSocket() {
                     routes.push(new Route(id, route_stop_indices));
                 }
             }
-        } 
+        }
     } catch(exception) {
-        alert('<p>Error' + exception);  
+        alert('<p>Error' + exception);
     }
 
     connected = false;
@@ -144,11 +144,11 @@ function setupSocket() {
 function setup() {
     socket = new WebSocket("ws://" + location.hostname+(location.port ? ':'+location.port: ''), "web_server");
     setupSocket();
-    
+
     busses = [];
     stops  = [];
     routes = [];
-    
+
     canvas = createCanvas(windowWidth, windowHeight);
 
     textSize(12);
@@ -161,7 +161,14 @@ function setup() {
     startButton.position(10, startYPos);
     startButton.style('width', '200px');
     startButton.style('height', '20px');
-    startButton.mousePressed(start);    
+    startButton.mousePressed(start);
+
+    pauseButton = createButton('Pause');
+    pauseButton.position(10, startYPos + 20);
+    pauseButton.value("Pause");
+    pauseButton.style('width','200px');
+    pauseButton.style('height', '20px');
+    pauseButton.mousePressed(pause);
 
     // Image/map information
     const options = {
@@ -207,8 +214,8 @@ function update() {
 function render() {
     clear();
 
-    image(mapImg, imageX, imageY); 
-   
+    image(mapImg, imageX, imageY);
+
     push();
     stroke(0);
     // Draw Routes
@@ -299,22 +306,38 @@ function start() {
     for (let i = 0; i < busTimeOffsetsSliders.length; i++) {
         busTimeOffsets[i] = busTimeOffsetsSliders[i].value();
     }
-    
+
     numTimeSteps = numTimeStepsSlider.value();
     socket.send(JSON.stringify({command: "start", numTimeSteps: numTimeSteps, timeBetweenBusses: busTimeOffsets}));
     started = true;
+    startButton.elt.disabled = true;
     elapsedTime = millis();
     startTime = millis();
 }
 
+function pause() {
+  if (started)
+  {
+    if (pauseButton.value!=="Resume"){
+      pauseButton.value = "Resume";
+      pauseButton.elt.childNodes[0].nodeValue = "Resume";
+    }
+    else {
+      pauseButton.value = "Pause";
+      pauseButton.elt.childNodes[0].nodeValue = "Pause";
+    }
+    socket.send(JSON.stringify({command: "pause"}));
+  }
+}
+
 function initRouteSliders() {
-    
+
     for (let i = 0; i < numRoutes; i++) {
         busTimeOffsetsSliders[i] = createSlider(1, 10, 5, 1);
         busTimeOffsetsSliders[i].position(10, busTimeOffsetsYInitPos + busTimeOffsetsYOffset * i);
         busTimeOffsetsSliders[i].style('width', '200px');
     }
-	
+
 }
 
 function drawInfo() {
@@ -323,7 +346,7 @@ function drawInfo() {
         var pos = myMap.latLngToPixel(busses[i].position.x, busses[i].position.y);
         pos.x = pos.x + imageX;
         pos.y = pos.y + imageY;
-        
+
         // If we are over the bus
         if (abs(mouseX - pos.x) < 25 && abs(mouseY - pos.y) < 15) {
             fill(0, 0, 0, 50);

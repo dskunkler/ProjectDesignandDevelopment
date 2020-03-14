@@ -10,7 +10,7 @@
 
 //#define _USE_MATH_DEFINES
 //#include <cmath>
-//#include <libwebsockets.h> 
+//#include <libwebsockets.h>
 
 
 int main(int argc, char**argv) {
@@ -22,7 +22,7 @@ int main(int argc, char**argv) {
 
         MyWebServer* myWS = new MyWebServer();
         ConfigManager* cm = new ConfigManager();
-        
+
         cm->ReadConfig("config.txt");
         std::cout << "Using default config file: config.txt" << std::endl;
 
@@ -33,6 +33,7 @@ int main(int argc, char**argv) {
         state.commands["start"] = new StartCommand(mySim);
         state.commands["update"] = new UpdateCommand(mySim);
         state.commands["initRoutes"] = new InitRoutesCommand(cm);
+        state.commands["pause"] = new PauseCommand(mySim);
 
 		WebServerWithState<MyWebServerSession, MyWebServerSessionState> server(state, port);
 		while (true) {
@@ -42,5 +43,3 @@ int main(int argc, char**argv) {
 
 	return 0;
 }
-
-

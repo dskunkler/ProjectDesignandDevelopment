@@ -23,6 +23,7 @@ class VisualizationSimulator {
 
         void Start(const std::vector<int>&, const int&);
         void Update();
+        void Pause();
 
     private:
         WebInterface* webInterface_;
@@ -35,6 +36,8 @@ class VisualizationSimulator {
 
         std::vector<Route *> prototypeRoutes_;
         std::vector<Bus *> busses_;
+
+        bool paused = false;
 
         int busId = 1000;
 };

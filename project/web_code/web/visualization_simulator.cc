@@ -7,6 +7,7 @@
 
 #include "bus.h"
 #include "route.h"
+#include  "bus_factory.h"
 
 VisualizationSimulator::VisualizationSimulator(WebInterface* webI, ConfigManager* configM) {
     webInterface_ = webI;
@@ -39,6 +40,7 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings, cons
 }
 
 void VisualizationSimulator::Update() {
+  if(!paused) {
     simulationTimeElapsed_++;
 
     std::cout << "~~~~~~~~~~ The time is now " << simulationTimeElapsed_;
@@ -49,13 +51,15 @@ void VisualizationSimulator::Update() {
 
     // Check if we need to generate new busses
     for (int i = 0; i < static_cast<int>(timeSinceLastBus_.size()); i++) {
+
+
         // Check if we need to make a new bus
         if (0 >= timeSinceLastBus_[i]) {
 
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
 
-            busses_.push_back(new Bus(std::to_string(busId), outbound->Clone(), inbound->Clone(), 60, 1));
+            busses_.push_back(BusFactory::Generate(std::to_string(busId), outbound->Clone(), inbound->Clone()));
             busId++;
 
             timeSinceLastBus_[i] = busStartTimings_[i];
@@ -92,5 +96,16 @@ void VisualizationSimulator::Update() {
 
         prototypeRoutes_[i]->Report(std::cout);
     }
+  }
+}
 
+void VisualizationSimulator::Pause() {
+  if(!paused){
+    std::cout << "Not paused, pausing\n";
+    paused = !paused;
+  }
+  else{
+    std::cout << "Paused, unpausing\n";
+    paused = !paused;
+  }
 }
