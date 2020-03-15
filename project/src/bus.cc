@@ -79,7 +79,6 @@ bool Bus::Move() {
 
                 // Only get here if we are on our incoming route
 
-
                 passengers_handled += UnloadPassengers();  // unload
                 passengers_handled += next_stop_->LoadPassengers(this);  // load
 
@@ -156,6 +155,7 @@ void Bus::Update() {  // using common Update format
 void Bus::Report(std::ostream& out) {
   out << "Name: " << name_ << std::endl;
   out << "Speed: " << speed_ << std::endl;
+  out << "Size: " << passenger_max_capacity_ << std::endl;
   out << "Distance to next stop: " << distance_remaining_ << std::endl;
   out << "\tPassengers (" << passengers_.size() << "): " << std::endl;
   for (std::list<Passenger *>::iterator it = passengers_.begin();
