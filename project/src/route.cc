@@ -3,7 +3,15 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
+
+ /*******************************************************************************
+   * Includes
+ ******************************************************************************/
 #include "src/route.h"
+
+/*******************************************************************************
+  * Member Functions
+******************************************************************************/
 
 Route::Route(std::string name, Stop ** stops, double * distances, int num_stops,
                                                PassengerGenerator * generator) {

@@ -3,9 +3,17 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
+
+ /*******************************************************************************
+   * Includes
+ ******************************************************************************/
 #include <iostream>
 #include <vector>
 #include "src/stop.h"
+
+/*******************************************************************************
+  * Member Functions
+******************************************************************************/
 
 // Defaults to Westbound Coffman Union stop
 Stop::Stop(int id, double longitude,

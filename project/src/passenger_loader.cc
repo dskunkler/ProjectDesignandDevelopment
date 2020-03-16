@@ -3,7 +3,14 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
+/*******************************************************************************
+* Includes
+******************************************************************************/
 #include "src/passenger_loader.h"
+
+/*******************************************************************************
+* Member Functions
+******************************************************************************/
 
 int PassengerLoader::LoadPassenger(Passenger * new_passenger, int max_pass,
                                    std::list<Passenger *> * passengers) {
