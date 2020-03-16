@@ -6,3 +6,5 @@ build
 src/large_bus.h
 src/regular_bus.h
 src/small_bus.h
+/docs/html/*
+/docs/latex/*
