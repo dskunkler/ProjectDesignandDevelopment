@@ -78,6 +78,7 @@ class Passenger {  // : public Reporter {
  * and time on bus.
  */
   void Report(std::ostream&) const;
+
  private:
   std::string name_;
   int destination_stop_id_;

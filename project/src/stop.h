@@ -63,7 +63,7 @@ class Stop {
  * @return passengers_added_to_stop 0 if failed, 1 if successful
  */
   int AddPassengers(Passenger *);  // Adding passengers to the stop
-  //(from the generator)
+  // (from the generator)
 
 /**
  * @brief Updates all the passengers at the stop.

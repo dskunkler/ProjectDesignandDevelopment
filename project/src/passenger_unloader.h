@@ -35,6 +35,5 @@ class PassengerUnloader {
  * @return passengers_unloaded
  */
   int UnloadPassengers(std::list<Passenger*> *passengers, Stop * current_stop);
-
 };
 #endif  // SRC_PASSENGER_UNLOADER_H_
