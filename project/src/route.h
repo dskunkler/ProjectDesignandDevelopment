@@ -34,7 +34,7 @@ class PassengerGenerator;
  * the report of each stop on the route.
  * Calls to \ref IsAtEnd notifies us if we're at the end of the route.
  * Calls to \ref PrevStop return the stop before the destination stop.
- * Calls to \ref NextStop change the destination_stop_ to the next stop.
+ * Calls to \ref ToNextStop change the destination_stop_ to the next stop.
  * Calls to \ref GetDestinationStop return a pointer to the next stop.
  * Calls to \ref GetTotalRouteDistance returns the total distance of the route.
  * Calls to \ref GetNextStopDistance returns the distance to the next stop.
@@ -96,7 +96,7 @@ class Route {
 /**
  * @brief Changes destination_stop_ to the next stop.
  */
-  void NextStop();  // Change destination_stop_ to next stop
+  void ToNextStop();  // Change destination_stop_ to next stop
 /**
  * @brief Gets the destination stop.
  *
