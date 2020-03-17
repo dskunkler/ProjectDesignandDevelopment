@@ -24,3 +24,32 @@ STOP, Ridder Arena, 44.978058, -93.229176, .05
 STOP, Pleasant Street at Jones-Eddy Circle, 44.978366, -93.236038, .1
 STOP, Bruininks Hall, 44.974549, -93.236927, .3
 STOP, Blegen Hall, 44.972638, -93.243591, 0
+
+ROUTE_GENERAL, Pizza Luce Circulator.
+
+Stop Name, Long, Lat, Pass Gen Prob
+
+ROUTE, East Bound
+
+STOP, Cedar Ave S and Franklin Ave E, 44.962607, -93.244370, .15
+STOP, Seward Cafe, 44.962683, -93.240285, .4
+STOP, Shabelle Ethiopian Grocery and Restaurant, 44.962711, -93.237856, .6
+STOP, Zipps Liquors, 44.962714, -93.233230, .7
+STOP, Seward Community Co-op, 44.962647, -93.230124, .5
+STOP, Franklin Bridge, 44.962713, -93.227206, .2
+STOP, Franklin and East River Pkwy, 44.96491, -93.22122, .3
+STOP, Pioneer Hall, 44.970314, -93.229527, 0
+
+ROUTE, West Bound
+
+STOP, Pioneer Hall, 44.970314, -93.229527, .6
+STOP, Children Rehabilitation Center, 44.971141, -93.234210, .1
+STOP, Comstock Garage, 44.972183, -93.237705, .5
+STOP, Bruininks Hall, 44.974005, -93.237845, .7
+STOP, Fraser Hall, 44.975282, -93.237789, .68
+STOP, Wulling Hall, 44.975948, -93.237353, .6
+STOP, Smith Hall, 44.974364, -93.236918, .75
+STOP, Decor Tech, 44.972547, -93.243517, .4
+STOP, The Hub Bike Co-op, 44.971262, -93.247272, .2
+STOP, Max It Pawn, 44.964431, -93.246425, .15
+STOP, Cedar Ave S and Franklin Ave E, 44.962607, -93.244370, 0
