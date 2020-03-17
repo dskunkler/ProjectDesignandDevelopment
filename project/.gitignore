@@ -3,8 +3,5 @@ build
 
 # OSX automatically includes these, so ignore them as well.
 .DS_Store
-src/large_bus.h
-src/regular_bus.h
-src/small_bus.h
 /docs/html/*
 /docs/latex/*

@@ -12,6 +12,9 @@
 #include <random>
 #include <string>
 #include "src/bus_factory.h"
+#include "src/large_bus.h"
+#include "src/regular_bus.h"
+#include "src/small_bus.h"
 
 std::random_device dev1;
 std::mt19937 rng(dev1());
@@ -28,15 +31,15 @@ Bus *BusFactory::Generate(std::string id, Route * out, Route *in) {
   switch(size) {
     case 1:
       //std::cout << "Making bus of size 30\n";
-      return new Bus(id, out, in, 30, 1);
+      return new SmallBus(id, out, in);
       break;
     case 2:
     //std::cout << "Making bus of size 60\n";
-      return new Bus(id, out, in, 60, 1);
+      return new RegularBus(id, out, in);
       break;
     case 3:
     //std::cout << "Making bus of size 90\n";
-      return new Bus(id, out, in, 90, 1);
+      return new LargeBus(id, out, in);
       break;
 
     default:

@@ -4,10 +4,16 @@
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
 #include "visualization_simulator.h"
+/*******************************************************************************
+ * Includes
+ ******************************************************************************/
 
 #include "bus.h"
 #include "route.h"
 #include  "bus_factory.h"
+/*******************************************************************************
+ * Member Functions
+ ******************************************************************************/
 
 VisualizationSimulator::VisualizationSimulator(WebInterface* webI, ConfigManager* configM) {
     webInterface_ = webI;

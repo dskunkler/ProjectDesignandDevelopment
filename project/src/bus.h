@@ -141,7 +141,7 @@ class Bus {
  */
   int GetCapacity() const { return passenger_max_capacity_; }
 
- private:
+protected:
 /**
  * @brief Takes passengers off of the bus via PassengerUnloader.
  * @return passengers_unloaded int
