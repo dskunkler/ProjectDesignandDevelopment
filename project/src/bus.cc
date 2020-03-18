@@ -56,15 +56,8 @@ bool Bus::Move() {
                                   it != passengers_.end(); it++) {
     (*it)->Update();
   }
-  //*****************************
-  if(!PassengerRequestOff &&)
-  //*************************
-
   bool did_move = true;
-
-
   // travel (happens in all cases, neg distance indicates ready to unload/load)
-
 
   if (speed_ > 0) {
     distance_remaining_ -= speed_;
@@ -72,7 +65,6 @@ bool Bus::Move() {
     did_move = false;
   }
     int passengers_handled = 0;  // counts those on or off bus at this location
-
 
     // if there's no more distance
     // (OFF BY ONE ERROR ISSUE - do we unload if exactly zero after a move?
@@ -87,6 +79,8 @@ bool Bus::Move() {
             current_route = incoming_route_;
             if (!incoming_route_->IsAtEnd()) {
                 // Only get here if we are on our incoming route
+              if(PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0){
+
 
                 passengers_handled += UnloadPassengers();  // unload
                 passengers_handled += next_stop_->LoadPassengers(this);  // load
@@ -99,6 +93,14 @@ bool Bus::Move() {
                     distance_remaining_ = 0;
                     did_move = true;  // We move if we have gotten passengers?
                 }
+              }
+              else{
+                std::cout << "Bus: "<< name_
+                  << "\nStop skipped: "
+                    << (current_route->GetDestinationStop())->GetId()
+                     << std::endl;
+                did_move = true;
+              }
 
                 current_route->ToNextStop();
                 next_stop_ = current_route->GetDestinationStop();
@@ -115,19 +117,21 @@ bool Bus::Move() {
 
         // Only get here if we are on outgoing route
 
+        if(PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0){
 
-        passengers_handled += UnloadPassengers();  // unload
-        passengers_handled += next_stop_->LoadPassengers(this);  // load
 
-        // if any passengers on or off, all distance to next stop is left
-        // but, if we didn't handle any passengers here, any negative will
-        // affect the distance remaining (see addition below)
+          passengers_handled += UnloadPassengers();  // unload
+          passengers_handled += next_stop_->LoadPassengers(this);  // load
 
-        if (passengers_handled != 0) {
-            distance_remaining_ = 0;
-            did_move = true;
+          // if any passengers on or off, all distance to next stop is left
+          // but, if we didn't handle any passengers here, any negative will
+          // affect the distance remaining (see addition below)
+
+          if (passengers_handled != 0) {
+              distance_remaining_ = 0;
+              did_move = true;
+          }
         }
-
         current_route->ToNextStop();
 
         // If we have incremented past the end of the outgoing route, set our
@@ -223,8 +227,8 @@ BusData Bus::GetBusData() const {
 
 bool Bus::PassengerRequestOff() {
   bool wantsOff = false;
-  for (std::list<Passenger *>::iterator it = passengers_->begin();
-      it != passengers_->end();
+  for (std::list<Passenger *>::iterator it = passengers_.begin();
+      it != passengers_.end();
       it++) {
     if ((*it)->GetDestination() == next_stop_->GetId()) {
       // Passenger wants to get off!
