@@ -147,6 +147,11 @@ class Bus {
  * @return passengers_unloaded int
  */
   int UnloadPassengers();  // returning revenue delta
+/**
+ * @brief Signals the bus if a passenger needs to get off at the next stop.
+ * @return a bool if passenger wants off.
+ */
+  bool PassengerRequestOff();
   // bool Refuel();
   PassengerUnloader * unloader_;
   PassengerLoader * loader_;

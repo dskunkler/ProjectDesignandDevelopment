@@ -56,6 +56,9 @@ bool Bus::Move() {
                                   it != passengers_.end(); it++) {
     (*it)->Update();
   }
+  //*****************************
+  if(!PassengerRequestOff &&)
+  //*************************
 
   bool did_move = true;
 
@@ -216,4 +219,17 @@ void Bus::UpdateBusData() {
 
 BusData Bus::GetBusData() const {
     return bus_data_;
+}
+
+bool Bus::PassengerRequestOff() {
+  bool wantsOff = false;
+  for (std::list<Passenger *>::iterator it = passengers_->begin();
+      it != passengers_->end();
+      it++) {
+    if ((*it)->GetDestination() == next_stop_->GetId()) {
+      // Passenger wants to get off!
+      wantsOff = true;
+    }
+  }
+  return wantsOff;
 }
