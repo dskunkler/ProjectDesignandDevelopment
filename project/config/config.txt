@@ -32,8 +32,8 @@ Stop Name, Long, Lat, Pass Gen Prob
 ROUTE, East Bound
 
 STOP, Cedar Ave S and Franklin Ave E, 44.962607, -93.244370, .15
-STOP, Seward Cafe, 44.962683, -93.240285, .4
-STOP, Shabelle Ethiopian Grocery and Restaurant, 44.962711, -93.237856, .6
+STOP, Seward Cafe, 44.962683, -93.240285, .6
+STOP, Shabelle Ethiopian Grocery and Restaurant, 44.962711, -93.237856, 0
 STOP, Zipps Liquors, 44.962714, -93.233230, .7
 STOP, Seward Community Co-op, 44.962647, -93.230124, .5
 STOP, Franklin Bridge, 44.962713, -93.227206, .2
@@ -44,7 +44,7 @@ ROUTE, West Bound
 
 STOP, Pioneer Hall, 44.970314, -93.229527, .6
 STOP, Children Rehabilitation Center, 44.971141, -93.234210, .1
-STOP, Comstock Garage, 44.972183, -93.237705, .5
+STOP, Comstock Garage, 44.972183, -93.237705, 0
 STOP, Bruininks Hall, 44.974005, -93.237845, .7
 STOP, Fraser Hall, 44.975282, -93.237789, .68
 STOP, Wulling Hall, 44.975948, -93.237353, .6
