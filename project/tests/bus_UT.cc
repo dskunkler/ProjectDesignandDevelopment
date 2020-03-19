@@ -108,18 +108,18 @@ TEST_F(BusTests, Constructor) {
 TEST_F(BusTests, IsTripComplete) {
   EXPECT_EQ(bus1->IsTripComplete(), false) << "Incorrect end true at route start";
   EXPECT_EQ(route->IsAtEnd(), false) << "Incorrect end at start in route";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->IsAtEnd(), false) <<
     "Incorrect end at first stop  route";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->IsAtEnd(), false) << "Route has one more stop";
   EXPECT_EQ(bus1->IsTripComplete(), false) <<
    "Incorrect, but route out has one more stop";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->IsAtEnd(), true) << "route should be over";
   EXPECT_EQ(bus1->IsTripComplete(), false) << "Still needs to do incoming route";
   EXPECT_EQ(route1->IsAtEnd(), false) << "Incorrect end in start route1";
-  route1->NextStop();
+  route1->ToNextStop();
   EXPECT_EQ(route1->IsAtEnd(), true) << "Incorrect false end route1";
   EXPECT_EQ(bus1->IsTripComplete(), true) << "Incorrect false end at true bus end";
 }

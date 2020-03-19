@@ -45,7 +45,7 @@ protected:
     distance[1] = 5;
     route = new Route("run1", rawStops, distance, 2,
                        new RandomPassengerGenerator(currProbabilities, stops));
-                       
+
     //TODO Change the next route to 3 stops and test it's distances
     route1 = new Route("run2", rawStops, distance, 1,
                        new RandomPassengerGenerator(currProbabilities, stops));
@@ -80,20 +80,20 @@ TEST_F(RouteTests, Constructor) {
   EXPECT_EQ(route->GetTotalRouteDistance(), 4) << "Incorrect total distance";
   EXPECT_EQ(route->GetNextStopDistance(), 0) <<
     "Incorrect distance before start";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->GetNextStopDistance(), 4) <<
     "Incorrect distance to first start";
 }
 
 TEST_F(RouteTests, IsAtEnd) {
   EXPECT_EQ(route1->IsAtEnd(), false) << "Incorrect end in start route1";
-  route1->NextStop();
+  route1->ToNextStop();
   EXPECT_EQ(route1->IsAtEnd(), true) << "Incorrect false and end route1";
 
   EXPECT_EQ(route->IsAtEnd(), false) << "Incorrect end at start in route";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->IsAtEnd(), false) <<
     "Incorrect end at first stop  route";
-  route->NextStop();
+  route->ToNextStop();
   EXPECT_EQ(route->IsAtEnd(), true) << "Incorrect false at end of route";
 }
