@@ -79,6 +79,9 @@ bool Bus::Move() {
             current_route = incoming_route_;
             if (!incoming_route_->IsAtEnd()) {
                 // Only get here if we are on our incoming route
+
+              // if A passenger wants off or if there are people at the stop
+              // we must handle the passengers.
               if(PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0){
 
 
@@ -93,8 +96,7 @@ bool Bus::Move() {
                     distance_remaining_ = 0;
                     did_move = true;  // We move if we have gotten passengers?
                 }
-              }
-              else{
+              } else{
                 std::cout << "Bus: "<< name_
                   << "\nStop skipped: "
                     << (current_route->GetDestinationStop())->GetId()
@@ -131,6 +133,12 @@ bool Bus::Move() {
               distance_remaining_ = 0;
               did_move = true;
           }
+        } else {
+          std::cout << "Bus: "<< name_
+            << "\nStop skipped: "
+              << (current_route->GetDestinationStop())->GetId()
+               << std::endl;
+          did_move = true;
         }
         current_route->ToNextStop();
 
