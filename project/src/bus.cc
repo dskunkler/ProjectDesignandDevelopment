@@ -82,9 +82,7 @@ bool Bus::Move() {
 
               // if A passenger wants off or if there are people at the stop
               // we must handle the passengers.
-              if(PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0){
-
-
+       if (PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0) {
                 passengers_handled += UnloadPassengers();  // unload
                 passengers_handled += next_stop_->LoadPassengers(this);  // load
 
@@ -96,7 +94,7 @@ bool Bus::Move() {
                     distance_remaining_ = 0;
                     did_move = true;  // We move if we have gotten passengers?
                 }
-              } else{
+              } else {
                 std::cout << "Bus: "<< name_
                   << "\nStop skipped: "
                     << (current_route->GetDestinationStop())->GetId()
@@ -119,9 +117,7 @@ bool Bus::Move() {
 
         // Only get here if we are on outgoing route
 
-        if(PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0){
-
-
+       if (PassengerRequestOff() || next_stop_->GetNumPassengersPresent() > 0) {
           passengers_handled += UnloadPassengers();  // unload
           passengers_handled += next_stop_->LoadPassengers(this);  // load
 
