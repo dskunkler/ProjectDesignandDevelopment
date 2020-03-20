@@ -24,8 +24,11 @@ std::uniform_int_distribution<std::mt19937::result_type> dist1(1, 3);
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
-Bus *BusFactory::Generate(std::string id, Route * out, Route *in) {
+Bus *BusFactory::Generate(std::string id, Route * out, Route *in, int capacity) {
   int size = dist1(rng);
+  if(capacity != 0){
+    size = capacity;
+  }
   // std::cout << "Random Bus Size = " << size << std::endl;
 
   switch ( size ) {

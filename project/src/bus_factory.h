@@ -38,6 +38,6 @@ class BusFactory {
     * @return Bus object with id, out Route, in Route, a random size 30/60/90, and a
     * speed of 1
     */
-  static Bus *Generate(std::string name, Route*, Route*);
+  static Bus *Generate(std::string name, Route*, Route*, int capacity = 0);
 };
 #endif  // SRC_BUS_FACTORY_H_
