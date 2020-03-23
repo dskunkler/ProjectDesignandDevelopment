@@ -39,5 +39,7 @@ class SmallBus: public Bus {
      */
   SmallBus(std::string name, Route * out, Route * in, int capacity = 30,
                         double speed = 1):Bus{name, out, in, capacity, speed}{}
+                        
+  void Report(std::ostream&) override;
 };
 #endif  // SRC_SMALL_BUS_H_
