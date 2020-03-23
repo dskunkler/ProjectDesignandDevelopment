@@ -40,5 +40,7 @@ class RegularBus: public Bus {
     */
   RegularBus(std::string name, Route * out, Route * in, int capacity = 60,
                         double speed = 1):Bus{name, out, in, capacity, speed}{}
+
+   virtual void Report(std::ostream&) override;
 };
 #endif  // SRC_REGULAR_BUS_H_

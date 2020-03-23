@@ -165,6 +165,7 @@ void Bus::Update() {  // using common Update format
   UpdateBusData();
 }
 
+/*
 void Bus::Report(std::ostream& out) {
   out << "Name: " << name_ << std::endl;
   out << "Speed: " << speed_ << std::endl;
@@ -176,6 +177,7 @@ void Bus::Report(std::ostream& out) {
     (*it)->Report(out);
   }
 }
+*/
 
 int Bus::UnloadPassengers() {
   int passengers_unloaded = 0;
