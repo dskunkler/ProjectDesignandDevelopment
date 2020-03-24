@@ -38,6 +38,7 @@
  * running. Please note that you should be generating a report of all the
  * passengers who are at the stops as well as the bus details of the busses
  * operating.
+![UML of System](UML.jpeg)
  * A very general outline of what is happening in our code and the major players.
  * We have
  * 1) Passenger
@@ -96,4 +97,5 @@
  * This does violate our Open to Extension, closed to modification principle
  * though. Either way, the trade-off of simplicity for functionality took place
  * with out tight time frame.
+ */
 #endif  // SRC_MAINPAGE_H_
