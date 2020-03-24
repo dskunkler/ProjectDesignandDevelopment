@@ -39,8 +39,8 @@ class RegularBus: public Bus {
     * @return RegularBus object with all fields filled
     */
   RegularBus(std::string name, Route * out, Route * in, int capacity = 60,
-                        double speed = 1):Bus{name, out, in, capacity, speed}{}
+                       double speed = 1):Bus {name, out, in, capacity, speed} {}
 
-   virtual void Report(std::ostream&) override;
+  void Report(std::ostream&) override;
 };
 #endif  // SRC_REGULAR_BUS_H_

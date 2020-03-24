@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef VISUALIZATION_SIMULATOR_H_
-#define VISUALIZATION_SIMULATOR_H_
+#ifndef WEB_VISUALIZATION_SIMULATOR_H_
+#define WEB_VISUALIZATION_SIMULATOR_H_
 /*******************************************************************************
  * Includes
  ******************************************************************************/
@@ -12,8 +12,8 @@
 #include <vector>
 #include <list>
 
-#include "web_interface.h"
-#include "config_manager.h"
+#include "web/web_interface.h"
+#include "src/config_manager.h"
 
 class Route;
 class Bus;
@@ -32,17 +32,17 @@ class Stop;
  * Calls to \ref Pause pause the simulation.
  */
 class VisualizationSimulator {
-    public:
+ public:
 /**
  * @brief Generator for a Visualization Simulator.
  *
  * @return Visualization Simulator object
  */
-        VisualizationSimulator(WebInterface*, ConfigManager*);
+  VisualizationSimulator(WebInterface*, ConfigManager*);
 /**
  * @brief Destructor for a VisualizationSimulator
  */
-        ~VisualizationSimulator();
+  ~VisualizationSimulator();
 /**
  * @brief Starts the Visualization Simulator
  *
@@ -56,7 +56,7 @@ class VisualizationSimulator {
  * webinterface then updates the routes.
  */
 
-        void Start(const std::vector<int>&, const int&);
+  void Start(const std::vector<int>&, const int&);
 /**
  * @brief Updates the Visual Simulation.
  *
@@ -68,27 +68,27 @@ class VisualizationSimulator {
  * A report of the buses is then printed.
  * We then update all the routes and print their report.
  */
-        void Update();
+  void Update();
 /**
  * @brief Toggles whether the Visualization simulator is paused or not.
  */
-        void Pause();
+  void Pause();
 
-    private:
-        WebInterface* webInterface_;
-        ConfigManager* configManager_;
+ private:
+  WebInterface* webInterface_;
+  ConfigManager* configManager_;
 
-        std::vector<int> busStartTimings_;
-        std::vector<int> timeSinceLastBus_;
-        int numTimeSteps_;
-        int simulationTimeElapsed_;
+  std::vector<int> busStartTimings_;
+  std::vector<int> timeSinceLastBus_;
+  int numTimeSteps_;
+  int simulationTimeElapsed_;
 
-        std::vector<Route *> prototypeRoutes_;
-        std::vector<Bus *> busses_;
+  std::vector<Route *> prototypeRoutes_;
+  std::vector<Bus *> busses_;
 
-        bool paused = false;
+  bool paused = false;
 
-        int busId = 1000;
+  int busId = 1000;
 };
 
-#endif // VISUALIZATION_SIMULATOR_H_
+#endif  // WEB_VISUALIZATION_SIMULATOR_H_

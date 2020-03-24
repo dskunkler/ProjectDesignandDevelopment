@@ -39,8 +39,7 @@ class LargeBus: public Bus {
  * @return LargeBus object with all fields filled
  */
   LargeBus(std::string name, Route * out, Route * in, int capacity = 90,
-                        double speed = 1):Bus{name, out, in, capacity, speed}{}
-                        
+                       double speed = 1):Bus {name, out, in, capacity, speed} {}
   void Report(std::ostream&) override;
 };
 #endif  // SRC_LARGE_BUS_H_
