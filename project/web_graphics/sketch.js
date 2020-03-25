@@ -40,6 +40,7 @@ var busTimeOffsetsYOffset = 50;
 var runRectYPos = 450;
 var runYPos = 465;
 var startYPos = 500;
+var paused = false;
 
 // Data for vis. Matches data_structs.h in C++
 function Position(x, y) {
@@ -198,6 +199,7 @@ function draw() {
 }
 
 function update() {
+  if(!paused){
 	// Send down commands to C++
 	socket.send(JSON.stringify({command: "getRoutes"}));
 	socket.send(JSON.stringify({command: "getBusses"}));
@@ -209,6 +211,7 @@ function update() {
         startTime = millis();
         totalUpdates++;
     }
+  }
 }
 
 function render() {
@@ -318,6 +321,12 @@ function start() {
 function pause() {
   if (started)
   {
+    if(paused == true){
+      paused = false;
+    }
+    else{
+      paused = true;
+    }
     if (pauseButton.value!=="Resume"){
       pauseButton.value = "Resume";
       pauseButton.elt.childNodes[0].nodeValue = "Resume";

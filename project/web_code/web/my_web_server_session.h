@@ -1,26 +1,26 @@
 /**
- * @file Bus.cc
+ * @file my_web_server_session.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef MY_WEB_SERVER_SESSION_H
-#define MY_WEB_SERVER_SESSION_H
+#ifndef WEB_MY_WEB_SERVER_SESSION_H_
+#define WEB_MY_WEB_SERVER_SESSION_H_
 
 #include "WebServer.h"
-#include "my_web_server_session_state.h"
+#include "web_code/web/my_web_server_session_state.h"
 
 
 class MyWebServerSession : public JSONSession {
-    public:
-        MyWebServerSession(MyWebServerSessionState s) : state(s) {}
+ public:
+       explicit MyWebServerSession(MyWebServerSessionState s) : state(s) {}
         ~MyWebServerSession() {}
 
         void receiveJSON(picojson::value& val) override;
         void update() override {}
 
-    private:
+ private:
         MyWebServerSessionState state;
 };
 
 
-#endif // MY_WEB_SERVER_SESSION_H
+#endif  // WEB_MY_WEB_SERVER_SESSION_H_

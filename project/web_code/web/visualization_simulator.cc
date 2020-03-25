@@ -1,13 +1,13 @@
 /**
- * @file Bus.cc
+ * @file visualization_simulator.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#include "web_code/web/visualization_simulator.h"
+
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-
+#include "web_code/web/visualization_simulator.h"
 #include "src/bus.h"
 #include "src/route.h"
 #include  "src/bus_factory.h"
@@ -25,7 +25,7 @@ VisualizationSimulator::~VisualizationSimulator() {
 }
 
 void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
-                          const int& numTimeSteps) {
+   const int& numTimeSteps) {
     busStartTimings_ = busStartTimings;
     numTimeSteps_ = numTimeSteps;
 
@@ -57,13 +57,13 @@ void VisualizationSimulator::Update() {
 
     // Check if we need to generate new busses
     for (int i = 0; i < static_cast<int>(timeSinceLastBus_.size()); i++) {
-      // Check if we need to make a new bus
+        // Check if we need to make a new bus
         if (0 >= timeSinceLastBus_[i]) {
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
 
             busses_.push_back(BusFactory::Generate(std::to_string(busId),
-              outbound->Clone(), inbound->Clone()));
+               outbound->Clone(), inbound->Clone()));
             busId++;
 
             timeSinceLastBus_[i] = busStartTimings_[i];

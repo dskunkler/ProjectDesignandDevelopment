@@ -1,5 +1,5 @@
 /**
- * @file Bus.cc
+ * @file visualization_simulator.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
@@ -75,8 +75,8 @@ class VisualizationSimulator {
   void Pause();
 
  private:
-  WebInterface* webInterface_;
-  ConfigManager* configManager_;
+        WebInterface* webInterface_;
+        ConfigManager* configManager_;
 
   std::vector<int> busStartTimings_;
   std::vector<int> timeSinceLastBus_;
