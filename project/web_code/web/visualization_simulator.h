@@ -1,10 +1,10 @@
 /**
- * @file Bus.cc
+ * @file visualization_simulator.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef VISUALIZATION_SIMULATOR_H_
-#define VISUALIZATION_SIMULATOR_H_
+#ifndef WEB_VISUALIZATION_SIMULATOR_H_
+#define WEB_VISUALIZATION_SIMULATOR_H_
 /*******************************************************************************
  * Includes
  ******************************************************************************/
@@ -12,8 +12,8 @@
 #include <vector>
 #include <list>
 
-#include "web_interface.h"
-#include "config_manager.h"
+#include "web_code/web/web_interface.h"
+#include "src/config_manager.h"
 
 class Route;
 class Bus;
@@ -32,7 +32,7 @@ class Stop;
  * Calls to \ref Pause pause the simulation.
  */
 class VisualizationSimulator {
-    public:
+ public:
 /**
  * @brief Generator for a Visualization Simulator.
  *
@@ -74,7 +74,7 @@ class VisualizationSimulator {
  */
         void Pause();
 
-    private:
+ private:
         WebInterface* webInterface_;
         ConfigManager* configManager_;
 
@@ -91,4 +91,4 @@ class VisualizationSimulator {
         int busId = 1000;
 };
 
-#endif // VISUALIZATION_SIMULATOR_H_
+#endif  // WEB_VISUALIZATION_SIMULATOR_H_

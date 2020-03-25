@@ -1,23 +1,21 @@
 /**
- * @file Bus.cc
+ * @file web_interface.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef WEB_INTERFACE_H
-#define WEB_INTERFACE_H
+#ifndef WEB_WEB_INTERFACE_H_
+#define WEB_WEB_INTERFACE_H_
 
-#include "data_structs.h"
-#include "bus.h"
-#include "route.h"
+#include "src/data_structs.h"
+#include "src/bus.h"
+#include "src/route.h"
 
 class WebInterface {
-
-public:
+ public:
     virtual ~WebInterface() {}
 
     virtual void UpdateBus(const BusData& bus, bool deleted = false) = 0;
     virtual void UpdateRoute(const RouteData& route, bool deleted = false) = 0;
-
 };
 
-#endif // WEB_INTERFACE_H
+#endif  // WEB_WEB_INTERFACE_H_

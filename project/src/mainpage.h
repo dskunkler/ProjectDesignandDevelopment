@@ -12,7 +12,7 @@
  *
  * The following pages contain UML documentation for Bus System Simulator
  *
- * How to obtain the code:
+ * \section obtaining_code How to obtain the code:
  * 	To obtain the code navigate to the website
  * http://github.umn.edu/umn-csci-3081-s20/repo-kunkl007
  * From here you have a few options of how you can obtain the project. You can
@@ -21,10 +21,14 @@
  * and type "git clone http://github.umn.edu/umn-csci-3081-s20/repo-kunkl007.git".
  * This will create a copy of the entire file structure and you will have to
  * navigate to the "project" folder to see the project we will be referring to
- * for the rest of this document. To compile the code, further navigate to the
+ * for the rest of this document.
+ * \subsection compile How To compile
+ * To compile the code, further navigate to the
  * src folder by type "cd src/" in the command line. Here you will want to type
  * and enter "make clean" then "make". This should compile the project for you
- * to be able to run. Type "cd .." to navigate back to the project folder
+ * to be able to run.
+ * \subsection running Running the Code
+ * Type "cd .." to navigate back to the "project" folder
  * project. From here you will want to type "./build/bin/vis_sim 8123". The
  * command line should print "starting server...". At this point you'll want to
  * open your internet browser and enter
@@ -38,16 +42,16 @@
  * running. Please note that you should be generating a report of all the
  * passengers who are at the stops as well as the bus details of the busses
  * operating.
-![UML of System](UML.jpeg)
+ * \section Outline
  * A very general outline of what is happening in our code and the major players.
  * We have
- * 1) Passenger
- * 2) Stop
- * 3) Route
- * 4) Bus
- * 5) Visualization simulator
- * 6) Bus Factory
- * Passengers are created with a random name and a random legal stop
+ * <br>1) Passenger
+ * <br>2) Stop
+ * <br>3) Route
+ * <br>4) Bus
+ * <br>5) Visualization simulator
+ * <br>6) Bus Factory
+ * <br>Passengers are created with a random name and a random legal stop
  * destination. The location they are generated is at the Stop. Stops have an
  * integer id and two doubles that represent their longitude and latitude that
  * are both instantiated at a Stop’s construction. Stops also have a list
@@ -58,13 +62,18 @@
  * are unloaded and loaded onto and off the bus when it visits each stop. Bus
  * is an abstract class and currently has three classes that inherit from it,
  * SmallBus, RegularBus, and LargeBus. We did this so we could use our first
- * design pattern the Factory Pattern. Factories can come in two forms, Concrete
+ * design pattern the Factory Pattern.
+ * \section bus_fact Bus Factory
+![UML of Concrete Factory](Concrete.png)
+ * Factories can come in two forms, Concrete
  * or Abstract. The one I chose was the Concrete factory. There were a few
  * considerations I considered when choosing this Factory type.
- * 1) How long would it take to implement?
- * 2) What will it be used for?
+ * <br>
+ * 1) How long would it take to implement?<br>
+ * 2) What will it be used for?<br>
  * 3) How much will we need to modify and how much will this affect our Factory?
- * At this point you may be asking yourself, how does concrete factory fulfill
+ * <br>
+ * At this point you may be asking yourself, how does concrete factory
  * satisfy these questions? Concrete factories are the simplest factory to
  * implement. The tradeoff of this is that they are more rigid then abstract
  * factory. With a concrete class we must provide all the information required
@@ -74,7 +83,7 @@
  * bus. The solution for in this situation then is to simply allow the Factory
  * to randomly generate one of the three bus types. If we ever decide that there
  * should be something else passed into, we will need to make new modifications
- * and will need to make changes everywhere. If say we want to say generate
+ * and will need to make changes anywhere the factory is used.. If say we want to say generate
  * busses from a different class and use them differently, then we would want an
  * Abstract Factory. For example, if we decide we want to deploy busses
  * differently for different times of day, we would need to pass or frequency to

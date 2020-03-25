@@ -1,30 +1,31 @@
 /**
- * @file Bus.cc
+ * @file visualization_simulator.cc
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#include "visualization_simulator.h"
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 
-#include "bus.h"
-#include "route.h"
-#include  "bus_factory.h"
+#include "web_code/web/visualization_simulator.h"
+#include "src/bus.h"
+#include "src/route.h"
+#include  "src/bus_factory.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
 
-VisualizationSimulator::VisualizationSimulator(WebInterface* webI, ConfigManager* configM) {
+VisualizationSimulator::VisualizationSimulator(WebInterface* webI,
+             ConfigManager* configM) {
     webInterface_ = webI;
     configManager_ = configM;
 }
 
 VisualizationSimulator::~VisualizationSimulator() {
-
 }
 
-void VisualizationSimulator::Start(const std::vector<int>& busStartTimings, const int& numTimeSteps) {
+void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
+   const int& numTimeSteps) {
     busStartTimings_ = busStartTimings;
     numTimeSteps_ = numTimeSteps;
 
@@ -42,11 +43,9 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings, cons
         prototypeRoutes_[i]->UpdateRouteData();
         webInterface_->UpdateRoute(prototypeRoutes_[i]->GetRouteData());
     }
-
 }
 
-void VisualizationSimulator::Update() {
-  if(!paused) {
+void VisualizationSimulator::Update() {  if (!paused) {
     simulationTimeElapsed_++;
 
     std::cout << "~~~~~~~~~~ The time is now " << simulationTimeElapsed_;
@@ -57,15 +56,13 @@ void VisualizationSimulator::Update() {
 
     // Check if we need to generate new busses
     for (int i = 0; i < static_cast<int>(timeSinceLastBus_.size()); i++) {
-
-
         // Check if we need to make a new bus
         if (0 >= timeSinceLastBus_[i]) {
-
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
 
-            busses_.push_back(BusFactory::Generate(std::to_string(busId), outbound->Clone(), inbound->Clone()));
+            busses_.push_back(BusFactory::Generate(std::to_string(busId),
+               outbound->Clone(), inbound->Clone()));
             busId++;
 
             timeSinceLastBus_[i] = busStartTimings_[i];
@@ -106,11 +103,10 @@ void VisualizationSimulator::Update() {
 }
 
 void VisualizationSimulator::Pause() {
-  if(!paused){
+  if (!paused) {
     std::cout << "Not paused, pausing\n";
     paused = !paused;
-  }
-  else{
+  } else {
     std::cout << "Paused, unpausing\n";
     paused = !paused;
   }
