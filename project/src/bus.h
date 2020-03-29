@@ -103,7 +103,7 @@ class Bus {
  *
  * @param[in] out std::ostream for display purposes.
  */
-  virtual void Report(std::ostream&) = 0;
+  virtual void Report(std::ostream&);
 
   // Vis Getters
 
