@@ -2,12 +2,8 @@
 *.o
 *.out
 *.pvt
-.nfs0000000004e38ccd0000004d
-<<<<<<< HEAD
 external/gtest/build/
 external/gtest/src/
 external/install/
-=======
-external/*
->>>>>>> devel
-project/docs/Doxyfile
+repo-kunkl007/
+testproj/
