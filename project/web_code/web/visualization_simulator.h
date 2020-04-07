@@ -74,6 +74,20 @@ class VisualizationSimulator {
  */
   void TogglePause();
 
+/**
+ * @brief Clears the listeners of the Bus
+ */
+
+  void ClearListeners();
+
+/**
+ * @brief Adds a listener to the bus.
+ * @param[in] id the id of the bus
+ * @param[in] BusWebObserver A web observer object
+ */
+
+ void AddListener(int, std::string name, )
+
  private:
         WebInterface* webInterface_;
         ConfigManager* configManager_;
