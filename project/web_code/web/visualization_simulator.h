@@ -72,7 +72,7 @@ class VisualizationSimulator {
 /**
  * @brief Toggles whether the Visualization simulator is paused or not.
  */
-  void Pause();
+  void TogglePause();
 
  private:
         WebInterface* webInterface_;

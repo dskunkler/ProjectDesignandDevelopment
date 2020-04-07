@@ -103,7 +103,7 @@ void VisualizationSimulator::Update() {
   }
 }
 
-void VisualizationSimulator::Pause() {
+void VisualizationSimulator::TogglePause() {
   if (!paused) {
     std::cout << "Not paused, pausing\n";
     paused = !paused;

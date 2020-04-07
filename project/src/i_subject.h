@@ -19,7 +19,7 @@ class ISubject {
  public:
    void RegisterObserver(T *observer);
    void ClearObservers();
-   void NotifyObservers(T *)
+   void NotifyObservers(T *);
 
  private:
    // this is our list of observers
