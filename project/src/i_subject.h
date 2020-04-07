@@ -18,7 +18,7 @@
 template <typename T>
 class ISubject {
  public:
-  // ISubject();
+   ISubject() {};
    void RegisterObserver(T *observer);
    void ClearObservers();
    void NotifyObservers(BusData* info);

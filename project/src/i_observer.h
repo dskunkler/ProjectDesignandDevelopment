@@ -16,6 +16,7 @@
 // template <typename T>
 class IObserver {
  public:
+   IObserver() {};
    void Notify(BusData* info);
 };
 
