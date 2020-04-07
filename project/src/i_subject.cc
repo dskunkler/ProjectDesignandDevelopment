@@ -25,5 +25,5 @@ void ISubject<T>::ClearObservers() {
 
 template <typename T>
 void ISubject<T>::NotifyObservers(T* observer ) {
-  observer_[0]->UpdateObserver(observer->bus_data_);
+  observer_[0]->Notify(observer->bus_data_);
 }
