@@ -86,7 +86,7 @@ class VisualizationSimulator {
  * @param[in] BusWebObserver A web observer object
  */
 
- void AddListener(std::string* id, IObserver* observer );
+ void AddListener(std::string* id, IObserver<BusData*>* observer );
 
  private:
         WebInterface* webInterface_;

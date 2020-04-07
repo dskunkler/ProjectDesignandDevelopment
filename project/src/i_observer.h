@@ -13,11 +13,11 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-// template <typename T>
+template <typename T>
 class IObserver {
  public:
    IObserver() {};
-   void Notify(BusData* info);
+   void Notify(T info) {};
 };
 
 #endif  // SRC_I_OBSERVER_H_

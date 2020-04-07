@@ -53,7 +53,7 @@ class Stop;
  * Calls to \ref GetCapacity returns the maximum number of passengers.
  * Calls to \ref UnloadPassengers returns the number of passengers unloaded.
  */
-class Bus: public ISubject<IObserver> {
+class Bus: public ISubject<IObserver<BusData*>> {
  public:
 /**
  * @brief Generator for a bus. Default capacity is 60 and speed is 1.
@@ -142,7 +142,7 @@ class Bus: public ISubject<IObserver> {
  */
   int GetCapacity() const { return passenger_max_capacity_; }
 
-  void RegisterObserver(IObserver *observer);
+  void RegisterObserver(IObserver<BusData*> *observer);
 
   void ClearObservers();
 

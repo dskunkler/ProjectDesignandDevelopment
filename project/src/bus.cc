@@ -8,8 +8,8 @@
    * Includes
  ******************************************************************************/
 #include "src/bus.h"
-#include "src/i_observer.h"
-#include "web_code/web/my_web_server_command.h"
+#include "i_observer.h"
+#include "my_web_server_command.h"
 
 /*******************************************************************************
   * Member Functions
@@ -227,6 +227,8 @@ void Bus::UpdateBusData() {
 
     bus_data_.num_passengers = static_cast<int>(passengers_.size());
     bus_data_.capacity = passenger_max_capacity_;
+
+    NotifyObservers(&bus_data_);
 }
 
 BusData Bus::GetBusData() const {
@@ -246,18 +248,19 @@ bool Bus::PassengerRequestOff() {
   return wantsOff;
 }
 
-void Bus::RegisterObserver(IObserver *observer ) {
+void Bus::RegisterObserver(IObserver<BusData*> *observer ) {
   observer_.push_back(observer);
-  // std::cout << "Observer Registered\n";
+  std::cout << "Observer Registered\n";
 }
 
 void Bus::ClearObservers() {
   observer_.clear();
-  // std::cout << "Observer Cleared\n";
+  std::cout << "Observer Cleared\n";
 }
 
 void Bus::NotifyObservers(BusData *info){
   for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
     observer_[i]->Notify(info);
+    std::cout << "Observers Notified\n";
   }
 }

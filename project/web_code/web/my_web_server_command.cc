@@ -135,7 +135,7 @@ void PauseCommand::execute(MyWebServerSession* session, picojson::value& command
 }
 
 
-class BusWebObserver : public IObserver/*<BusData*>*/ {
+class BusWebObserver : public IObserver<BusData*> {
 public:
     BusWebObserver(MyWebServerSession* session) : session(session) {}
 
