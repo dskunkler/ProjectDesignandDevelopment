@@ -10,6 +10,7 @@
  * Includes
  ******************************************************************************/
 #include <vector>
+#include "src/data_structs.h"
 
 /*******************************************************************************
  * Class Definitions
@@ -19,7 +20,7 @@ class ISubject {
  public:
    void RegisterObserver(T *observer);
    void ClearObservers();
-   void NotifyObservers(T *);
+   void NotifyObservers(BusData* info);
 
  private:
    // this is our list of observers

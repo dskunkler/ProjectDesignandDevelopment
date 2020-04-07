@@ -8,7 +8,8 @@
    * Includes
  ******************************************************************************/
  #include <vector>
- #include "i_subject.h"
+ #include "src/i_subject.h"
+ #include "src/data_structs.h"
 
  /*******************************************************************************
    * Member Functions
@@ -24,6 +25,6 @@ void ISubject<T>::ClearObservers() {
 }
 
 template <typename T>
-void ISubject<T>::NotifyObservers(T* observer ) {
-  observer_[0]->Notify(observer->bus_data_);
+void ISubject<T>::NotifyObservers(BusData* info ) {
+  observer_[0]->Notify(info);
 }

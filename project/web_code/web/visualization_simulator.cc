@@ -112,3 +112,9 @@ void VisualizationSimulator::TogglePause() {
     paused = !paused;
   }
 }
+
+void VisualizationSimulator::ClearListeners() {
+}
+
+void VisualizationSimulator::AddListener(std::string* id, IObserver* observer) {
+}

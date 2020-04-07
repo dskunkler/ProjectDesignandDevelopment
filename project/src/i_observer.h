@@ -13,9 +13,10 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+// template <typename T>
 class IObserver {
  public:
-   void UpdateObserver(BusData info);
+   void Notify(BusData* info);
 };
 
 #endif  // SRC_I_OBSERVER_H_
