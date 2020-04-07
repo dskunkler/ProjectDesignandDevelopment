@@ -18,11 +18,12 @@
 template <typename T>
 class ISubject {
  public:
+  // ISubject();
    void RegisterObserver(T *observer);
    void ClearObservers();
    void NotifyObservers(BusData* info);
 
- private:
+ protected:
    // this is our list of observers
    std::vector<T *> observer_;
 };

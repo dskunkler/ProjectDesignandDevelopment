@@ -11,6 +11,7 @@
 #include "src/bus.h"
 #include "src/route.h"
 #include  "src/bus_factory.h"
+#include "src/i_subject.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
@@ -114,7 +115,18 @@ void VisualizationSimulator::TogglePause() {
 }
 
 void VisualizationSimulator::ClearListeners() {
+  for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
+    busses_[i]->ClearObservers();
+  }
 }
 
 void VisualizationSimulator::AddListener(std::string* id, IObserver* observer) {
+  // iterate through to find the bus
+  for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
+    if(busses_[i]->GetName() == *id) {
+      std::cout << "Observer " << *id << " added\n";
+      busses_[i]->RegisterObserver(observer);
+    }
+  }
+
 }

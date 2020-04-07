@@ -99,6 +99,7 @@ class VisualizationSimulator {
 
   std::vector<Route *> prototypeRoutes_;
   std::vector<Bus *> busses_;
+  Bus* subject_;
 
   bool paused = false;
 

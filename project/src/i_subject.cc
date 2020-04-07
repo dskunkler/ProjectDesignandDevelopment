@@ -14,6 +14,11 @@
  /*******************************************************************************
    * Member Functions
  ******************************************************************************/
+
+/*
+template <typename T>
+ISubject<T>::ISubject() {}
+*/
 template <typename T>
 void ISubject<T>::RegisterObserver(T *observer ) {
   observer_.push_back(observer);

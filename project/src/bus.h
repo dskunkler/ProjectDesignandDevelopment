@@ -67,7 +67,7 @@ class Bus: public ISubject<IObserver> {
  * @return Bus object with all fields filled
  */
   Bus(std::string name, Route * out, Route * in, int capacity = 60,
-                                                 double speed = 1);
+        double speed = 1);
 /**
  * @brief Tells whether the entire buses route is finished
  *
@@ -141,6 +141,14 @@ class Bus: public ISubject<IObserver> {
  * @return passenger_max_capacity_
  */
   int GetCapacity() const { return passenger_max_capacity_; }
+
+  void RegisterObserver(IObserver *observer);
+
+  void ClearObservers();
+
+  void NotifyObservers(BusData* info);
+
+
 
  protected:
 /**

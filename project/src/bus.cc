@@ -8,6 +8,8 @@
    * Includes
  ******************************************************************************/
 #include "src/bus.h"
+#include "src/i_observer.h"
+#include "web_code/web/my_web_server_command.h"
 
 /*******************************************************************************
   * Member Functions
@@ -242,4 +244,20 @@ bool Bus::PassengerRequestOff() {
     }
   }
   return wantsOff;
+}
+
+void Bus::RegisterObserver(IObserver *observer ) {
+  observer_.push_back(observer);
+  // std::cout << "Observer Registered\n";
+}
+
+void Bus::ClearObservers() {
+  observer_.clear();
+  // std::cout << "Observer Cleared\n";
+}
+
+void Bus::NotifyObservers(BusData *info){
+  for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
+    observer_[i]->Notify(info);
+  }
 }
