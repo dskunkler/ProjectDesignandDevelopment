@@ -20,6 +20,7 @@ MorningStrategy::MorningStrategy() {
 Bus *MorningStrategy::DeployStrat(std::string id, Route * out, Route *in) {
   // We want to switch between regular and small busses. state_ will iterate
   // at 0 but will be reset at 1;
+  std::cout <<"MAKING A BUS! FROM MORNING STRAT\n";
   if(state_ == 0) {
     return new SmallBus(id, out, in);
     state_++;

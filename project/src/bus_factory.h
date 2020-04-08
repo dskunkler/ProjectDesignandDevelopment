@@ -13,6 +13,7 @@
 ******************************************************************************/
 #include <string>
 
+#include "src/bus_strategy.h"
 #include "src/bus.h"
 /*******************************************************************************
   * Class Definitions
@@ -26,6 +27,7 @@
 
 class BusFactory {
  public:
+  BusFactory() {}
    /**
     * @brief Generation of a bus with a randomized size.
     *
@@ -39,5 +41,7 @@ class BusFactory {
     * speed of 1
     */
   static Bus *Generate(std::string name, Route*, Route*, int capacity = 0);
+
+  static BusStrategy *strategy_;
 };
 #endif  // SRC_BUS_FACTORY_H_

@@ -15,6 +15,6 @@ class AlternativeStrategy : public BusStrategy {
  public:
    // the alternative strategy only puts out small busses so state is irrelevant
    AlternativeStrategy();
-   Bus *DeployStrat(std::string id, Route * out, Route *in);
+   Bus *DeployStrat(std::string id, Route * out, Route *in) override;
 };
 #endif  // SRC_ALTERNATIVE_STRATEGY_H_

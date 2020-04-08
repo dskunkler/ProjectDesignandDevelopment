@@ -11,6 +11,7 @@ NoonStrategy::NoonStrategy() {}
 Bus *NoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
   // We want to switch between regular and large busses. state_ will iterate
   // at 0 but will be reset at 1;
+  std::cout <<"MAKING A BUS! FROM NOON STRAT\n";
   if(state_ == 0) {
     return new RegularBus(id, out, in);
     state_++;

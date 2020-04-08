@@ -16,7 +16,7 @@ class BusStrategy {
  public:
    BusStrategy() {};
    static int state_;
-   virtual Bus *DeployStrat() = 0;
+   virtual Bus *DeployStrat(std::string id, Route * out, Route *in) = 0;
 };
 
 #endif  // SRC_BUS_STATEGY_H_
