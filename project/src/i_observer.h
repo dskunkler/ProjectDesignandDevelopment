@@ -17,7 +17,7 @@ template <typename T>
 class IObserver {
  public:
    IObserver() {};
-   void Notify(T info) {};
+   virtual void Notify(T info) = 0;
 };
 
 #endif  // SRC_I_OBSERVER_H_

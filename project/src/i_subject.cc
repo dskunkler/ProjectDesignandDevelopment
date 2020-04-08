@@ -8,6 +8,7 @@
    * Includes
  ******************************************************************************/
  #include <vector>
+ #include <iostream>
  #include "src/i_subject.h"
  #include "src/data_structs.h"
 
@@ -32,4 +33,5 @@ void ISubject<T>::ClearObservers() {
 template <typename T>
 void ISubject<T>::NotifyObservers(BusData* info ) {
   observer_[0]->Notify(info);
+  std::cout << "notify called from subject";
 }

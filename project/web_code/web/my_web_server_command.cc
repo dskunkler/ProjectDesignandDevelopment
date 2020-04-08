@@ -142,6 +142,7 @@ public:
     void Notify(BusData* info) { // This normally called update, but we call it
         // Notify as per the lab writeup
         picojson::object data;
+        std::cout << "HELLO FROM NOTIFY\n";
         data["command"] = picojson::value("observe");
         std::stringstream ss;
         ss << "Bus " << info->id << "\n";

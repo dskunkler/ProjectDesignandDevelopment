@@ -229,6 +229,7 @@ void Bus::UpdateBusData() {
     bus_data_.capacity = passenger_max_capacity_;
 
     NotifyObservers(&bus_data_);
+    std::cout << "Notified observer";
 }
 
 BusData Bus::GetBusData() const {
