@@ -9,6 +9,7 @@
   * Includes
 ******************************************************************************/
 #include <vector>
+#include <time.h>
 #include <random>
 #include <string>
 #include "src/bus_factory.h"
@@ -26,6 +27,13 @@ std::uniform_int_distribution<std::mt19937::result_type> dist1(1, 3);
  ******************************************************************************/
 Bus *BusFactory::Generate(std::string id, Route * out,
     Route *in, int capacity) {
+  time_t rawtime;  // This will be our time.
+  struct tm * timeinfo;  // This holds our time info.
+
+  time (&rawtime);  // time is now in rawtime
+  timeinfo = localtime (&rawtime);  // timeinfo is now in the time struct
+  
+      /*
   int size = dist1(rng);
   if (capacity != 0) {
     size = capacity;
@@ -50,4 +58,5 @@ Bus *BusFactory::Generate(std::string id, Route * out,
       std::cout << "ERROR e NOT BETWEEN 1 AND 3!!!\n";
   }
   return NULL;
+  */
 }
