@@ -20,23 +20,24 @@ int main(int argc, char**argv) {
 		int port = std::atoi(argv[1]);
 		MyWebServerSessionState state;
 
-        MyWebServer* myWS = new MyWebServer();
-        ConfigManager* cm = new ConfigManager();
+    MyWebServer* myWS = new MyWebServer();
+    ConfigManager* cm = new ConfigManager();
 
-        cm->ReadConfig("config.txt");
-        std::cout << "Using default config file: config.txt" << std::endl;
+    cm->ReadConfig("config.txt");
+    std::cout << "Using default config file: config.txt" << std::endl;
 
-        VisualizationSimulator* mySim = new VisualizationSimulator(myWS, cm);
+    VisualizationSimulator* mySim = new VisualizationSimulator(myWS, cm);
 
 		state.commands["getRoutes"] = new GetRoutesCommand(myWS);
 		state.commands["getBusses"] = new GetBussesCommand(myWS);
-        state.commands["start"] = new StartCommand(mySim);
-        state.commands["update"] = new UpdateCommand(mySim);
-        state.commands["initRoutes"] = new InitRoutesCommand(cm);
-        state.commands["pause"] = new PauseCommand(mySim);
-        state.commands["listen"] = new AddListenerCommand(mySim);
+    state.commands["start"] = new StartCommand(mySim);
+    state.commands["update"] = new UpdateCommand(mySim);
+    state.commands["initRoutes"] = new InitRoutesCommand(cm);
+    state.commands["pause"] = new PauseCommand(mySim);
+    state.commands["listen"] = new AddListenerCommand(mySim);
 
-		WebServerWithState<MyWebServerSession, MyWebServerSessionState> server(state, port);
+		WebServerWithState<MyWebServerSession,
+                                  MyWebServerSessionState> server(state, port);
 		while (true) {
 			server.service();
 		}
