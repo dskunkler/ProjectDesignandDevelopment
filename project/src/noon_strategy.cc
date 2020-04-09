@@ -13,15 +13,18 @@ Bus *NoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
   // at 0 but will be reset at 1;
   std::cout <<"MAKING A BUS! FROM NOON STRAT\n";
   if(state_ == 0) {
-    return new RegularBus(id, out, in);
     state_++;
+    return new RegularBus(id, out, in);
+
   }
   else if(state_ == 1) {
-    return new LargeBus(id, out, in);
     state_ = 0;
+    return new LargeBus(id, out, in);
+
   }
   else {
     std::cout << "***ERROR INCORRECT state_ IN NOON STRAT***\n";
+    return NULL;
   }
 
 }
