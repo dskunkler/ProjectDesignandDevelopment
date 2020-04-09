@@ -9,6 +9,7 @@ AlternativeStrategy::AlternativeStrategy() {}
 
 // Every time it's called, simply return a small bus.
 Bus *AlternativeStrategy::DeployStrat(std::string id, Route * out, Route *in) {
+  std::cout << "Bus size = 30.\n";
   // std::cout <<"MAKING A SMALL BUS! FROM ALTSTRAT\n";
   return new SmallBus(id, out, in);
 }

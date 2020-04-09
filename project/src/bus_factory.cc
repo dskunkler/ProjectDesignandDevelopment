@@ -36,30 +36,38 @@ BusStrategy* BusFactory::strategy_ = NULL;
 
 Bus *BusFactory::Generate(std::string id, Route * out,
                                                     Route *in, int capacity) {
-  std::cout << "MADE IT TO THE FACTORY\n";
+  // std::cout << "MADE IT TO THE FACTORY\n";
   time_t rawtime;  // This will be our time.
   struct tm * timeinfo;  // This holds our time info.
 
   time (&rawtime);  // time is now in rawtime
   timeinfo = localtime (&rawtime);  // timeinfo is now in the time struct
 
+  // Print the time.
+  std::cout << "Current local time and date: " << asctime(timeinfo);
+
   // Get the military hour for checking purposes.
   int hour = timeinfo->tm_hour;
 
+  std::cout << "Strategy: ";
   // If its between 6am and 8am we want to use the morning strategy.
   if(hour >= 6 && hour < 8) {
+    std::cout << "1.\n";
     strategy_ = new MorningStrategy();
   }
   // if its between 8 am and 3 pm we use the noon strat.
   else if(hour >=8 && hour < 15) {
+    std::cout << "2.\n";
     strategy_ = new NoonStrategy();
   }
   // if between 3 and 8 am we use the afternoon strat.
   else if(hour >= 15 && hour < 20) {
+    std::cout << "3.\n";
     strategy_ = new AfternoonStrategy();
   }
   // any other time we use the alternative strat
   else{
+    std::cout << "small.\n";
     strategy_ = new AlternativeStrategy();
   }
 

@@ -16,18 +16,21 @@
 MorningStrategy::MorningStrategy() {}
 
 Bus *MorningStrategy::DeployStrat(std::string id, Route * out, Route *in) {
+  std::cout << "Bus size = ";
+
+
   // We want to switch between regular and small busses. state_ will iterate
   // at 0 but will be reset at 1;
   std::cout <<"MAKING A BUS! FROM MORNING STRAT\n";
   if(state_ == 0) {
+    std::cout << "30.\n";
     state_++;
     return new SmallBus(id, out, in);
-
   }
   else if(state_ == 1) {
     state_ = 0;
+    std::cout << "60.\n";
     return new RegularBus(id, out, in);
-
   }
   else {
     std::cout << "***ERROR INCORRECT state_ IN MORNING STRAT***\n";
