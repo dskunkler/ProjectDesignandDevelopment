@@ -77,30 +77,30 @@ bool sLocalSimulator::Start() {
   CC_WB_distances[3] = 19;
 
 
-  std::list<double> CC_EB_probs;  // realistic .15, .3, .025, .05, .05, 0
-  CC_EB_probs.push_back(.15); // WB
-  CC_EB_probs.push_back(.025); // O&W
-  CC_EB_probs.push_back(.01); // tway
-  CC_EB_probs.push_back(0); // SPSC - MUST BE 0
-  // TODO: is this always true? If so, we may want to reduce the length of probs
+  std::list<double> CC_EB_probs;   // realistic .15, .3, .025, .05, .05, 0
+  CC_EB_probs.push_back(.15);  // WB
+  CC_EB_probs.push_back(.025);  // O&W
+  CC_EB_probs.push_back(.01);  // tway
+  CC_EB_probs.push_back(0);  // SPSC - MUST BE 0
+  // Is this always true? If so, we may want to reduce the length of probs
   // to_char_type remove possibility of generating passengers with nowhere to go
 
-  std::list<double> CC_WB_probs; // realistic .35, .05, .01, .01, .2, 0
-  CC_WB_probs.push_back(.35); // SPSC
-  CC_WB_probs.push_back(.01); // State fair
-  CC_WB_probs.push_back(.05); // Ridder
-  CC_WB_probs.push_back(.3); // Bruininks
-  CC_WB_probs.push_back(0); // Blegen
+  std::list<double> CC_WB_probs;  // realistic .35, .05, .01, .01, .2, 0
+  CC_WB_probs.push_back(.35);  // SPSC
+  CC_WB_probs.push_back(.01);  // State fair
+  CC_WB_probs.push_back(.05);  // Ridder
+  CC_WB_probs.push_back(.3);  // Bruininks
+  CC_WB_probs.push_back(0);  // Blegen
 
   // Staticly defined objects get destroyed at end of Start()!
   // Must be dynamic...
   // RandomPassengerGenerator CC_EB_generator(CC_EB_probs, CC_EB_stops_list);
   // RandomPassengerGenerator CC_WB_generator(CC_WB_probs, CC_WB_stops_list);
 
- RtestPassengerGenerator * CC_EB_generator =
-   new RtestPassengerGenerator (CC_EB_probs, CC_EB_stops_list);
- RtestPassengerGenerator * CC_WB_generator =
-   new RtestPassengerGenerator (CC_WB_probs, CC_WB_stops_list);
+  RtestPassengerGenerator * CC_EB_generator =
+               new RtestPassengerGenerator (CC_EB_probs, CC_EB_stops_list);
+  RtestPassengerGenerator * CC_WB_generator =
+               new RtestPassengerGenerator (CC_WB_probs, CC_WB_stops_list);
 
   // Test to ensure generators are working
   // Helpful for debugging
@@ -126,7 +126,7 @@ bool sLocalSimulator::Start() {
 
   bus_counters_.push_back(10000);
 
-  //This will eventually be replaced by configuration/command line argument
+  // This will eventually be replaced by configuration/command line argument
   bus_start_timings_.push_back(10);
 
   // Do we want a bus on start? Or let the update handle this?

@@ -8,8 +8,8 @@
    * Includes
  ******************************************************************************/
 #include "src/bus.h"
-#include "i_observer.h"
-#include "my_web_server_command.h"
+#include "src/i_observer.h"
+#include "web_code/web/my_web_server_command.h"
 
 /*******************************************************************************
   * Member Functions
@@ -259,7 +259,7 @@ void Bus::ClearObservers() {
   std::cout << "Observer Cleared\n";
 }
 
-void Bus::NotifyObservers(BusData *info){
+void Bus::NotifyObservers(BusData *info) {
   for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
     observer_[i]->Notify(info);
     std::cout << "Observers Notified\n";

@@ -1,4 +1,10 @@
+/**
+ * @file alternative_strategy.cc
+ *
+ * @copyright 2019 3081 Staff, All rights reserved.
+ */
 #include <iostream>
+#include <string>
 #include "src/bus.h"
 #include "src/small_bus.h"
 #include "src/bus_strategy.h"

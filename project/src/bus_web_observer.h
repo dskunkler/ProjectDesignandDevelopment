@@ -3,8 +3,8 @@
  *
  * @copyright 2020 D. Kunkler, All rights reserved.
  */
- #ifndef SRC_BUS_WEB_OBSERVER_H_
- #define SRC_BUS_WEB_OBSERVER_H_
+#ifndef SRC_BUS_WEB_OBSERVER_H_
+#define SRC_BUS_WEB_OBSERVER_H_
 
 /*******************************************************************************
  * Includes
@@ -16,7 +16,7 @@
  ******************************************************************************/
 class BusWebObserver : public IObserver {
  private:
-   MyWebServerSession session;
+  MyWebServerSession session;
 };
 
 #endif  // SRC_BUS_WEB_OBSERVER_H_

@@ -1,4 +1,13 @@
+/**
+ *
+ * @filename noon_strategy.cc
+ * @copyright Daniel Kunkler 2020
+ */
+/*******************************************************************************
+   * Includes
+ ******************************************************************************/
 #include <iostream>
+#include <string>
 #include "src/bus.h"
 #include "src/regular_bus.h"
 #include "src/large_bus.h"
@@ -12,20 +21,17 @@ Bus *NoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
   std::cout << "Bus size = ";
   // We want to switch between regular and large busses. state_ will iterate
   // at 0 but will be reset at 1;
-  std::cout <<"MAKING A BUS! FROM NOON STRAT\n";
-  if(state_ == 0) {
+  // std::cout << "MAKING A BUS! FROM NOON STRAT\n";
+  if (state_ == 0) {
     state_++;
     std::cout << "60.\n";
     return new RegularBus(id, out, in);
-  }
-  else if(state_ == 1) {
+  } else if (state_ == 1) {
     state_ = 0;
     std::cout << "0.\n";
     return new LargeBus(id, out, in);
-  }
-  else {
+  } else {
     std::cout << "***ERROR INCORRECT state_ IN NOON STRAT***\n";
     return NULL;
   }
-
 }

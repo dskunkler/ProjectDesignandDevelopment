@@ -9,11 +9,12 @@
 /*******************************************************************************
   * Includes
 ******************************************************************************/
+#include <string>
 #include "src/bus.h"
 #include "src/bus_strategy.h"
 class AfternoonStrategy : public BusStrategy {
  public:
-   AfternoonStrategy();
-   Bus *DeployStrat(std::string id, Route * out, Route *in);
+  AfternoonStrategy();
+  Bus *DeployStrat(std::string id, Route * out, Route *in);
 };
 #endif  // SRC_AFTERNOON_STRATEGY_H_

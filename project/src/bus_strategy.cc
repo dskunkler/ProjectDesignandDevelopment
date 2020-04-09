@@ -1,3 +1,11 @@
+/**
+ *
+ * @filename bus_strategy.h
+ * @copyright Daniel Kunkler 2020
+ */
+/*******************************************************************************
+   * Includes
+ ******************************************************************************/
 #include  "src/bus_strategy.h"
 
 // I kept getting errors that it was referencing an undefined type so here is
