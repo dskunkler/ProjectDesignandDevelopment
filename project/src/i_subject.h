@@ -11,20 +11,22 @@
  ******************************************************************************/
 #include <vector>
 #include "src/data_structs.h"
+#include "src/i_observer.h"
 
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+
 template <typename T>
 class ISubject {
  public:
   ISubject() {}
-  void RegisterObserver(T *observer);
+  void RegisterObserver(IObserver<T> *observer);
   void ClearObservers();
-  void NotifyObservers(BusData* info);
+  void NotifyObservers(T* info);
 
  protected:
   // this is our list of observers
-  std::vector<T *> observer_;
+  std::vector<IObserver<T> *> observer_;
 };
 #endif  // SRC_I_SUBJECT_H_

@@ -10,6 +10,7 @@
 #include <vector>
 #include <iostream>
 #include "src/i_subject.h"
+#include "src/i_observer.h"
 #include "src/data_structs.h"
 
 /*******************************************************************************
@@ -21,7 +22,7 @@ template <typename T>
 ISubject<T>::ISubject() {}
 */
 template <typename T>
-void ISubject<T>::RegisterObserver(T *observer ) {
+void ISubject<T>::RegisterObserver(IObserver<T> *observer ) {
   observer_.push_back(observer);
 }
 
@@ -31,7 +32,7 @@ void ISubject<T>::ClearObservers() {
 }
 
 template <typename T>
-void ISubject<T>::NotifyObservers(BusData* info ) {
+void ISubject<T>::NotifyObservers(T* info ) {
   observer_[0]->Notify(info);
   std::cout << "notify called from subject";
 }

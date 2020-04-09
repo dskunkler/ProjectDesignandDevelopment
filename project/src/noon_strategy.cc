@@ -13,6 +13,7 @@
 #include "src/large_bus.h"
 #include "src/bus_strategy.h"
 #include "src/noon_strategy.h"
+#include "src/i_observer.h"
 
 // You can't initialize static variables in header files so I must do it here.
 NoonStrategy::NoonStrategy() {}
