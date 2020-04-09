@@ -46,7 +46,7 @@ Bus *BusFactory::Generate(std::string id, Route * out,
 
   // Print the time.
   char buff[50];
-  std::cout << "Current local time and date: " << asctime_r(&timeinfo,buff);
+  std::cout << "Current local time and date: " << asctime_r(&timeinfo, buff);
 
   // Get the military hour for checking purposes.
   int hour = timeinfo.tm_hour;
