@@ -106,5 +106,43 @@
  * This does violate our Open to Extension, closed to modification principle
  * though. Either way, the trade-off of simplicity for functionality took place
  * with out tight time frame.
+ * \section Designing and Implemnting the Observer Pattern
+ * The Observer Pattern was a fun and informative experience overall. I named my
+ * abstract classes ISubject which I was refer to as the subject and IObserver
+ * which I will refer to as the observer. I ended up making both of them
+ * Templates which means they have to have a type passed to them to use. I
+ * made it so the type passed was a BusData pointer. I think this makes the
+ * most sense because we will always be able to inherit an observer from our
+ * IObserver class so our ISubject class will be able to use any time which
+ * is an IObserver. However, we may want to use the subject and observer
+ * relationship for something besides a Bus and BusData object so we want
+ * to let the compiler know what we want to observer. For example we could
+ * have Bus inherit from ISubject and pass all of it's passengers to an observer
+ * or any other aspect of it we want. We would simply need to pass that in
+ * as the bracket for our ISubject in the inheritance. I had to add a function
+ * NotifyObservers to the Bus class because I wanted ISubject to be an abstract
+ * type. I also had to add AddListener and ClearListeners to the
+ * visualization_simulator class. The hardest part for me was definitely getting
+ * the syntax for the templates correct. It can be a little confusing when youre
+ * passing in a bunch of different types all over the place and passing a
+ * template type as an argument to something too. I had an issue where the
+ * compiler was telling me I had an undefined type because I didn't know
+ * I had to have the definitions in the header file for the templates until
+ * Brandon Voigt helped me figure it out during a TA session.
+ * I would say the things which helped me understand the Observer pattern the
+ * most is Chapter 2 in Head First Design Patterns as well as the image provided
+ * in the lab.
+ * ![Observer Pattern](Observer_uml.jpg)
+ * I'm a very visual learner so it was nice to have something translated into
+ * C++ which is the language I'm probably most comfortable with at this point.
+ * My tip for understanding the pattern would be to read the chapter, then
+ * look at an example in your best language. In english I would describe it as
+ * this.<br>1 ) You have a subject which is being witnessed.
+ * <br> 2 ) You have an observer who wants to watch the subject.
+ * <br> 3 ) You want to subject to hold a reference of the observers watching it
+ * so that it can alert them whenever it wants.
+ * <br> This is a VERY BASIC understanding of the Observer pattern. Somethings
+ * watching and somethings being watched and the subject being watched alerts
+ * the observer to its changes.  
  */
 #endif  // SRC_MAINPAGE_H_
