@@ -5,7 +5,9 @@
  */
 #ifndef SRC_S_LOCAL_SIMULATOR_H_
 #define SRC_S_LOCAL_SIMULATOR_H_
-
+/*******************************************************************************
+* Includes
+ ******************************************************************************/
 #include <vector>
 #include <string>
 #include "src/simulator.h"

@@ -6,7 +6,9 @@
 
 #ifndef SRC_RTEST_PASSENGER_GENERATOR_H_
 #define SRC_RTEST_PASSENGER_GENERATOR_H_
-
+/*******************************************************************************
+* Includes
+ ******************************************************************************/
 #include <list>
 #include <random>
 #include <ctime>

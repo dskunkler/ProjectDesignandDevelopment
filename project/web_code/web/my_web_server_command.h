@@ -1,7 +1,9 @@
 
 #ifndef MY_WEB_SERVER_COMMAND_H
 #define MY_WEB_SERVER_COMMAND_H
-
+/*******************************************************************************
+* Includes
+ ******************************************************************************/
 #include "config_manager.h"
 #include "visualization_simulator.h"
 
@@ -14,7 +16,9 @@
 
 class MyWebServerSession;
 class MyWebServerSessionState;
-
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 class MyWebServerCommand {
 public:
 	virtual ~MyWebServerCommand() {}

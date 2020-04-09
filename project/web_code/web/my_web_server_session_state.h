@@ -1,16 +1,20 @@
 /**
- * @file Bus.cc
+ * @file my_web_server_session_state.h
  *
- * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
+ * @copyright 2019 3081 Staff and D. Kunkler 2020, All rights reserved.
  */
 #ifndef WEB_MY_WEB_SERVER_SESSION_STATE_H_
 #define WEB_MY_WEB_SERVER_SESSION_STATE_H_
-
+/*******************************************************************************
+* Includes
+ ******************************************************************************/
 #include <string>
 #include <map>
 
 class MyWebServerCommand;
-
+/*******************************************************************************
+ * Struct Definitions
+ ******************************************************************************/
 struct MyWebServerSessionState {
     MyWebServerSessionState() : commands(std::map<std::string,
                                               MyWebServerCommand*>()) {}

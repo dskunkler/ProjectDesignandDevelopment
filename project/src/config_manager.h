@@ -1,4 +1,3 @@
-
 /**
  * @file config_manager.h
  *

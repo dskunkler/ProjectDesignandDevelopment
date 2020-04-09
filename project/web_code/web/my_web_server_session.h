@@ -5,11 +5,15 @@
  */
 #ifndef WEB_MY_WEB_SERVER_SESSION_H_
 #define WEB_MY_WEB_SERVER_SESSION_H_
-
+/*******************************************************************************
+* Includes
+******************************************************************************/
 #include "WebServer.h"
 #include "web_code/web/my_web_server_session_state.h"
 
-
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 class MyWebServerSession : public JSONSession {
  public:
        explicit MyWebServerSession(MyWebServerSessionState s) : state(s) {}

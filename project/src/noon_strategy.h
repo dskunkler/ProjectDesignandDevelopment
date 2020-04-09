@@ -12,6 +12,9 @@
 #include <string>
 #include "src/bus.h"
 #include "src/bus_strategy.h"
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 class NoonStrategy : public BusStrategy {
  public:
   NoonStrategy();

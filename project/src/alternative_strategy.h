@@ -12,6 +12,9 @@
 #include <string>
 #include "src/bus.h"
 #include "src/bus_strategy.h"
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 class AlternativeStrategy : public BusStrategy {
  public:
   // the alternative strategy only puts out small busses so state is irrelevant

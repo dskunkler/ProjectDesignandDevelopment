@@ -5,11 +5,15 @@
  */
 #ifndef SRC_R_LOCAL_SIMULATOR_H_
 #define SRC_R_LOCAL_SIMULATOR_H_
-
+/*******************************************************************************
+  * Includes
+******************************************************************************/
 #include <vector>
 #include <string>
 #include "src/simulator.h"
-
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 class rLocalSimulator : public Simulator {
  public:
   bool Start() override;
