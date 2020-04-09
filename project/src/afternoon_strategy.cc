@@ -30,17 +30,17 @@ Bus *AfternoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
     // std::cout << "state is now " << state_ << std::endl;
     return new SmallBus(id, out, in);
   } else if (state_ == 1) {
-    // std::cout << "state was " << state_ << std::endl;
-    state_++;
-    std::cout << "60.\n";
-    // std::cout << "state is now " << state_ << std::endl;
-    return new RegularBus(id, out, in);
+      // std::cout << "state was " << state_ << std::endl;
+      state_++;
+      std::cout << "60.\n";
+      // std::cout << "state is now " << state_ << std::endl;
+      return new RegularBus(id, out, in);
   } else if (state_ == 2) {
-    state_ = 0;
-    std::cout << "90.\n";
-    return new LargeBus(id, out, in);
+      state_ = 0;
+      std::cout << "90.\n";
+      return new LargeBus(id, out, in);
   } else {
-    std::cout << "***ERROR INCORRECT state_ IN AFTERNOON STRAT***\n";
-    return NULL;
+      std::cout << "***ERROR INCORRECT state_ IN AFTERNOON STRAT***\n";
+      return NULL;
   }
 }

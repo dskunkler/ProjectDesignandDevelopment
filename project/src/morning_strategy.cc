@@ -26,11 +26,11 @@ Bus *MorningStrategy::DeployStrat(std::string id, Route * out, Route *in) {
     state_++;
     return new SmallBus(id, out, in);
   } else if (state_ == 1) {
-    state_ = 0;
-    std::cout << "60.\n";
-    return new RegularBus(id, out, in);
+      state_ = 0;
+      std::cout << "60.\n";
+      return new RegularBus(id, out, in);
   } else {
-    std::cout << "***ERROR INCORRECT state_ IN MORNING STRAT***\n";
-    return NULL;
+      std::cout << "***ERROR INCORRECT state_ IN MORNING STRAT***\n";
+      return NULL;
   }
 }

@@ -57,17 +57,17 @@ Bus *BusFactory::Generate(std::string id, Route * out,
     std::cout << "1.\n";
     strategy_ = new MorningStrategy();
   } else if (hour >=8 && hour < 15) {
-    // if its between 8 am and 3 pm we use the noon strat.
-    std::cout << "2.\n";
-    strategy_ = new NoonStrategy();
-  } else if (hour >= 15 && hour < 20) {
-    // if between 3 and 8 am we use the afternoon strat.
-    std::cout << "3.\n";
-    strategy_ = new AfternoonStrategy();
+      // if its between 8 am and 3 pm we use the noon strat.
+      std::cout << "2.\n";
+      strategy_ = new NoonStrategy();
+    } else if (hour >= 15 && hour < 20) {
+      // if between 3 and 8 am we use the afternoon strat.
+      std::cout << "3.\n";
+      strategy_ = new AfternoonStrategy();
   } else {
-    // any other time we use the alternative strat
-    std::cout << "small.\n";
-    strategy_ = new AlternativeStrategy();
+      // any other time we use the alternative strat
+      std::cout << "small.\n";
+      strategy_ = new AlternativeStrategy();
   }
 
   // Return whatever size bus our strategy deploys
