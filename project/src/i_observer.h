@@ -13,10 +13,23 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+ /**
+  * @brief IObserver Class
+  * Calls to /ref IObserver create a new IObserver object
+  * Calls to /ref Notify alerts vis_sim to the information passed to it.
+  */
 template <typename T>
 class IObserver {
  public:
+   /**
+    * @brief Generator for an observer
+    *
+    * @return IObserver object
+    */
   IObserver() {}
+  /**
+   * @brief Notify is pure virtual Function
+   */
   virtual void Notify(T info) = 0;
 };
 

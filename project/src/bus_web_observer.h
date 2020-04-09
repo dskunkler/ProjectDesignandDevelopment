@@ -14,6 +14,10 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+ /**
+  * @brief The BusWebObserver class
+  *
+  */
 class BusWebObserver : public IObserver {
  private:
   MyWebServerSession session;

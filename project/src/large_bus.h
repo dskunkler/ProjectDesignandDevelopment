@@ -40,6 +40,10 @@ class LargeBus: public Bus {
  */
   LargeBus(std::string name, Route * out, Route * in, int capacity = 90,
                        double speed = 1):Bus {name, out, in, capacity, speed} {}
+  /**
+  * @brief Report displays all the information of the Bus.
+  * @param[in] out an ostream object to display to.
+  */
   void Report(std::ostream&) override;
 };
 #endif  // SRC_LARGE_BUS_H_
