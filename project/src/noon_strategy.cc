@@ -28,7 +28,7 @@ Bus *NoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
     return new RegularBus(id, out, in);
   } else if (state_ == 1) {
     state_ = 0;
-    std::cout << "0.\n";
+    std::cout << "90.\n";
     return new LargeBus(id, out, in);
   } else {
     std::cout << "***ERROR INCORRECT state_ IN NOON STRAT***\n";
