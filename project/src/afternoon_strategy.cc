@@ -24,7 +24,7 @@ Bus *AfternoonStrategy::DeployStrat(std::string id, Route * out, Route *in) {
   // We want to switch between small, regular, and large busses. state__ will
   // iterate at 0 but will be reset at 1;
   if (state_ == 0) {
-    std::cout << "30";
+    std::cout << "30.\n";
     // std::cout << "state was " << state_ << std::endl;
     state_++;
     // std::cout << "state is now " << state_ << std::endl;
