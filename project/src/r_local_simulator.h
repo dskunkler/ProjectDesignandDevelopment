@@ -14,9 +14,25 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+ /**
+  * @brief rLocalSimulator class simulates a route to test our program
+  *
+  * Calls to \ref Start() Start our simulation.
+  * Calls to \ref Update() Update the simulation.
+  */
 class rLocalSimulator : public Simulator {
  public:
+/**
+ * @brief Starts the instance of the local simulator. Fills in all the
+ * bus, route, and passenger information.
+ * @return bool instance true if it worked properly.
+ */
   bool Start() override;
+  /**
+   * @brief Updates the instance of the local simulator appropriately for each
+   * stop and movement of the bus on the route.
+   * @return bool instance true if it worked properly.
+   */
   bool Update() override;
  private:
   std::vector<int> bus_counters_;
