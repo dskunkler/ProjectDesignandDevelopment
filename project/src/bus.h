@@ -142,11 +142,10 @@ class Bus: public ISubject<BusData*> {
  */
   int GetCapacity() const { return passenger_max_capacity_; }
 
-  void RegisterObserver(IObserver<BusData*> *observer);
-
-  void ClearObservers();
-
-  void NotifyObservers(BusData* info);
+/**
+ * @brief Notifies the observers of the busdata.
+ */
+  void NotifyObservers(BusData* info) override;
 
 
 

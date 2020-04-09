@@ -21,9 +21,13 @@ template <typename T>
 class ISubject {
  public:
   ISubject() {}
-  void RegisterObserver(IObserver<T> *observer);
-  void ClearObservers();
-  void NotifyObservers(T* info);
+  void RegisterObserver(IObserver<T> *observer) {
+    observer_.push_back(observer);
+  }
+  void ClearObservers() {
+    observer_.clear();
+  }
+  virtual void NotifyObservers(T info) = 0;
 
  protected:
   // this is our list of observers
