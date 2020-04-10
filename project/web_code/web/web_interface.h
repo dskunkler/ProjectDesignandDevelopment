@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef WEB_WEB_INTERFACE_H_
-#define WEB_WEB_INTERFACE_H_
+#ifndef WEB_CODE_WEB_WEB_INTERFACE_H_
+#define WEB_CODE_WEB_WEB_INTERFACE_H_
 /*******************************************************************************
 * Includes
 ******************************************************************************/
@@ -22,4 +22,4 @@ class WebInterface {
     virtual void UpdateRoute(const RouteData& route, bool deleted = false) = 0;
 };
 
-#endif  // WEB_WEB_INTERFACE_H_
+#endif  // WEB_CODE_WEB_WEB_INTERFACE_H_

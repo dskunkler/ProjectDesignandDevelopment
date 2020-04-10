@@ -124,10 +124,9 @@ void VisualizationSimulator::AddListener(std::string* id,
                                               IObserver<BusData*>* observer) {
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
-    if(busses_[i]->GetName() == *id) {
+    if (busses_[i]->GetName() == *id) {
       std::cout << "Observer " << *id << " added\n";
       busses_[i]->RegisterObserver(observer);
     }
   }
-
 }

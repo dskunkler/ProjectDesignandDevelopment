@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef WEB_MY_WEB_SERVER_SESSION_H_
-#define WEB_MY_WEB_SERVER_SESSION_H_
+#ifndef WEB_CODE_WEB_MY_WEB_SERVER_SESSION_H_
+#define WEB_CODE_WEB_MY_WEB_SERVER_SESSION_H_
 /*******************************************************************************
 * Includes
 ******************************************************************************/
@@ -27,4 +27,4 @@ class MyWebServerSession : public JSONSession {
 };
 
 
-#endif  // WEB_MY_WEB_SERVER_SESSION_H_
+#endif  // WEB_CODE_WEB_MY_WEB_SERVER_SESSION_H_

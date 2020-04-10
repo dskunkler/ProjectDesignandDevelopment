@@ -3,12 +3,12 @@
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
  */
-#ifndef WEB_VISUALIZATION_SIMULATOR_H_
-#define WEB_VISUALIZATION_SIMULATOR_H_
+#ifndef WEB_CODE_WEB_VISUALIZATION_SIMULATOR_H_
+#define WEB_CODE_WEB_VISUALIZATION_SIMULATOR_H_
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-
+#include <string>
 #include <vector>
 #include <list>
 
@@ -86,7 +86,7 @@ class VisualizationSimulator {
  * @param[in] BusWebObserver A web observer object
  */
 
- void AddListener(std::string* id, IObserver<BusData*>* observer );
+  void AddListener(std::string* id, IObserver<BusData*>* observer);
 
  private:
         WebInterface* webInterface_;
@@ -106,4 +106,4 @@ class VisualizationSimulator {
   int busId = 1000;
 };
 
-#endif  // WEB_VISUALIZATION_SIMULATOR_H_
+#endif  // WEB_CODE_WEB_VISUALIZATION_SIMULATOR_H_
