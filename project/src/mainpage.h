@@ -106,7 +106,7 @@
  * This does violate our Open to Extension, closed to modification principle
  * though. Either way, the trade-off of simplicity for functionality took place
  * with out tight time frame.
- * \section Designing and Implemnting the Observer Pattern
+ * \section Observer Designing and Implementing the Observer Pattern
  * The Observer Pattern was a fun and informative experience overall. I named my
  * abstract classes ISubject which I was refer to as the subject and IObserver
  * which I will refer to as the observer. I ended up making both of them
@@ -132,7 +132,7 @@
  * I would say the things which helped me understand the Observer pattern the
  * most is Chapter 2 in Head First Design Patterns as well as the image provided
  * in the lab.
- * ![Observer Pattern](Observer_uml.jpg)
+ * ![Observer Pattern](Observer_UML.jpg) width=600px
  * I'm a very visual learner so it was nice to have something translated into
  * C++ which is the language I'm probably most comfortable with at this point.
  * My tip for understanding the pattern would be to read the chapter, then
@@ -143,6 +143,6 @@
  * so that it can alert them whenever it wants.
  * <br> This is a VERY BASIC understanding of the Observer pattern. Somethings
  * watching and somethings being watched and the subject being watched alerts
- * the observer to its changes.  
+ * the observer to its changes.
  */
 #endif  // SRC_MAINPAGE_H_
