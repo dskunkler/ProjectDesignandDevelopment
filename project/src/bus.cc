@@ -26,6 +26,7 @@ Bus::Bus(std::string name, Route * out, Route * in,
   next_stop_ = out->GetDestinationStop();
   unloader_ = new PassengerUnloader;
   loader_ = new PassengerLoader;
+  total_passengers = 0;  // We start with no passengers on the bus.
 }
 
 bool Bus::IsTripComplete() {
@@ -45,6 +46,7 @@ bool Bus::LoadPassenger(Passenger * new_passenger) {
   if (loader_->LoadPassenger(new_passenger, passenger_max_capacity_,
       &passengers_)) {
     added_passenger = true;
+    total_passengers++;  // increase total passengers by 1.
     // revenue_ += 0; //No revenue tracking at this time.
   }
   return added_passenger;

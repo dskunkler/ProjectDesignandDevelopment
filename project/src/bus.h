@@ -164,6 +164,7 @@ class Bus: public ISubject<BusData*> {
   PassengerUnloader * unloader_;
   PassengerLoader * loader_;
   std::list<Passenger *> passengers_;
+  int total_passengers;  // the total number of passengers who rode the bus.
   int passenger_max_capacity_;
   // double revenue_; // revenue collected from passengers, doesn't include
                       // passengers who pay on deboard
