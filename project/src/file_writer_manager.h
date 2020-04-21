@@ -23,13 +23,22 @@ class FileWriterManager {
   FileWriteManager() {
     file_writer = new FileWriter();
   }
+
+  ~FileWriteManager() {
+    delete file_writer;
+  }
+
   FileWriter file_writer;
+
  public:
   static FileWriterManager *Getinstance() {
     if (!instance) {
       instance = new FileWriterManager;
     }
     return instance;
+  }
+  void Write(string file, std::vector<std::string> text) {
+    file_writer->Write(file, text);
   }
 };
 
