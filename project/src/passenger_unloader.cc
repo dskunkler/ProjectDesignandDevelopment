@@ -31,6 +31,7 @@ int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
       // This could be a destructor issue as well.
       // *it->FinalUpdate();
       (*it)->Report(report_text);  // the report is now in the report_text
+      // write the text cleaned up by Util to the passenger_file
       FileWriterManager::GetInstance()->Write(passenger_file_name,
                                         Util::processOutput(&report_text));
       it = passengers->erase(it);
@@ -45,6 +46,5 @@ int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
 }
 
 void PassengerUnloader::SetOutputFile(std::string filename) {
-  std::cout << "*********out file set too: " << filename;
   passenger_file_name = filename;
 }

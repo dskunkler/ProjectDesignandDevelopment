@@ -161,7 +161,7 @@ bool Bus::Move() {
 
 
 // bool Refuel() {
-// //This may become more complex in the future
+// This may become more complex in the future
 // fuel_ = max_fuel_;
 // }
 
@@ -170,7 +170,7 @@ void Bus::Update() {  // using common Update format
   UpdateBusData();
 }
 
-
+// print a report of all the information of the bus.
 void Bus::Report(std::ostream& out) {
   out << "Name: " << name_ << std::endl;
   out << "Speed: " << speed_ << std::endl;
