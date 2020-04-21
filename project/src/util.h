@@ -9,6 +9,7 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+#include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -18,15 +19,22 @@
 class Util {
  public:
 
-   static std::vector<std::string> processOutput(std::string report_text) {
+   static std::vector<std::string> processOutput(std::ostringstream *r_text)
+   {
+     std::string report_text = r_text->str();
+     r_text->str("");
+     r_text->clear();
+     std::cout << "&&&&&&&&PROCESSING OUTPUT";
      std::vector<std::string> comma_seperated;  // this will be our csv format
      std::istringstream istr(report_text);
      std::string tmp;
+     istr >> tmp;
+     comma_seperated.push_back(tmp);
      while(istr >> tmp){
-       comma_seperated.push_back(tmp);
        comma_seperated.push_back(",");  // this will put it in its own cell
+       comma_seperated.push_back(tmp);
      }
-     comma_seperated.push_back("\n");  // put an endl at the end for a new line
+     // comma_seperated.push_back("\n");  // put an endl at the end for a new line
      return comma_seperated;
    }
 };

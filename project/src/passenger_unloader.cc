@@ -32,7 +32,7 @@ int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
       // *it->FinalUpdate();
       (*it)->Report(report_text);  // the report is now in the report_text
       FileWriterManager::GetInstance()->Write(passenger_file_name,
-                                        Util::processOutput(report_text.str()));
+                                        Util::processOutput(&report_text));
       it = passengers->erase(it);
       // getting seg faults, probably due to reference deleted objects
       // here
@@ -45,5 +45,6 @@ int PassengerUnloader::UnloadPassengers(std::list<Passenger *> *passengers,
 }
 
 void PassengerUnloader::SetOutputFile(std::string filename) {
+  std::cout << "*********out file set too: " << filename;
   passenger_file_name = filename;
 }

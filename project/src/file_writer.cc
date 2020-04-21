@@ -20,10 +20,12 @@
 // and the text to be written.
 
 void FileWriter::Write(std::string filename, std::vector<std::string> text) {
-  fout.open(filename);
+  fout.open(filename, std::fstream::app);
   for (std::vector<std::string>::iterator it = text.begin(); it != text.end();
                                                                        it++) {
     fout << *it;
   }
+  fout << std::endl;
   fout.close();
+
 }
