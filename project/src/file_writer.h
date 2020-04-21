@@ -1,24 +1,28 @@
 /**
-* @file util.h
+* @file file_writer.h
 *
 * @copyright 2020 Daniel Kunkler, All rights reserved.
 */
-#ifndef SRC_UTIL_H_
-#define SRC_UTIL_H_
+#ifndef SRC_FILE_WRITER_H_
+#define SRC_FILE_WRITER_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 #include <string>
+#include <iostream>
 #include <vector>
 #include <sstream>
+#include <fstream>
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-class Util {
+class FileWriter{
  public:
-  static std::vector<string> processOutput(ostringstream);
-  // TODO@ME fill in the definition.
+  FileWriter();
+  void Write(string, std::vector<string>);
+ private:
+  ofstream fout;
 };
 
-#endif  // SRC_UTIL_H_
+#endif  // SRC_FILE_WRITERL_H_
