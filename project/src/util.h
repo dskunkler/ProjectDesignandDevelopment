@@ -17,8 +17,18 @@
  ******************************************************************************/
 class Util {
  public:
-  static std::vector<std::string> processOutput(ostringstream);
-  // TODO@ME fill in the definition.
+
+   static std::vector<std::string> processOutput(std::string report_text) {
+     std::vector<std::string> comma_seperated;  // this will be our csv format
+     std::istringstream istr(report_text);
+     std::string tmp;
+     while(istr >> tmp){
+       comma_seperated.push_back(tmp);
+       comma_seperated.push_back(",");  // this will put it in its own cell
+     }
+     comma_seperated.push_back("\n");  // put an endl at the end for a new line
+     return comma_seperated;
+   }
 };
 
 #endif  // SRC_UTIL_H_

@@ -19,26 +19,15 @@
  ******************************************************************************/
 class FileWriterManager {
  private:
-  static FileWriterManager *instance;
-  FileWriteManager() {
-    file_writer = new FileWriter();
-  }
-
-  ~FileWriteManager() {
-    delete file_writer;
-  }
-
+  static FileWriter *instance;
   FileWriter file_writer;
 
  public:
-  static FileWriterManager *Getinstance() {
+  static FileWriter *GetInstance() {
     if (!instance) {
-      instance = new FileWriterManager;
+      instance = new FileWriter;
     }
     return instance;
-  }
-  void Write(string file, std::vector<std::string> text) {
-    file_writer->Write(file, text);
   }
 };
 

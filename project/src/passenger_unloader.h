@@ -9,7 +9,7 @@
 /*******************************************************************************
 * Includes
 ******************************************************************************/
-
+#include <string>
 #include <list>
 #include "src/passenger.h"
 #include "src/stop.h"
@@ -35,5 +35,9 @@ class PassengerUnloader {
  * @return passengers_unloaded
  */
   int UnloadPassengers(std::list<Passenger*> *passengers, Stop * current_stop);
+  // todo(Kunkler)  doxygen this
+  void SetOutputFile(std::string);
+ private:
+   std::string passenger_file_name;
 };
 #endif  // SRC_PASSENGER_UNLOADER_H_

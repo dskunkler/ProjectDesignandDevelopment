@@ -25,6 +25,7 @@ Bus::Bus(std::string name, Route * out, Route * in,
   distance_remaining_ = 0;
   next_stop_ = out->GetDestinationStop();
   unloader_ = new PassengerUnloader;
+  unloader_->SetOutputFile("PassData.csv");
   loader_ = new PassengerLoader;
   total_passengers = 0;  // We start with no passengers on the bus.
 }

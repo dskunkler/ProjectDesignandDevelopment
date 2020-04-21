@@ -19,7 +19,6 @@
  ******************************************************************************/
 class FileWriter{
  public:
-  FileWriter();
   void Write(std::string, std::vector<std::string>);
  private:
   std::ofstream fout;
