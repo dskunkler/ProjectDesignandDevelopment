@@ -20,9 +20,9 @@
 class FileWriter{
  public:
   FileWriter();
-  void Write(string, std::vector<string>);
+  void Write(std::string, std::vector<std::string>);
  private:
-  ofstream fout;
+  std::ofstream fout;
 };
 
 #endif  // SRC_FILE_WRITERL_H_

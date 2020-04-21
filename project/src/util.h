@@ -17,7 +17,7 @@
  ******************************************************************************/
 class Util {
  public:
-  static std::vector<string> processOutput(ostringstream);
+  static std::vector<std::string> processOutput(ostringstream);
   // TODO@ME fill in the definition.
 };
 
