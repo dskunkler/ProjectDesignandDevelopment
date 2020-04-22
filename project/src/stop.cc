@@ -22,6 +22,13 @@ Stop::Stop(int id, double longitude,
   passengers_.clear();
 }
 
+void Stop::NotifyObservers(StopData *info) {
+  for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
+    observer_[i]->Notify(info);
+    std::cout << "Observers Notified\n";
+  }
+}
+
 
 int Stop::LoadPassengers(Bus * bus) {
   int passengers_added = 0;

@@ -139,6 +139,17 @@ void PauseCommand::execute(MyWebServerSession* session,
   mySim->TogglePause();
 }
 
+// todo(kunkler) this is just a copy of bus
+class StopWebObserver: public IObserver<StopData*> {
+ public:
+  StopWebObserver(MyWebServerSession* session) : session(session) {}
+
+  void Notify(StopData* info) {
+    // todo(kunkler) y'know
+  }
+ private:
+    MyWebServerSession* session;
+};
 
 class BusWebObserver : public IObserver<BusData*> {
 public:

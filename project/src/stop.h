@@ -35,7 +35,7 @@ class Bus;
  * Calls to \ref GetNumPassengersPresent Returns the number of passengers at the
  * stop.
  */
-class Stop {
+class Stop: public ISubject<StopData*> {
  public:
 /**
  * @brief Generator for a stop with default longitude 44.973723 and latitude
@@ -102,6 +102,10 @@ class Stop {
  * passengers
  */
   size_t GetNumPassengersPresent() { return passengers_.size(); }
+/**
+ * @brief Notifies the observers of the StopData.
+ */
+  void NotifyObservers(StopData* info) override;
 
  private:
   int id_;
