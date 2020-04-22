@@ -119,7 +119,8 @@ void StartCommand::execute(MyWebServerSession* session, picojson::value& command
 
 UpdateCommand::UpdateCommand(VisualizationSimulator* sim): mySim(sim) {}
 
-void UpdateCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
+void UpdateCommand::execute(MyWebServerSession* session,
+                     picojson::value& command, MyWebServerSessionState* state) {
     (void)session;
     (void)state;
     (void)command;
@@ -130,7 +131,8 @@ void UpdateCommand::execute(MyWebServerSession* session, picojson::value& comman
 
 PauseCommand::PauseCommand(VisualizationSimulator* sim) : mySim(sim) {}
 
-void PauseCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
+void PauseCommand::execute(MyWebServerSession* session,
+                     picojson::value& command, MyWebServerSessionState* state) {
   (void)session;
   (void)state;
   (void)command;
@@ -150,7 +152,8 @@ public:
         std::stringstream ss;
         ss << "Bus " << info->id << "\n";
         ss << "-----------------------------\n";
-        ss << "  * Position: (" << info->position.x << "," << info->position.y << ")\n";
+        ss << "  * Position: (" << info->position.x << ","
+           << info->position.y << ")\n";
         ss << "  * Passenegers: " << info->num_passengers << "\n";
         ss << "  * Capacity: " << info->capacity << "\n";
         data["text"] = picojson::value(ss.str());
@@ -161,9 +164,11 @@ private:
     MyWebServerSession* session;
 };
 
-AddBusListenerCommand::AddBusListenerCommand(VisualizationSimulator* sim) : mySim(sim) {}
+AddBusListenerCommand::AddBusListenerCommand(VisualizationSimulator* sim)
+                                                                 : mySim(sim) {}
 
-void AddBusListenerCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
+void AddBusListenerCommand::execute(MyWebServerSession* session,
+                     picojson::value& command, MyWebServerSessionState* state) {
     mySim->ClearBusListeners();
     std::cout << "starting AddBusListenerCommand::execute" << std::endl;
     std::string id = command.get<picojson::object>()["id"].get<std::string>();
@@ -171,7 +176,8 @@ void AddBusListenerCommand::execute(MyWebServerSession* session, picojson::value
     mySim->AddBusListener(&id, new BusWebObserver(session));
 }
 
-InitRoutesCommand::InitRoutesCommand(ConfigManager* configManager) : cm(configManager) {}
+InitRoutesCommand::InitRoutesCommand(ConfigManager* configManager)
+                                                          : cm(configManager) {}
 
 void InitRoutesCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
     (void)state;
