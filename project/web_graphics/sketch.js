@@ -43,7 +43,7 @@ var runRectYPos = 450;
 var runYPos = 465;
 var startYPos = 500;
 var observedBusText = "";
-var observerdStopText = "";
+var observedStopText = "";
 
 // Data for vis. Matches data_structs.h in C++
 function Position(x, y) {
