@@ -72,8 +72,14 @@ void GetBussesCommand::execute(MyWebServerSession* session, picojson::value& com
         picojson::object pStruct;
         pStruct["x"] = picojson::value(busses[i].position.x);
         pStruct["y"] = picojson::value(busses[i].position.y);
-
         s["position"] = picojson::value(pStruct);
+
+        picojson::object cStruct;
+        cStruct["red"] = picojson::value(static_cast<double>(busses[i].color.red));
+        cStruct["green"] = picojson::value(static_cast<double>(busses[i].color.green));
+        cStruct["blue"] = picojson::value(static_cast<double>(busses[i].color.blue));
+        cStruct["alpha"] = picojson::value(static_cast<double>(busses[i].color.alpha));
+        s["color"] = picojson::value(cStruct);
 
         bussesArray.push_back(picojson::value(s));
     }
@@ -145,8 +151,7 @@ public:
     void Notify(BusData* info) { // This normally called update, but we call it
         // Notify as per the lab writeup
         picojson::object data;
-        std::cout << "HELLO
-         FROM NOTIFY\n";
+        std::cout << "HELLO FROM NOTIFY\n";
         data["command"] = picojson::value("observe");
         std::stringstream ss;
         ss << "Bus " << info->id << "\n";

@@ -36,6 +36,19 @@ struct Position {
   float y;
 };
 /**
+ * @brief A Color data struct holds colr info for the vissim
+ *
+ * Calls to \ref Color create a struct with rgb at 0 and alpha at 255.
+ */
+struct Color {
+  Color(int r=0, int g=0, int b=0, int a=255):
+      red(r), green(g), blue(b), alpha(a) { }
+  int red;
+  int green;
+  int blue;
+  int alpha;
+};
+/**
  * @brief A BusData struct that holds the bus id, its position, the number of
  * passengers, and its maximum capacity.
  *
@@ -62,19 +75,7 @@ struct BusData {
  int capacity;
  Color color;
 };
-/**
- * @brief A Color data struct holds colr info for the vissim
- *
- * Calls to \ref Color create a struct with rgb at 0 and alpha at 255.
- */
-struct Color {
-  Color(int r=0, int g=0, int b=0, int a=255):
-      red(r), green(g), blue(b), alpha(a) { }
-  int red;
-  int green;
-  int blue;
-  int alpha;
-};
+
 /**
  * @brief A StopData struct that holds the stop id, its position, the number of
  * people at the stop.
