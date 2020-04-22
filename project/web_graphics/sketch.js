@@ -348,6 +348,11 @@ function pause() {
     console.log("Pause button clicked");
 
     if (started){
+      if(paused == true ) {
+        paused = false;
+      } else {
+        paused = true;
+      }
       if (pauseButton.value!=="Resume"){
         pauseButton.value = "Resume";
         pauseButton.elt.childNodes[0].nodeValue = "Resume";
