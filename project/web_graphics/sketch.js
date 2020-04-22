@@ -150,7 +150,7 @@ function mapClick(event) {
         // If we are over the bus
         if (abs(mouseX - pos.x) < 25 && abs(mouseY - pos.y) < 15) {
             console.log("hit!!!");
-            socket.send(JSON.stringify({command: "listen", id: busses[i].id}));
+            socket.send(JSON.stringify({command: "buslisten", id: busses[i].id}));
             return;
         }
     }

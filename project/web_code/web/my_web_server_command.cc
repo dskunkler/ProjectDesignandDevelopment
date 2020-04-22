@@ -161,14 +161,14 @@ private:
     MyWebServerSession* session;
 };
 
-AddListenerCommand::AddListenerCommand(VisualizationSimulator* sim) : mySim(sim) {}
+AddBusListenerCommand::AddBusListenerCommand(VisualizationSimulator* sim) : mySim(sim) {}
 
-void AddListenerCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
-    mySim->ClearListeners();
-    std::cout << "starting AddListenerCommand::execute" << std::endl;
+void AddBusListenerCommand::execute(MyWebServerSession* session, picojson::value& command, MyWebServerSessionState* state) {
+    mySim->ClearBusListeners();
+    std::cout << "starting AddBusListenerCommand::execute" << std::endl;
     std::string id = command.get<picojson::object>()["id"].get<std::string>();
     std::cout << id << std::endl;
-    mySim->AddListener(&id, new BusWebObserver(session));
+    mySim->AddBusListener(&id, new BusWebObserver(session));
 }
 
 InitRoutesCommand::InitRoutesCommand(ConfigManager* configManager) : cm(configManager) {}

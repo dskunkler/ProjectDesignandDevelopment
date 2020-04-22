@@ -127,13 +127,13 @@ void VisualizationSimulator::TogglePause() {
   }
 }
 
-void VisualizationSimulator::ClearListeners() {
+void VisualizationSimulator::ClearBusListeners() {
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
     busses_[i]->ClearObservers();
   }
 }
 
-void VisualizationSimulator::AddListener(std::string* id,
+void VisualizationSimulator::AddBusListener(std::string* id,
                                               IObserver<BusData*>* observer) {
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
