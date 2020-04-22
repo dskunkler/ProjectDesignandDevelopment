@@ -78,7 +78,7 @@ class VisualizationSimulator {
  * @brief Clears the listeners of the Bus
  */
 
-  void ClearListeners();
+  void ClearBusListeners();
 
 /**
  * @brief Adds a listener to the bus.
@@ -86,7 +86,7 @@ class VisualizationSimulator {
  * @param[in] BusWebObserver A web observer object
  */
 
-  void AddListener(std::string* id, IObserver<BusData*>* observer);
+  void AddBusListener(std::string* id, IObserver<BusData*>* observer);
 
  private:
         WebInterface* webInterface_;
