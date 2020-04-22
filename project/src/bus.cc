@@ -37,7 +37,6 @@ bool Bus::IsTripComplete() {
   if (outgoing_route_->IsAtEnd() && incoming_route_->IsAtEnd()) {
     is_complete = true;
   }
-
   return is_complete;
 }
 

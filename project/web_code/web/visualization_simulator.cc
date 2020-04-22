@@ -88,11 +88,11 @@ void VisualizationSimulator::Update() {
         busses_[i]->Update();
 
         if (busses_[i]->IsTripComplete()) {
-          std::cout << "*******&*&* THE BUS IS DEAD" << busses_[i]->GetName() << std::endl;
-
+          // if the bus is at the end of the line, put its stat report into the
+          // ostringstream named report_text.
           busses_[i]->StatReport(report_text);
-          std::cout << "&&&&BUSREPORT BEFORE DEATH";
-          busses_[i]->Report(std::cout);
+          // Have the FileWriterManager write to the bus stats file the
+          // report_text
           FileWriterManager::GetInstance()->Write(bus_stats_file_name,
                                             Util::processOutput(&report_text));
           webInterface_->UpdateBus(busses_[i]->GetBusData(), true);
@@ -102,10 +102,6 @@ void VisualizationSimulator::Update() {
 
         webInterface_->UpdateBus(busses_[i]->GetBusData());
         busses_[i]->Report(std::cout);
-        //
-        // busses_[i]->StatReport(report_text);
-        // FileWriterManager::GetInstance()->Write(bus_stats_file_name,
-        //                                   Util::processOutput(&report_text));
     }
 
     std::cout << "~~~~~~~~~ Updating routes ";
