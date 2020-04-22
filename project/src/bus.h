@@ -105,6 +105,12 @@ class Bus: public ISubject<BusData*> {
  * @param[in] out std::ostream for display purposes.
  */
   virtual void Report(std::ostream&);
+/**
+ * @brief Outputs a modified report with no passenger info except
+ * total_passengers
+ * @param[in] report_text std::ostringstream to write to a csv
+ */
+  void StatReport(std::ostream&);
 
   // Vis Getters
 

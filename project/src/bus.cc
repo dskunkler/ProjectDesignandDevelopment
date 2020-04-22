@@ -183,6 +183,17 @@ void Bus::Report(std::ostream& out) {
   }
 }
 
+// modified version for our csv report. No need to show individual passenger
+// info as we are more concerned with total passengers.
+void Bus::StatReport(std::ostream& out) {
+  out << "Name: " << name_ << std::endl;
+  out << "Speed: " << speed_ << std::endl;
+  out << "Size: " << passenger_max_capacity_ << std::endl;
+  out << "Distance to next stop: " << distance_remaining_ << std::endl;
+  out << "\tPassengers (" << passengers_.size() << "): " << std::endl;
+  out << "Total num of passengers " << total_passengers << std::endl;
+}
+
 
 int Bus::UnloadPassengers() {
   int passengers_unloaded = 0;

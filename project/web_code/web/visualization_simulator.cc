@@ -7,11 +7,15 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+#include <sstream>
 #include "web_code/web/visualization_simulator.h"
 #include "src/bus.h"
 #include "src/route.h"
 #include  "src/bus_factory.h"
 #include "src/i_subject.h"
+#include "src/util.h"
+#include "src/file_writer.h"
+#include "src/file_writer_manager.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
@@ -20,6 +24,7 @@ VisualizationSimulator::VisualizationSimulator(WebInterface* webI,
                                                       ConfigManager* configM) {
     webInterface_ = webI;
     configManager_ = configM;
+    bus_stats_file_name = "BusData.csv";
 }
 
 VisualizationSimulator::~VisualizationSimulator() {
@@ -47,6 +52,8 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
 }
 
 void VisualizationSimulator::Update() {
+
+  std::ostringstream report_text;  // This will be the text of our report
   if (!paused) {
     simulationTimeElapsed_++;
 
@@ -81,14 +88,24 @@ void VisualizationSimulator::Update() {
         busses_[i]->Update();
 
         if (busses_[i]->IsTripComplete()) {
-            webInterface_->UpdateBus(busses_[i]->GetBusData(), true);
-            busses_.erase(busses_.begin() + i);
-            continue;
+          std::cout << "*******&*&* THE BUS IS DEAD" << busses_[i]->GetName() << std::endl;
+
+          busses_[i]->StatReport(report_text);
+          std::cout << "&&&&BUSREPORT BEFORE DEATH";
+          busses_[i]->Report(std::cout);
+          FileWriterManager::GetInstance()->Write(bus_stats_file_name,
+                                            Util::processOutput(&report_text));
+          webInterface_->UpdateBus(busses_[i]->GetBusData(), true);
+          busses_.erase(busses_.begin() + i);
+          continue;
         }
 
         webInterface_->UpdateBus(busses_[i]->GetBusData());
-
         busses_[i]->Report(std::cout);
+        //
+        // busses_[i]->StatReport(report_text);
+        // FileWriterManager::GetInstance()->Write(bus_stats_file_name,
+        //                                   Util::processOutput(&report_text));
     }
 
     std::cout << "~~~~~~~~~ Updating routes ";
