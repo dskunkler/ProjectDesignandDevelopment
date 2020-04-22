@@ -30,9 +30,10 @@ struct Position {
  * @param[in] y float.
  * @return Position object.
  */
-    Position() : x(0), y(0) {}
-    float x;
-    float y;
+  Position(int x, int y): x(x), y(y) { }
+  Position() : x(0), y(0) {}
+  float x;
+  float y;
 };
 /**
  * @brief A BusData struct that holds the bus id, its position, the number of
@@ -46,16 +47,33 @@ struct BusData {
  * @brief Generator for a BusData struct.
  *
  * @param[in] id string.
+ * @param[in] Color color
  * @param[in] position Position struct.
  * @param[in] num_passengers int.
  * @param[in] capacity int.
  * @return BusData object.
  */
-    BusData() : id(""), position(Position()), num_passengers(0), capacity(0) {}
-    std::string id;
-    Position position;
-    int num_passengers;
-    int capacity;
+ BusData(std::string id, Color color, Position pos, int n_pass, int cap):
+     id(id), position(pos), num_passengers(n_pass), capacity(cap), color(color) { }
+ BusData() : id(""), position(Position()), num_passengers(0), capacity(0), color() {}
+ std::string id;
+ Position position;
+ int num_passengers;
+ int capacity;
+ Color color;
+};
+/**
+ * @brief A Color data struct holds colr info for the vissim
+ *
+ * Calls to \ref Color create a struct with rgb at 0 and alpha at 255.
+ */
+struct Color {
+  Color(int r=0, int g=0, int b=0, int a=255):
+      red(r), green(g), blue(b), alpha(a) { }
+  int red;
+  int green;
+  int blue;
+  int alpha;
 };
 /**
  * @brief A StopData struct that holds the stop id, its position, the number of
@@ -73,10 +91,12 @@ struct StopData {
  * @param[in] num_people int.
  * @return StopData object.
  */
-    StopData() : id(""), position(Position()), num_people(0) {}
-    std::string id;
-    Position position;
-    int num_people;
+  StopData(std::string id, Position pos , int n_peeps):
+      id(id), position(pos), num_people(n_peeps) { }
+  StopData() : id(""), position(Position()), num_people(0) {}
+  std::string id;
+  Position position;
+  int num_people;
 };
 
 /**
@@ -93,9 +113,11 @@ struct RouteData {
  * @param[in] stops StopData vector.
  * @return RouteData object.
  */
-    RouteData() : id(""), stops(std::vector<StopData>(0)) {}
-    std::string id;
-    std::vector<StopData> stops;
+  RouteData(std::string id) :
+     id(id), stops(std::vector<StopData>(0)) { }
+  RouteData() : id(""), stops(std::vector<StopData>(0)) {}
+  std::string id;
+  std::vector<StopData> stops;
 };
 
 #endif  // SRC_DATA_STRUCTS_H_
