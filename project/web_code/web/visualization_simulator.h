@@ -88,6 +88,20 @@ class VisualizationSimulator {
 
   void AddBusListener(std::string* id, IObserver<BusData*>* observer);
 
+/**
+ * @brief Adds a listener to the stop.
+ * @param[in] id the id of the stop
+ * @param[in] StopWebObserver A web observer object
+ */
+
+  void AddStopListener(std::string* id, IObserver<StopData*>* observer);
+
+/**
+ * @brief Clears the stop listeners.
+ */
+
+  void ClearStopListeners();
+
  private:
         WebInterface* webInterface_;
         ConfigManager* configManager_;
@@ -100,6 +114,7 @@ class VisualizationSimulator {
   std::string bus_stats_file_name;  // this will be where we write our report to.
 
   std::vector<Route *> prototypeRoutes_;
+  std::vector<Stop *> stops_;  // a vector of stops for our observer
   std::vector<Bus *> busses_;
   Bus* subject_;
 
