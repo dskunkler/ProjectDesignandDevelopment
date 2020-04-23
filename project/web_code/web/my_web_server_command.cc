@@ -151,7 +151,18 @@ class StopWebObserver: public IObserver<StopData*> {
   StopWebObserver(MyWebServerSession* session) : session(session) {}
 
   void Notify(StopData* info) {
-    // todo(kunkler) y'know
+    picojson::object data;
+    std::cout << "HELLO FROM STOP NOTIFY\n";
+    data["command"] = picojson::value("observe");
+    std::stringstream ss;
+    ss << "Stop " << info->id << "\n";
+    ss << "-----------------------------\n";
+    ss << "  * Position: (" << info->position.x << ","
+       << info->position.y << ")\n";
+    ss << "  * Passenegers: " << info->num_people << "\n";
+    data["text"] = picojson::value(ss.str());
+    picojson::value ret(data);
+    session->sendJSON(ret);
   }
  private:
     MyWebServerSession* session;
@@ -164,7 +175,7 @@ public:
     void Notify(BusData* info) { // This normally called update, but we call it
         // Notify as per the lab writeup
         picojson::object data;
-        std::cout << "HELLO FROM NOTIFY\n";
+        std::cout << "HELLO FROM BUS NOTIFY\n";
         data["command"] = picojson::value("observe");
         std::stringstream ss;
         ss << "Bus " << info->id << "\n";
@@ -180,6 +191,17 @@ public:
 private:
     MyWebServerSession* session;
 };
+AddStopListenerCommand::AddStopListenerCommand(VisualizationSimulator* sim)
+                                                                 : mySim(sim) {}
+
+void AddStopListenerCommand::execute(MyWebServerSession* session,
+                     picojson::value& command, MyWebServerSessionState* state) {
+  mySim->ClearStopListeners();
+  std::cout << "starting AddStopListenerCommand::execute" << std::endl;
+  std::string id = command.get<picojson::object>()["id"].get<std::string>();
+  std::cout << id << std::endl;
+  mySim->AddStopListener(&id, new StopWebObserver(session));
+}
 
 AddBusListenerCommand::AddBusListenerCommand(VisualizationSimulator* sim)
                                                                  : mySim(sim) {}
