@@ -367,7 +367,6 @@ function dropDownSelect() {
     console.log("stop!!!");
     socket.send(JSON.stringify({command: "observeStop", id: item}))
 }
-/*
 function pause() {
     console.log("Pause button clicked");
 
@@ -381,27 +380,6 @@ function pause() {
           pauseButton.value = "Pause";
             pauseButton.elt.childNodes[0].nodeValue = 'Pause';
         }
-    }
-}
-*/
-function pause() {
-    console.log("Pause button clicked");
-
-    if (started){
-      if(paused == true ) {
-        paused = false;
-      } else {
-        paused = true;
-      }
-      if (pauseButton.value!=="Resume"){
-        pauseButton.value = "Resume";
-        pauseButton.elt.childNodes[0].nodeValue = "Resume";
-      } else {
-         pauseButton.value = "Pause";
-         pauseButton.elt.childNodes[0].nodeValue = "Pause";
-        }
-      socket.send(JSON.stringify({command: "pause"}));
-
     }
 }
 

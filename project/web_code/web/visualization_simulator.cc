@@ -152,8 +152,10 @@ void VisualizationSimulator::ClearStopListeners() {
 
 void VisualizationSimulator::AddStopListener(std::string* id,
                                               IObserver<StopData*>* observer) {
+   std::cout << "Hello From StopObserver!\n";
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(stops_.size()); i++) {
+    std::cout << "Hello from inside StopLoop\n";
     if (std::to_string(stops_[i]->GetId()) == *id) {
       std::cout << "Stop Observer " << *id << " added\n";
       stops_[i]->RegisterObserver(observer);
