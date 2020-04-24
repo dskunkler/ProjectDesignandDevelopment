@@ -153,7 +153,7 @@ class StopWebObserver: public IObserver<StopData*> {
   void Notify(StopData* info) {
     picojson::object data;
     std::cout << "HELLO FROM STOP NOTIFY\n";
-    data["command"] = picojson::value("observe");
+    data["command"] = picojson::value("observeStop");
     std::stringstream ss;
     ss << "Stop " << info->id << "\n";
     ss << "-----------------------------\n";
@@ -176,7 +176,7 @@ public:
         // Notify as per the lab writeup
         picojson::object data;
         std::cout << "HELLO FROM BUS NOTIFY\n";
-        data["command"] = picojson::value("observe");
+        data["command"] = picojson::value("observeBus");
         std::stringstream ss;
         ss << "Bus " << info->id << "\n";
         ss << "-----------------------------\n";

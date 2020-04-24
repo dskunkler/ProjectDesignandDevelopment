@@ -44,17 +44,16 @@ var runYPos = 465;
 var startYPos = 500;
 var observedBusText = "";
 var observedStopText = "";
-
 // Data for vis. Matches data_structs.h in C++
 function Position(x, y) {
 	this.x = x;
 	this.y = y;
 }
 function Color(r, g, b, a) {
-  this.red = r;
-  this.green = g;
-  this.blue = b;
-  this.alpha = a;
+    this.red = r;
+    this.green = g;
+    this.blue = b;
+    this.alpha = a;
 }
 function Bus(id, position, numPasengers, capacity, color) {
 	this.id = id;
@@ -97,13 +96,11 @@ function setupSocket() {
                     x = data.busses[i].position.x;
                     y = data.busses[i].position.y;
                     position = new Position(x, y);
+
                     var color = data.busses[i].color;
-                    color = new Color(color.red, color.green, color.blue,
-                                                                  color.alpha);
+                    color = new Color(color.red, color.green, color.blue, color.alpha);
 
-
-                    busses.push(new Bus(id, position, numPassengers, capacity,
-                                                                       color));
+                    busses.push(new Bus(id, position, numPassengers, capacity, color));
                 }
             }
             if (data.command == "updateRoutes") {
@@ -130,7 +127,6 @@ function setupSocket() {
                             stops.push(newStop);
                             stopDropDown.option(newStop.id)
 
-
                             route_stop_indices.push(stops.length-1);
                         } else {
                             stops[index].numPeople = data.routes[i].stops[j].numPeople;
@@ -141,11 +137,11 @@ function setupSocket() {
                 }
             }
             if (data.command == "observeBus") {
-              observedBusText = data.text;
+                observedBusText = data.text;
             }
             if (data.command == "observeStop") {
-            observedStopText = data.text;
-
+                observedStopText = data.text;
+            }
         }
     } catch(exception) {
         alert('<p>Error' + exception);
@@ -169,7 +165,7 @@ function mapClick(event) {
         // If we are over the bus
         if (abs(mouseX - pos.x) < 25 && abs(mouseY - pos.y) < 15) {
             console.log("hit!!!");
-            socket.send(JSON.stringify({command: "listenBus", id: busses[i].id}));
+            socket.send(JSON.stringify({command: "observeBus", id: busses[i].id}));
             return;
         }
     }
@@ -214,7 +210,6 @@ function setup() {
     pauseButton.style('width', '100px');
     pauseButton.style('height', '20px');
     pauseButton.mousePressed(pause);
-    pauseButton.value("Pause");
 
     // Image/map information
     const options = {
@@ -249,19 +244,17 @@ function draw() {
 }
 
 function update() {
-  if(!paused){
-  	// Send down commands to C++
-  	socket.send(JSON.stringify({command: "getRoutes"}));
-  	socket.send(JSON.stringify({command: "getBusses"}));
+	// Send down commands to C++
+	socket.send(JSON.stringify({command: "getRoutes"}));
+	socket.send(JSON.stringify({command: "getBusses"}));
 
-  	// Only update every specified timestep
+	// Only update every specified timestep
     elapsedTime = millis() - startTime;
     if (elapsedTime > updateTime && totalUpdates <= numTimeSteps) {
         socket.send(JSON.stringify({command: "update"}));
         startTime = millis();
         totalUpdates++;
     }
-  }
 }
 
 function render() {
@@ -365,34 +358,28 @@ function start() {
     numTimeSteps = numTimeStepsSlider.value();
     socket.send(JSON.stringify({command: "start", numTimeSteps: numTimeSteps, timeBetweenBusses: busTimeOffsets}));
     started = true;
-    startButton.elt.disabled = true;
     elapsedTime = millis();
     startTime = millis();
 }
 
 function dropDownSelect() {
-  let item = stopDropDown.value();
-  socket.send(JSON.stringify({command: "listenStop", id: item}))
+    let item = stopDropDown.value();
+    console.log("stop!!!");
+    socket.send(JSON.stringify({command: "observeStop", id: item}))
 }
-
 function pause() {
     console.log("Pause button clicked");
 
     if (started){
-      if(paused == true ) {
-        paused = false;
-      } else {
-        paused = true;
-      }
-      if (pauseButton.value!=="Resume"){
-        pauseButton.value = "Resume";
-        pauseButton.elt.childNodes[0].nodeValue = "Resume";
-      } else {
-         pauseButton.value = "Pause";
-         pauseButton.elt.childNodes[0].nodeValue = "Pause";
+        socket.send(JSON.stringify({command: "pause"}));
+        paused = !paused;
+        if (paused) {
+          pauseButton.value = "Resume";
+          pauseButton.elt.childNodes[0].nodeValue = 'Unpause';
+        } else {
+          pauseButton.value = "Pause";
+            pauseButton.elt.childNodes[0].nodeValue = 'Pause';
         }
-      socket.send(JSON.stringify({command: "pause"}));
-
     }
 }
 

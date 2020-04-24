@@ -34,7 +34,8 @@ int main(int argc, char**argv) {
     state.commands["update"] = new UpdateCommand(mySim);
     state.commands["initRoutes"] = new InitRoutesCommand(cm);
     state.commands["pause"] = new PauseCommand(mySim);
-    state.commands["buslisten"] = new AddBusListenerCommand(mySim);
+    state.commands["observeBus"] = new AddBusListenerCommand(mySim);
+    state.commands["observeStop"] = new AddStopListenerCommand(mySim);
 
 		WebServerWithState<MyWebServerSession,
                                   MyWebServerSessionState> server(state, port);

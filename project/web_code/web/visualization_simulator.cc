@@ -138,7 +138,7 @@ void VisualizationSimulator::AddBusListener(std::string* id,
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
     if (busses_[i]->GetName() == *id) {
-      std::cout << "Observer " << *id << " added\n";
+      std::cout << "Bus Observer " << *id << " added\n";
       busses_[i]->RegisterObserver(observer);
     }
   }
@@ -155,7 +155,7 @@ void VisualizationSimulator::AddStopListener(std::string* id,
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(stops_.size()); i++) {
     if (std::to_string(stops_[i]->GetId()) == *id) {
-      std::cout << "Observer " << *id << " added\n";
+      std::cout << "Stop Observer " << *id << " added\n";
       stops_[i]->RegisterObserver(observer);
     }
   }
