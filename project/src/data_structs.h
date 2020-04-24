@@ -1,4 +1,4 @@
-/**
+ /**
  * @file data_structs.h
  *
  * @copyright 2019 3081 Staff and D. Kunkler, All rights reserved.
@@ -41,7 +41,7 @@ struct Position {
  * Calls to \ref Color create a struct with rgb at 0 and alpha at 255.
  */
 struct Color {
-  Color(int r=158, int g=32, int b=32, int a=.5):
+  Color(int r = 158, int g = 32, int b = 32, int a = 120):
       red(r), green(g), blue(b), alpha(a) { }
   int red;
   int green;

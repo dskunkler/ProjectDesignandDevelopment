@@ -23,6 +23,7 @@
 #include "src/route.h"
 #include "src/stop.h"
 #include "src/i_observer.h"
+#include "src/i_bus.h"
 
 class PassengerUnloader;
 class PassengerLoader;
@@ -53,7 +54,7 @@ class Stop;
  * Calls to \ref GetCapacity returns the maximum number of passengers.
  * Calls to \ref UnloadPassengers returns the number of passengers unloaded.
  */
-class Bus: public ISubject<BusData*> {
+class Bus: public IBus {
  public:
 /**
  * @brief Generator for a bus. Default capacity is 60 and speed is 1.
