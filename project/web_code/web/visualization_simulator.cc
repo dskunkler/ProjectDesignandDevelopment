@@ -8,6 +8,8 @@
  * Includes
  ******************************************************************************/
 #include <sstream>
+#include <list>
+#include <vector>
 #include "web_code/web/visualization_simulator.h"
 #include "src/bus.h"
 #include "src/route.h"
@@ -41,10 +43,15 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
     }
 
     simulationTimeElapsed_ = 0;
-
+    std::list<Stop *> stops;
     prototypeRoutes_ = configManager_->GetRoutes();
     for (int i = 0; i < static_cast<int>(prototypeRoutes_.size()); i++) {
         prototypeRoutes_[i]->Report(std::cout);
+        stops = prototypeRoutes_[i]->GetStops();
+        for (std::list<Stop *>::iterator it = stops.begin();
+                                        it != stops.end(); it++) {
+          stops_.push_back(*it);
+        }
 
         prototypeRoutes_[i]->UpdateRouteData();
         webInterface_->UpdateRoute(prototypeRoutes_[i]->GetRouteData());
@@ -155,10 +162,9 @@ void VisualizationSimulator::AddStopListener(std::string* id,
    std::cout << "Hello From StopObserver!\n";
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(stops_.size()); i++) {
-    std::cout << "Hello from inside StopLoop\n";
-    if (std::to_string(stops_[i]->GetId()) == *id) {
-      std::cout << "Stop Observer " << *id << " added\n";
-      stops_[i]->RegisterObserver(observer);
+      if (std::to_string(stops_[i]->GetId()) == *id) {
+        std::cout << "Stop Observer " << *id << " added\n";
+        stops_[i]->RegisterObserver(observer);
     }
   }
 }

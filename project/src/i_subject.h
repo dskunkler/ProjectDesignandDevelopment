@@ -37,6 +37,7 @@ class ISubject {
    * @param[in] observer an IObserver object
    */
   void RegisterObserver(IObserver<T> *observer) {
+    std::cout << "Observer registered!\n";
     observer_.push_back(observer);
   }
   /**

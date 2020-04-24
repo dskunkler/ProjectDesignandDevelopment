@@ -244,17 +244,20 @@ function draw() {
 }
 
 function update() {
-	// Send down commands to C++
-	socket.send(JSON.stringify({command: "getRoutes"}));
-	socket.send(JSON.stringify({command: "getBusses"}));
+  if (paused != true) {
+  // Send down commands to C++
+  socket.send(JSON.stringify({command: "getRoutes"}));
+  socket.send(JSON.stringify({command: "getBusses"}));
 
 	// Only update every specified timestep
+
     elapsedTime = millis() - startTime;
     if (elapsedTime > updateTime && totalUpdates <= numTimeSteps) {
         socket.send(JSON.stringify({command: "update"}));
         startTime = millis();
         totalUpdates++;
     }
+  }
 }
 
 function render() {
