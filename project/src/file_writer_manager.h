@@ -20,7 +20,7 @@
 class FileWriterManager {
  private:
   static FileWriter *instance;
-  FileWriter file_writer;
+  FileWriter file_writer;  // %TODO : Do you actually need this?
 
  public:
   static FileWriter *GetInstance() {
