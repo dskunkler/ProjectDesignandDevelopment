@@ -168,6 +168,7 @@ void Route::UpdateRouteData() {
         stopData.num_people = static_cast<int>(s->GetNumPassengersPresent());
 
         stopDataVec.push_back(stopData);
+        std::cout << "NotifyObservers called from route\n";
         s->NotifyObservers(&stopData);
     }
     route_data_.stops = stopDataVec;

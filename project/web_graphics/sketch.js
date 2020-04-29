@@ -137,6 +137,7 @@ function setupSocket() {
                 }
             }
             if (data.command == "observeBus") {
+                console.log("ObserveBus command. Text being copied");
                 observedBusText = data.text;
             }
             if (data.command == "observeStop") {

@@ -1,11 +1,11 @@
 /**
- * @file bus_color_decorator.h
+ * @file bus_intensity_decorator.h
  *
  * @copyright 2020 and D. Kunkler, All rights reserved.
  */
 
-#ifndef SRC_BUS_COLOR_DECORATOR_H_
-#define SRC_BUS_COLOR_DECORATOR_H_
+#ifndef SRC_BUS_INTENSITY_DECORATOR_H_
+#define SRC_BUS_INTENSITY_DECORATOR_H_
 /*******************************************************************************
  * Includes
  ******************************************************************************/
@@ -29,15 +29,17 @@
  * Class Definitions
  ******************************************************************************/
 /*
- * @brief BusColorDecorator
+ * @brief BusIntesnsityDecorator
+ * will set the intensity of whatever Ibus object it's passed based on the number
+ * of passengers and the bus size.
  */
 
-class BusColorDecorator : public BusDecorator {
+class BusIntensityDecorator : public BusDecorator {
 public:
 /**
 * @brief Constructor for BusDecorator, wraps the base bus.
 */
- BusColorDecorator(IBus *base_bus): BusToDecorate(base_bus) {}
+ BusIntensityDecorator(IBus *base_bus): BusToDecorate(base_bus) {}
 
   /**
   * @brief Tells whether the entire buses route is finished
@@ -69,12 +71,12 @@ public:
   * @brief calls Move and UpdateBusData.
   *
   */
-   virtual void Update() {
-     std::cout << "Color Update\n";
-     BusToDecorate->Update();
-     BusData wrapped_bus_data = GetBusData();
-     NotifyObservers(&wrapped_bus_data);
-   }
+  virtual void Update() {
+    std::cout << "Intensity Update\n";
+    BusToDecorate->Update();
+    BusData wrapped_bus_data = GetBusData();
+    NotifyObservers(&wrapped_bus_data);
+  }
 
   /**
   * @brief Outputs name_, speed_, passenger_max_capacity_, distance_remaining_,
@@ -108,8 +110,13 @@ public:
   */
    virtual BusData GetBusData() const {
      BusData data = BusToDecorate->GetBusData();
-     Color gold = Color(255,215,0,120);
-     data.color = gold;
+     Color color = data.color;
+     float pass = data.num_passengers;
+     float capacity_ = data.capacity;
+     // Percent filled will depend on the size of the bus
+     float percent_filled = pass/capacity_;
+     color.alpha = 120 + (int)135*percent_filled;
+     data.color = color;
      return data;
    }
   /**
@@ -135,9 +142,7 @@ public:
   */
   virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 
-  /**
-  * @brief Notifies the observers of the busdata.
-  */
+
 
  /**
   * @brief Tells us whether our outgoing route is finished or not.
@@ -147,7 +152,7 @@ public:
  /**
   * @brief Tells us whether we're decorated or not.
   */
-   bool IsDecorated() { return true;}
+   bool IsDecorated() { return BusToDecorate->IsDecorated();}
 
 
 protected:
@@ -156,5 +161,4 @@ protected:
 };
 
 
-
-#endif  // SRC_BUS_COLOR_DECORATOR_H_
+#endif  // SRC_BUS_INTENSITY_DECORATOR_H_

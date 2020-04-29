@@ -19,6 +19,7 @@
 #include "src/file_writer.h"
 #include "src/file_writer_manager.h"
 #include "src/bus_color_decorator.h"
+#include "src/bus_intensity_decorator.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
@@ -99,6 +100,8 @@ void VisualizationSimulator::Update() {
           busses_[i] = new BusColorDecorator(busses_[i]);
         }
 
+        busses_[i] = new BusIntensityDecorator(busses_[i]);
+
         if (busses_[i]->IsTripComplete()) {
           // if the bus is at the end of the line, put its stat report into the
           // ostringstream named report_text.
@@ -149,6 +152,7 @@ void VisualizationSimulator::AddBusListener(std::string* id,
                                               IObserver<BusData*>* observer) {
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
+    std::cout << "AddBusListener called\n";
     if (busses_[i]->GetName() == *id) {
       std::cout << "Bus Observer " << *id << " added\n";
       busses_[i]->RegisterObserver(observer);

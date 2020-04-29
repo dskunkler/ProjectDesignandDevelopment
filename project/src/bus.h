@@ -14,6 +14,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <vector>
 
 #include "src/data_structs.h"
 #include "src/i_subject.h"
@@ -152,7 +153,7 @@ class Bus: public IBus {
 /**
  * @brief Notifies the observers of the busdata.
  */
-  void NotifyObservers(BusData* info) override;
+  // void NotifyObservers(BusData* info) override;
 
 /**
  * @brief Tells us whether our outgoing route is finished or not.
@@ -162,7 +163,8 @@ class Bus: public IBus {
 /**
  * @brief Tells us whether we're decorated or not.
  */
-  bool IsDecorated() { return decorated_;}
+  bool IsDecorated() override { return decorated_;}
+
 
 
  protected:

@@ -12,6 +12,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <vector>
 
 #include "src/data_structs.h"
 #include "src/i_subject.h"
@@ -51,6 +52,8 @@ class Stop;
  */
 class IBus: public ISubject<BusData*> {
 public:
+
+
 virtual ~IBus() {};
 /**
 * @brief Tells whether the entire buses route is finished
@@ -132,10 +135,6 @@ virtual ~IBus() {};
 */
 virtual int GetCapacity() const = 0;
 
-/**
-* @brief Notifies the observers of the busdata.
-*/
- virtual void NotifyObservers(BusData* info) = 0;
 
 /**
  * @brief Tells us whether our outgoing route is finished or not.
@@ -148,39 +147,5 @@ virtual int GetCapacity() const = 0;
   virtual bool IsDecorated() = 0;
 
 
-
-protected:
-/**
-* @brief Takes passengers off of the bus via PassengerUnloader.
-* @return passengers_unloaded int
-// */
-//  virtual int UnloadPassengers() = 0;  // returning revenue delta
-/**
-* @brief Signals the bus if a passenger needs to get off at the next stop.
-// * @return a bool if passenger wants off.
-// */
-//  virtual bool PassengerRequestOff() = 0;
- // // bool Refuel();
- // PassengerUnloader * unloader_;
- // PassengerLoader * loader_;
- // std::list<Passenger *> passengers_;
- // int total_passengers;  // the total number of passengers who rode the bus.
- // int passenger_max_capacity_;
- // // double revenue_; // revenue collected from passengers, doesn't include
- //                     // passengers who pay on deboard
- // // double fuel_;   // may not be necessary for our simulation
- // // double max_fuel_;
- // std::string name_;
- // double speed_;  // could also be called "distance travelled in one time step"
- // Route * outgoing_route_;
- // Route * incoming_route_;
- // double distance_remaining_;  // when negative?, unload/load procedure occurs
- //                             // AND next stop set
- // Stop * next_stop_;
- // // bool trip_complete_;  // [DERIVED data] when BOTH routes are at end, trip
- // // is complete
- //
- // // Vis data for bus
- // BusData bus_data_;
 };
 #endif  // SRC_I_BUS_H_

@@ -165,6 +165,7 @@ bool Bus::Move() {
 // }
 
 void Bus::Update() {  // using common Update format
+  std::cout << "Bus Update\n";
   Move();
   UpdateBusData();
 }
@@ -242,12 +243,15 @@ void Bus::UpdateBusData() {
     bus_data_.capacity = passenger_max_capacity_;
 
     NotifyObservers(&bus_data_);
-    std::cout << "Notified observer";
 }
 
 BusData Bus::GetBusData() const {
     return bus_data_;
 }
+// void Bus::RegisterObserver(IObserver<BusData> *observer) {
+//   std::cout << "Observer registered!\n";
+//   observer_.push_back(observer);
+// }
 
 bool Bus::PassengerRequestOff() {
   bool wantsOff = false;
@@ -262,13 +266,13 @@ bool Bus::PassengerRequestOff() {
   return wantsOff;
 }
 
-void Bus::NotifyObservers(BusData *info) {
-  for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
-    observer_[i]->Notify(info);
-    std::cout << "Observers Notified\n";
-  }
-}
+
 
 bool Bus::OutboundComplete() {
  return outgoing_route_->IsAtEnd();
+}
+
+void RegisterObserver(IObserver<BusData*> *observer) {
+  std::cout << "Observer registered in Bus!\n";
+  RegisterObserver(observer);
 }

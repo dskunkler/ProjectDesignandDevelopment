@@ -9,7 +9,20 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+ #include <iostream>
+ #include <list>
+ #include <string>
+ #include <vector>
 
+ #include "src/data_structs.h"
+ #include "src/i_subject.h"
+ #include "src/passenger.h"
+ #include "src/passenger_loader.h"
+ #include "src/passenger_unloader.h"
+ #include "src/route.h"
+ #include "src/stop.h"
+ #include "src/i_observer.h"
+ #include "src/i_bus.h"
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
@@ -52,7 +65,7 @@ class BusDecorator: public IBus {
    * @brief calls Move and UpdateBusData.
    *
    */
-    virtual void Update() {BusToDecorate->Update();}
+    virtual void Update() = 0;
 
    /**
    * @brief Outputs name_, speed_, passenger_max_capacity_, distance_remaining_,
@@ -89,7 +102,9 @@ class BusDecorator: public IBus {
    * @brief Gets the bus name.
    * @return name_
    */
-    virtual std::string GetName() const {return BusToDecorate->GetName();}
+    virtual std::string GetName() const {
+      std::cout << "decorator get name called returning " << BusToDecorate->GetName() << std::endl;
+      return BusToDecorate->GetName();}
    /**
    * @brief Gets the next stop
    * @return next_stop_
@@ -108,12 +123,6 @@ class BusDecorator: public IBus {
    */
    virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 
-   /**
-   * @brief Notifies the observers of the busdata.
-   */
-    virtual void NotifyObservers(BusData* info) {
-      BusToDecorate->NotifyObservers(info);
-    }
 
   /**
    * @brief Tells us whether our outgoing route is finished or not.
@@ -129,19 +138,5 @@ class BusDecorator: public IBus {
  protected:
   IBus *BusToDecorate;
 
-  /**
-  * @brief Takes passengers off of the bus via PassengerUnloader.
-  * @return passengers_unloaded int
-  */
-   // virtual int UnloadPassengers() {
-   //   return BusToDecorate->UnloadPassengers();
-   // }
-  // /**
-  // * @brief Signals the bus if a passenger needs to get off at the next stop.
-  // * @return a bool if passenger wants off.
-  // */
-  //  virtual bool PassengerRequestOff() {
-  //    return BusToDecorate->PassengerRequestOff();
-  //  }
 };
 #endif  // SRC_BUS_DECORATOR_H_

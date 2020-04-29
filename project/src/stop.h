@@ -105,7 +105,7 @@ class Stop: public ISubject<StopData*> {
 /**
  * @brief Notifies the observers of the StopData.
  */
-  void NotifyObservers(StopData* info) override;
+  // void NotifyObservers(StopData* info) override;
 
  private:
   int id_;
