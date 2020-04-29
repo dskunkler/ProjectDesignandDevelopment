@@ -144,6 +144,7 @@ void VisualizationSimulator::TogglePause() {
 
 void VisualizationSimulator::ClearBusListeners() {
   for (int i = 0; i < static_cast<int>(busses_.size()); i++) {
+    std::cout << "Cleared from ClearBusListeners\n";
     busses_[i]->ClearObservers();
   }
 }
