@@ -168,7 +168,8 @@ void Bus::Update() {  // using common Update format
   std::cout << "Bus Update\n";
   Move();
   UpdateBusData();
-  NotifyObservers(&bus_data_);
+  BusData to_send = GetBusData();
+  NotifyObservers(&to_send);
 }
 
 // print a report of all the information of the bus.

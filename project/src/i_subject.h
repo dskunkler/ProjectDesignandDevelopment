@@ -37,7 +37,7 @@ class ISubject {
    * @brief Registers IObservers to our observer_ vector.
    * @param[in] observer an IObserver object
    */
-   void RegisterObserver(IObserver<T> *observer) {
+   virtual void RegisterObserver(IObserver<T> *observer) {
     std::cout << "observer_ sizeb4 = " << std::to_string(observer_.size());
     std::cout << "Observer registered in ISubject!\n";
     observer_.push_back(observer);
@@ -48,14 +48,18 @@ class ISubject {
    */
    virtual void ClearObservers() {
     std::cout << "Observer Cleared in ISubject\n";
+    for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
+      delete observer_[i];
+      std::cout << "Observers Notified from ISubject\n";
+    }
     observer_.clear();
   }
   /**
   * @brief NotifyObservers is a pure virtual function.
   */
-   void NotifyObservers(T info) {
+   virtual void NotifyObservers(T info) {
     std::cout << "Notify from ISubject\n observer_size = " << std::to_string(observer_.size()) << std::endl;
-
+    std::cout << "NotifyObservers x: " << std::to_string(info->position.x) << std::endl;
     for (int i = 0; i < static_cast<int>(observer_.size()); i++) {
       observer_[i]->Notify(info);
       std::cout << "Observers Notified from ISubject\n";

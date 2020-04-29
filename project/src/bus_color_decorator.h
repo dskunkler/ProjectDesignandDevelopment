@@ -37,7 +37,9 @@ public:
 /**
 * @brief Constructor for BusDecorator, wraps the base bus.
 */
- BusColorDecorator(IBus *base_bus): BusToDecorate(base_bus) {}
+ BusColorDecorator(IBus *base_bus) {
+   BusDecorator::BusToDecorate = base_bus;
+ }
 
   /**
   * @brief Tells whether the entire buses route is finished
@@ -71,11 +73,14 @@ public:
   */
    virtual void Update() {
      std::cout << "Color Update\n";
-     BusToDecorate->Move();
-     BusToDecorate->UpdateBusData();
-     BusData wrapped_bus_data = GetBusData();
-     // BusToDecorate->ClearObservers();
-     NotifyObservers(&wrapped_bus_data);
+     BusToDecorate->Update();
+     // BusToDecorate->Move();
+     // BusToDecorate->UpdateBusData();
+     // BusData wrapped_bus_data = GetBusData();
+     // BusToDecorate->NotifyObservers(&wrapped_bus_data);
+     // // BusToDecorate->NotifyObservers(&wrapped_bus_data);
+     // // BusToDecorate->ClearObservers();
+     // NotifyObservers(&wrapped_bus_data);
    }
 
   /**
@@ -153,7 +158,6 @@ public:
 
 
 protected:
- IBus *BusToDecorate;
 
 };
 

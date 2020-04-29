@@ -134,7 +134,24 @@ class BusDecorator: public IBus {
    */
     bool IsDecorated() { return true;}
 
-
+    virtual void RegisterObserver(IObserver<BusData*> *observer) {
+      std::cout << "Decorator RegisterObserver\n";
+      BusToDecorate->RegisterObserver(observer);
+   }
+   /**
+    * @brief ClearObservers clears all observers from observer_ vector
+    */
+    virtual void ClearObservers() {
+      std::cout <<"Decorator clearing\n";
+      BusToDecorate->ClearObservers();
+   }
+   /**
+   * @brief NotifyObservers is a pure virtual function.
+   */
+    virtual void NotifyObservers(BusData* info) {
+     std::cout << "Notify from decorator\n observer_size = " << std::to_string(observer_.size()) << std::endl;
+     BusToDecorate->NotifyObservers(info);
+   }
 
 
  protected:

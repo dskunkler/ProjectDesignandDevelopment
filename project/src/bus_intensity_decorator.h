@@ -39,8 +39,9 @@ public:
 /**
 * @brief Constructor for BusDecorator, wraps the base bus.
 */
- BusIntensityDecorator(IBus *base_bus): BusToDecorate(base_bus) {}
-
+ BusIntensityDecorator(IBus *base_bus) {
+   BusDecorator::BusToDecorate = base_bus;
+ }
   /**
   * @brief Tells whether the entire buses route is finished
   *
@@ -73,11 +74,13 @@ public:
   */
   virtual void Update() {
     std::cout << "Intensity Update\n";
-    BusToDecorate->Move();
-    BusToDecorate->UpdateBusData();
-    BusData wrapped_bus_data = GetBusData();
-    // BusToDecorate->ClearObservers();
-    NotifyObservers(&wrapped_bus_data);
+    // BusToDecorate->Move();
+    // BusToDecorate->UpdateBusData();
+    BusToDecorate->Update();
+    // BusData wrapped_bus_data = GetBusData();
+    // // BusToDecorate->NotifyObservers(&wrapped_bus_data);
+    // // BusToDecorate->ClearObservers();
+    // NotifyObservers(&wrapped_bus_data);
   }
 
   /**
@@ -119,6 +122,8 @@ public:
      float percent_filled = pass/capacity_;
      color.alpha = 120 + (int)135*percent_filled;
      data.color = color;
+     // std::cout << "Intensity pos x: " << std::to_string(data.position.x);
+     // std::cout << "    pos y: " << std::to_string(data.position.y) << std::endl;;
      return data;
    }
   /**
@@ -158,7 +163,6 @@ public:
 
 
 protected:
- IBus *BusToDecorate;
 
 };
 
