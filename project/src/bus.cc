@@ -268,3 +268,7 @@ void Bus::NotifyObservers(BusData *info) {
     std::cout << "Observers Notified\n";
   }
 }
+
+bool Bus::OutboundComplete() {
+ return outgoing_route_->IsAtEnd();
+}

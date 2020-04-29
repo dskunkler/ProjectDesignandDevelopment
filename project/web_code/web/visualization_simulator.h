@@ -14,6 +14,7 @@
 
 #include "web_code/web/web_interface.h"
 #include "src/config_manager.h"
+#include "src/i_bus.h"
 
 class Route;
 class Bus;
@@ -115,7 +116,7 @@ class VisualizationSimulator {
 
   std::vector<Route *> prototypeRoutes_;
   std::vector<Stop *> stops_;  // a vector of stops for our observer
-  std::vector<Bus *> busses_;
+  std::vector<IBus *> busses_;
   Bus* subject_;
 
   bool paused = false;

@@ -22,7 +22,7 @@ class Decorator: public IBus {
    *
    * @return bool whether route out and route in are both at their ends.
    */
-    virtual bool IsTripComplete() {BusToDecorate->IsTripComplete();}
+    virtual bool IsTripComplete() {return BusToDecorate->IsTripComplete();}
 
    /**
    * @brief Loads passengers onto the bus.
@@ -32,7 +32,7 @@ class Decorator: public IBus {
    * @return bool whether passenger was added to passengers_ list or not
    */
   virtual bool LoadPassenger(Passenger *) {
-    BusToDecorate->LoadPassenger(Passenger *);
+    return BusToDecorate->LoadPassenger(Passenger *);
   }
 
    /**
@@ -41,7 +41,7 @@ class Decorator: public IBus {
    *
    * @return bool notifying whether bus moved or not.
    */
-    virtual bool Move() {BusToDecorate->Move();}
+    virtual bool Move() {return BusToDecorate->Move();}
 
    /**
    * @brief calls Move and UpdateBusData.
@@ -79,27 +79,29 @@ class Decorator: public IBus {
    * @brief gets bus_data_
    * @return bus_data_
    */
-    virtual BusData GetBusData() const {BusToDecorate->GetBusData();}
+    virtual BusData GetBusData() const {return BusToDecorate->GetBusData();}
    /**
    * @brief Gets the bus name.
    * @return name_
    */
-    virtual std::string GetName() const {BusToDecorate->GetName();}
+    virtual std::string GetName() const {return BusToDecorate->GetName();}
    /**
    * @brief Gets the next stop
    * @return next_stop_
    */
-    virtual Stop * GetNextStop() const {BusToDecorate->GetNextStop();}
+    virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
    /**
    * @brief Gets the number of passengers on the bus.
    * @return passengers_.size()
    */
-    virtual size_t GetNumPassengers() const {BusToDecorate->GetNumPassengers();}
+    virtual size_t GetNumPassengers() const {
+      return BusToDecorate->GetNumPassengers();
+    }
    /**
    * @brief Gets the capacity of the bus.
    * @return passenger_max_capacity_
    */
-   virtual int GetCapacity() const {BusToDecorate->GetCapacity();}
+   virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 
    /**
    * @brief Notifies the observers of the busdata.
@@ -107,6 +109,16 @@ class Decorator: public IBus {
     virtual void NotifyObservers(BusData* info) {
       BusToDecorate->NotifyObservers(BusData* info);
     }
+
+  /**
+   * @brief Tells us whether our outgoing route is finished or not.
+   */
+    bool OutboundComplete() { return BusToDecorate->OutboundComplete();}
+
+  /**
+   * @brief Tells us whether we're decorated or not.
+   */
+    bool IsDecorated() { return true;}
 
 
  protected:
@@ -116,11 +128,15 @@ class Decorator: public IBus {
   * @brief Takes passengers off of the bus via PassengerUnloader.
   * @return passengers_unloaded int
   */
-   virtual int UnloadPassengers() {BusToDecorate->UnloadPassengers();}
+   virtual int UnloadPassengers() {
+     return BusToDecorate->UnloadPassengers();
+   }
   /**
   * @brief Signals the bus if a passenger needs to get off at the next stop.
   * @return a bool if passenger wants off.
   */
-   virtual bool PassengerRequestOff() {BusToDecorate->PassengerRequestOff();}
+   virtual bool PassengerRequestOff() {
+     return BusToDecorate->PassengerRequestOff();
+   }
 };
 #endif  // SRC_DECORATOR_H_

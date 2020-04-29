@@ -154,9 +154,19 @@ class Bus: public IBus {
  */
   void NotifyObservers(BusData* info) override;
 
+/**
+ * @brief Tells us whether our outgoing route is finished or not.
+ */
+  bool OutboundComplete();
+
+/**
+ * @brief Tells us whether we're decorated or not.
+ */
+  bool IsDecorated() { return decorated_;}
 
 
  protected:
+
 /**
  * @brief Takes passengers off of the bus via PassengerUnloader.
  * @return passengers_unloaded int
@@ -170,6 +180,7 @@ class Bus: public IBus {
   // bool Refuel();
   PassengerUnloader * unloader_;
   PassengerLoader * loader_;
+  bool decorated_ = false;
   std::list<Passenger *> passengers_;
   int total_passengers;  // the total number of passengers who rode the bus.
   int passenger_max_capacity_;

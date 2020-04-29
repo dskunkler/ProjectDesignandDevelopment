@@ -18,6 +18,7 @@
 #include "src/util.h"
 #include "src/file_writer.h"
 #include "src/file_writer_manager.h"
+#include "src/bus_color_decorator.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
@@ -93,6 +94,10 @@ void VisualizationSimulator::Update() {
     // Update busses
     for (int i = static_cast<int>(busses_.size()) - 1; i >= 0; i--) {
         busses_[i]->Update();
+        if(busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()){
+          std::cout << "DECORATOR WRAPPED!*!*\n";
+          busses_[i] = new BusColorDecorator(busses_[i]);
+        }
 
         if (busses_[i]->IsTripComplete()) {
           // if the bus is at the end of the line, put its stat report into the

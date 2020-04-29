@@ -31,7 +31,7 @@ class Stop;
  * Class Definitions
  ******************************************************************************/
 /*
- * @brief a template so our decorator can color our bus. 
+ * @brief a template so our decorator can color our bus.
  * Calls to \ref IsTripComplete returns a bool if there are no more stops
  * in either the outgoing or incoming Route.
  * Calls to \ref LoadPassenger returns a bool if the specified passenger was
@@ -137,19 +137,29 @@ virtual int GetCapacity() const = 0;
 */
  virtual void NotifyObservers(BusData* info) = 0;
 
+/**
+ * @brief Tells us whether our outgoing route is finished or not.
+ */
+  virtual bool OutboundComplete() = 0;
+
+/**
+ * @brief Tells us whether we're decorated or not.
+ */
+  virtual bool IsDecorated() = 0;
+
 
 
 protected:
 /**
 * @brief Takes passengers off of the bus via PassengerUnloader.
 * @return passengers_unloaded int
-*/
- virtual int UnloadPassengers() = 0;  // returning revenue delta
+// */
+//  virtual int UnloadPassengers() = 0;  // returning revenue delta
 /**
 * @brief Signals the bus if a passenger needs to get off at the next stop.
-* @return a bool if passenger wants off.
-*/
- virtual bool PassengerRequestOff() = 0;
+// * @return a bool if passenger wants off.
+// */
+//  virtual bool PassengerRequestOff() = 0;
  // // bool Refuel();
  // PassengerUnloader * unloader_;
  // PassengerLoader * loader_;
