@@ -74,6 +74,7 @@ public:
   virtual void Update() {
     std::cout << "Intensity Update\n";
     BusToDecorate->Update();
+    BusToDecorate->ClearObservers();
     BusData wrapped_bus_data = GetBusData();
     NotifyObservers(&wrapped_bus_data);
   }

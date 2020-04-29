@@ -73,6 +73,7 @@ public:
      std::cout << "Color Update\n";
      BusToDecorate->Update();
      BusData wrapped_bus_data = GetBusData();
+     BusToDecorate->ClearObservers();
      NotifyObservers(&wrapped_bus_data);
    }
 
