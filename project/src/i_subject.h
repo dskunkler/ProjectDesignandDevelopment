@@ -46,7 +46,7 @@ class ISubject {
   /**
    * @brief ClearObservers clears all observers from observer_ vector
    */
-   void ClearObservers() {
+   virtual void ClearObservers() {
     std::cout << "Observer Cleared in ISubject\n";
     observer_.clear();
   }

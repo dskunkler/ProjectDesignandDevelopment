@@ -71,9 +71,10 @@ public:
   */
    virtual void Update() {
      std::cout << "Color Update\n";
-     BusToDecorate->Update();
+     BusToDecorate->Move();
+     BusToDecorate->UpdateBusData();
      BusData wrapped_bus_data = GetBusData();
-     BusToDecorate->ClearObservers();
+     // BusToDecorate->ClearObservers();
      NotifyObservers(&wrapped_bus_data);
    }
 

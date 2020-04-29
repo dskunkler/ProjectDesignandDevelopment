@@ -168,6 +168,7 @@ void Bus::Update() {  // using common Update format
   std::cout << "Bus Update\n";
   Move();
   UpdateBusData();
+  NotifyObservers(&bus_data_);
 }
 
 // print a report of all the information of the bus.
@@ -242,7 +243,6 @@ void Bus::UpdateBusData() {
     bus_data_.num_passengers = static_cast<int>(passengers_.size());
     bus_data_.capacity = passenger_max_capacity_;
 
-    NotifyObservers(&bus_data_);
 }
 
 BusData Bus::GetBusData() const {
@@ -270,9 +270,4 @@ bool Bus::PassengerRequestOff() {
 
 bool Bus::OutboundComplete() {
  return outgoing_route_->IsAtEnd();
-}
-
-void RegisterObserver(IObserver<BusData*> *observer) {
-  std::cout << "Observer registered in Bus!\n";
-  RegisterObserver(observer);
 }

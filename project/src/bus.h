@@ -128,27 +128,27 @@ class Bus: public IBus {
  * @brief gets bus_data_
  * @return bus_data_
  */
-  BusData GetBusData() const;
+  BusData GetBusData() const override;
 /**
  * @brief Gets the bus name.
  * @return name_
  */
-  std::string GetName() const { return name_; }
+  std::string GetName() const override { return name_; }
 /**
  * @brief Gets the next stop
  * @return next_stop_
  */
-  Stop * GetNextStop() const { return next_stop_; }
+  Stop * GetNextStop() const override { return next_stop_; }
 /**
  * @brief Gets the number of passengers on the bus.
  * @return passengers_.size()
  */
-  size_t GetNumPassengers() const { return passengers_.size(); }
+  size_t GetNumPassengers() const override { return passengers_.size(); }
 /**
  * @brief Gets the capacity of the bus.
  * @return passenger_max_capacity_
  */
-  int GetCapacity() const { return passenger_max_capacity_; }
+  int GetCapacity() const override { return passenger_max_capacity_; }
 
 /**
  * @brief Notifies the observers of the busdata.
@@ -158,7 +158,7 @@ class Bus: public IBus {
 /**
  * @brief Tells us whether our outgoing route is finished or not.
  */
-  bool OutboundComplete();
+  bool OutboundComplete() override;
 
 /**
  * @brief Tells us whether we're decorated or not.

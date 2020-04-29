@@ -135,6 +135,8 @@ class BusDecorator: public IBus {
     bool IsDecorated() { return true;}
 
 
+
+
  protected:
   IBus *BusToDecorate;
 
