@@ -31,8 +31,9 @@ class Stop;
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
+/**
  * @brief a template so our decorator can color our bus.
+ *
  * Calls to \ref IsTripComplete returns a bool if there are no more stops
  * in either the outgoing or incoming Route.
  * Calls to \ref LoadPassenger returns a bool if the specified passenger was

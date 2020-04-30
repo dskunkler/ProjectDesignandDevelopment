@@ -144,5 +144,55 @@
  * <br> This is a VERY BASIC understanding of the Observer pattern. Somethings
  * watching and somethings being watched and the subject being watched alerts
  * the observer to its changes.
+ * \section Decorator Designing and Implementing the Decorator Pattern
+ * ![Decorator Pattern](DecoratorPattern.jpeg) width=600px
+ * Above is the Decorator Pattern which I used which has decoupled the Color
+ * Decorator and the Intensity Decorator. This is in contrast to a design where
+ * intensity and color are both changed by the same Decorator. A pro of my
+ * approach is that my version is open to extension and it is decoupled. A con
+ * for my approach is that it is much more difficult to code it this way.
+ * The pro of the version which alters both at the same time is that its easier
+ * to create and everything is contained in one location so its easier to
+ * understand and show to other people. The con of the simpiler version is that
+ * it is closed to extension. If you wanted to change JUST the color or JUST the
+ * intensity, this Decorator style wouldn't work for you. The way mine works is
+ * that Color structs are default instantiated to be maroon. When the bus gets
+ * to the end of the outgoing route, it gets changed to gold. For this to happen
+ * I needed to create two new methods. One is named OutboundComplete and returns
+ * a bool saying whether the outbound routes trip is complete using the IsAtEnd
+ * method. The second one is called IsDecorated and returns a bool of true if
+ * the decorator has been applied to the bus. If the Outbound trip is complete
+ * and the bus is not decorated, then I wrap it in the decorator. The way this
+ * changes the color is that when GetBusData is called. The Decorator will
+ * call GetBusData on the BusToDecorate and then will change that data struct's
+ * color to gold before returning it. The intensity decorator is applied to the
+ * the bus right away. The way this decorator works is that it calls GetBusData
+ * on the BusToDecorate and sets the alpha value of the color to 120 plus a
+ * fraction which is computed by the number of passengers on the bus divided
+ * by the size of the bus times 135. This means that if the bus is completely
+ * full, the alpha will be at 255 and if its completely empty it will be at 120.
+ * The classes I needed to add were:
+ * <br> 1 ) IBus: This is a template which is inherited from ISubject
+ * <br> 2 ) BusDecorator: This is a template which inherits from IBus
+ * <br> 3 ) BusColorDecorator: This is a concrete Decorator which decorates the
+ * color of the bus at the end of the route.
+ * <br> 4 ) BusIntensityDecorator: This is a concrete Decorator which decorates
+ * the intensity of the color of the bus.
+ * <br> I found the concept of the decorator to be pretty easy to conceptualize,
+ * but the hardest part for me was getting the classes right. I was getting a
+ * weird error where I could click on bus 1005 and it would be observable
+ * and I could go sequentially down to 1000, but if I went to a lower number I
+ * could never go back up. I ended up fixing this by defining RegisterObserver,
+ * ClearObserver, NotifyObservers in BusDecorator and removing BusToDecorate
+ * from both BusColorDecorator and BusIntensityDecorator and having their
+ * constructors instantiate BusDecorator::BusToDecorate. I'm not sure why it was
+ * only letting me count down. Sukhail couldn't figure it out either. We thought
+ * maybe it was because I continually wrap the buses in an Intensity decorator
+ * and it was getting wrapped so many times it wasn't updating. However, when I
+ * changed it so my bus factory immediately wrapped the decorator just once,
+ * it stopped being observable. This solution still is kind of mysterious to me,
+ * but it works. If you have any insight into this I would be more the happy to
+ * hear about it and am excited to see how you implemented it. My biggest
+ * tip if you're having trouble is go talk to a Graduate TA.
  */
 #endif  // SRC_MAINPAGE_H_

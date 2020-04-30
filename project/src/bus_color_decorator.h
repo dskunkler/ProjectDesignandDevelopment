@@ -28,8 +28,9 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
+/**
  * @brief BusColorDecorator
+ *
  * \ref BusDecorator is the parent class. Go here method overview.
  */
 class BusColorDecorator : public BusDecorator {
@@ -55,7 +56,7 @@ class BusColorDecorator : public BusDecorator {
   * @param[in] new_passenger passenger to be added.
   * @param[out] passengers_ passenger list amended with passenger.
   *
-  * @return BusToDecorate's bool whether passenger was added to passengers_ 
+  * @return BusToDecorate's bool whether passenger was added to passengers_
   * list or not
   */
   virtual bool LoadPassenger(Passenger * passenger ) {

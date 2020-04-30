@@ -26,10 +26,27 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
- * @brief BusColorDecorator
+/**
+ * @brief The main class for BusDecorator
+ *
  * \ref IBus is the parent class. Go here method overview. This template does
  * have a protected member BusToDecorate which is an IBus pointer.
+ * Calls to \ref IsTripComplete returns a bool if there are no more stops
+ * in either the outgoing or incoming Route.
+ * Calls to \ref LoadPassenger returns a bool if the specified passenger was
+ * able to be added to the Bus or not.
+ * Calls to \ref Move returns bool depending on if the Bus was able to move or
+ * not.
+ * Calls to \ref Update Moves the bus and updates the bus data.
+ * Calls to \ref Report Outputs name, speed, size, distance to next stop,
+ * and passengers.
+ * Calls to \ref UpdateBusData Updates bus_data_ according to the current Bus
+ * data.
+ * Calls to \ref GetBusData returns bus_data_.
+ * Calls to \ref GetName returns the bus name.
+ * Calls to \ref GetNumPassengers returns the number of current passengers.
+ * Calls to \ref GetCapacity returns the maximum number of passengers.
+ * Calls to \ref UnloadPassengers returns the number of passengers unloaded.
  */
 class BusDecorator: public IBus {
  public:

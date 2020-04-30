@@ -17,8 +17,9 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
+/**
  * @brief the main class for FileWriterManager.
+ *
  * \ref GetInstance returns a new FileWriter if one doesn't exist, or it returns
  * the instance of Filewriter if it exists.
  */

@@ -17,9 +17,11 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
+/**
  * @brief The main class for FileWriter
- * \ref Write writes the contents of a string vector to a specified file.
+ *
+ * Calls to \ref Write writes the contents of a string vector to a specified
+ * file.
  */
 class FileWriter{
  public:

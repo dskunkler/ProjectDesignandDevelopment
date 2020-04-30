@@ -28,9 +28,10 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
- * @brief BusIntensityDecorator
- * will set the intensity of whatever Ibus object it's passed based on the
+/**
+ * @brief Class for BusIntensityDecorator
+ *
+ * Will set the intensity of whatever Ibus object it's passed based on the
  * number of passengers and the bus size.
  * Inherited from \ref BusDecorator
  */

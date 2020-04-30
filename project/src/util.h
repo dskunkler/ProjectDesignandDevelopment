@@ -16,8 +16,9 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/*
+/**
  * @brief The main class for Util
+ *
  * \ref processOutput processes the string stream and returns a string vector
  */
 class Util {
