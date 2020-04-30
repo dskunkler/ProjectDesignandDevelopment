@@ -17,8 +17,17 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+/*
+ * @brief The main class for FileWriter
+ * \ref Write writes the contents of a string vector to a specified file.
+ */
 class FileWriter{
  public:
+/*
+ * @brief Writes the content of the vector to the file specified.
+ * @param[in] filename std::string
+ * @param[in] text std::vector<std::string>
+ */
   void Write(std::string, std::vector<std::string>);
  private:
   std::ofstream fout;

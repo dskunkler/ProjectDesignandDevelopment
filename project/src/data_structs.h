@@ -36,7 +36,7 @@ struct Position {
   float y;
 };
 /**
- * @brief A Color data struct holds colr info for the vissim
+ * @brief A Color data struct holds color info for the vissim
  *
  * Calls to \ref Color create a struct with rgb at 0 and alpha at 255.
  */

@@ -12,7 +12,9 @@
 #include "src/bus_strategy.h"
 #include "src/afternoon_strategy.h"
 
-
+/*******************************************************************************
+ * Member Functions
+ ******************************************************************************/
 
 // You can't initialize static variables in header files so I must do it here.
 AfternoonStrategy::AfternoonStrategy() {

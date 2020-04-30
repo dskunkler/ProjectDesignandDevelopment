@@ -16,8 +16,17 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+/*
+ * @brief The main class for Util
+ * \ref processOutput processes the string stream and returns a string vector
+ */
 class Util {
  public:
+/*
+ * @brief Processes a string stream into a a string vector
+ * @param[in] r_text an ostringstream pointer
+ * @return A string Vector
+ */
   static std::vector<std::string> processOutput(std::ostringstream *r_text){
     // produce a string from our ostringstream
     std::string report_text = r_text->str();

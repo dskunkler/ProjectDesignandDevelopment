@@ -77,7 +77,7 @@ void VisualizationSimulator::Update() {
         if (0 >= timeSinceLastBus_[i]) {
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
-
+            // Generate a bus if needed from the factory
             busses_.push_back(BusFactory::Generate(std::to_string(busId),
                outbound->Clone(), inbound->Clone()));
             busId++;
@@ -94,11 +94,13 @@ void VisualizationSimulator::Update() {
     // Update busses
     for (int i = static_cast<int>(busses_.size()) - 1; i >= 0; i--) {
         busses_[i]->Update();
+        // If our we're on the inbound route and the bus isn't decorated
         if (busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()) {
           std::cout << "DECORATOR WRAPPED!*!*\n";
+          // store the decorated bus
           busses_[i] = new BusColorDecorator(busses_[i]);
         }
-
+        // Wrap the bus with the intensity decorator every run
         busses_[i] = new BusIntensityDecorator(busses_[i]);
 
         if (busses_[i]->IsTripComplete()) {

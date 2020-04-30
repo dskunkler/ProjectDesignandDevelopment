@@ -26,14 +26,21 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-
+/*
+ * @brief BusColorDecorator
+ * \ref IBus is the parent class. Go here method overview. This template does
+ * have a protected member BusToDecorate which is an IBus pointer.
+ */
 class BusDecorator: public IBus {
  public:
+/*
+ * @brief Virtual destructor for BusDecorator
+ */
   virtual ~BusDecorator() {}
  /**
  * @brief Tells whether the entire buses route is finished
  *
- * @return bool whether route out and route in are both at their ends.
+ * @return whether BusToDecorate's route out and route in are both at their ends
  */
   virtual bool IsTripComplete() {return BusToDecorate->IsTripComplete();}
 
@@ -42,7 +49,7 @@ class BusDecorator: public IBus {
  * @param[in] new_passenger passenger to be added.
  * @param[out] passengers_ passenger list amended with passenger.
  *
- * @return bool whether passenger was added to passengers_ list or not
+ * @return bool whether passenger was added to BusToDecorate's passengers_ list
  */
 virtual bool LoadPassenger(Passenger * passenger ) {
   return BusToDecorate->LoadPassenger(passenger);
@@ -90,12 +97,12 @@ virtual bool LoadPassenger(Passenger * passenger ) {
 
  /**
  * @brief gets bus_data_
- * @return bus_data_
+ * @return BusToDecorate's bus_data_
  */
   virtual BusData GetBusData() const = 0;
  /**
  * @brief Gets the bus name.
- * @return name_
+ * @return BusToDecorate's name_
  */
   virtual std::string GetName() const {
     std::cout << "decorator get name called returning "
@@ -103,19 +110,19 @@ virtual bool LoadPassenger(Passenger * passenger ) {
     return BusToDecorate->GetName();}
  /**
  * @brief Gets the next stop
- * @return next_stop_
+ * @return BusToDecorate's next_stop_
  */
   virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
  /**
  * @brief Gets the number of passengers on the bus.
- * @return passengers_.size()
+ * @return BusToDecorate's passengers_.size()
  */
   virtual size_t GetNumPassengers() const {
     return BusToDecorate->GetNumPassengers();
   }
  /**
  * @brief Gets the capacity of the bus.
- * @return passenger_max_capacity_
+ * @return BusToDecorate's passenger_max_capacity_
  */
   virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 

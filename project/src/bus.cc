@@ -168,8 +168,8 @@ void Bus::Update() {  // using common Update format
   std::cout << "Bus Update\n";
   Move();
   UpdateBusData();
-  BusData to_send = GetBusData();
-  NotifyObservers(&to_send);
+  BusData to_send = GetBusData();  // could just use bus_data_.
+  NotifyObservers(&to_send);  // notifying observers
 }
 
 // print a report of all the information of the bus.
@@ -248,11 +248,8 @@ void Bus::UpdateBusData() {
 BusData Bus::GetBusData() const {
     return bus_data_;
 }
-// void Bus::RegisterObserver(IObserver<BusData> *observer) {
-//   std::cout << "Observer registered!\n";
-//   observer_.push_back(observer);
-// }
 
+// This returns a bool if there are passengers that need off of the bus
 bool Bus::PassengerRequestOff() {
   bool wantsOff = false;
   for (std::list<Passenger *>::iterator it = passengers_.begin();
@@ -267,7 +264,8 @@ bool Bus::PassengerRequestOff() {
 }
 
 
-
+// This returns a bool that says whether the outbound leg of the trip is
+// complete. It allows us to Decorate it at the appropriate time.
 bool Bus::OutboundComplete() {
   return outgoing_route_->IsAtEnd();
 }

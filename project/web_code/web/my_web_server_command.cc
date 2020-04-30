@@ -164,12 +164,23 @@ void PauseCommand::execute(MyWebServerSession* session,
   mySim->TogglePause();
 }
 
-
+/*
+ * @brief A StopWebObserver
+ * \ref Notify Displays the Stop data to the console
+ */
 class StopWebObserver: public IObserver<StopData*> {
  public:
+  /*
+   * @brief the constructor for StopWebObserver
+   */
+ )
   explicit StopWebObserver(MyWebServerSession* session) : session(session) {}
   // Copy of BusWebObserver with StopData as input
   // Notify is defined here for stop observers.
+  /*
+   * @brief Notifes the console of the stops data
+   * @param[in] info a StopData pointer
+   */
   void Notify(StopData* info) {
     picojson::object data;
     std::cout << "HELLO FROM STOP NOTIFY\n";
@@ -212,10 +223,19 @@ class BusWebObserver : public IObserver<BusData*> {
   MyWebServerSession* session;
 };
 // AddStopListenerCommand constructors
+/*
+ * @brief A constructor for AddStopListenerCommand
+ */
 AddStopListenerCommand::AddStopListenerCommand(VisualizationSimulator* sim)
                                                                  : mySim(sim) {}
 // AddStopListener execute command. The command clears the previous listeners,
 // then calls AddStopListener on our VisSim instance.
+/*
+ * @brief Executes the AddStopListener command
+ * @param[in] session MyWebServerSession
+ * @param[in] command a picojson value
+ * @param[in] state MyWebServerSessionState
+ */
 void AddStopListenerCommand::execute(MyWebServerSession* session,
                      picojson::value& command, MyWebServerSessionState* state) {
   mySim->ClearStopListeners();

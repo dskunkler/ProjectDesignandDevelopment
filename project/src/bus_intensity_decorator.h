@@ -29,9 +29,10 @@
  * Class Definitions
  ******************************************************************************/
 /*
- * @brief BusIntesnsityDecorator
+ * @brief BusIntensityDecorator
  * will set the intensity of whatever Ibus object it's passed based on the
  * number of passengers and the bus size.
+ * Inherited from \ref BusDecorator
  */
 
 class BusIntensityDecorator : public BusDecorator {
@@ -104,8 +105,9 @@ class BusIntensityDecorator : public BusDecorator {
   virtual void UpdateBusData() {BusToDecorate->UpdateBusData();}
 
   /**
-  * @brief gets bus_data_
-  * @return bus_data_
+  * @brief gets BusToDecorate's BusData and changes the alpha based on how
+  * many passengers there are in relation to the bus size.
+  * @return data a BusData struct
   */
   virtual BusData GetBusData() const {
     std::cout << "Getting Intensity Bus Data\n";
@@ -122,24 +124,24 @@ class BusIntensityDecorator : public BusDecorator {
   }
   /**
   * @brief Gets the bus name.
-  * @return name_
+  * @return BusToDecorate's name_
   */
   virtual std::string GetName() const {return BusToDecorate->GetName();}
   /**
   * @brief Gets the next stop
-  * @return next_stop_
+  * @return BusToDecorate's next_stop_
   */
   virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
   /**
   * @brief Gets the number of passengers on the bus.
-  * @return passengers_.size()
+  * @return BusToDecorate's passengers_.size()
   */
   virtual size_t GetNumPassengers() const {
     return BusToDecorate->GetNumPassengers();
   }
   /**
   * @brief Gets the capacity of the bus.
-  * @return passenger_max_capacity_
+  * @return BusToDecorate's passenger_max_capacity_
   */
   virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 

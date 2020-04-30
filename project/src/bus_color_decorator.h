@@ -30,11 +30,13 @@
  ******************************************************************************/
 /*
  * @brief BusColorDecorator
+ * \ref BusDecorator is the parent class. Go here method overview.
  */
 class BusColorDecorator : public BusDecorator {
  public:
 /**
-* @brief Constructor for BusDecorator, wraps the base bus.
+* @brief Constructor for BusColorDecorator, wraps the base IBus.
+* @param[in] base_bus an IBus pointer
 */
   explicit BusColorDecorator(IBus *base_bus) {
     BusDecorator::BusToDecorate = base_bus;
@@ -43,7 +45,8 @@ class BusColorDecorator : public BusDecorator {
   /**
   * @brief Tells whether the entire buses route is finished
   *
-  * @return bool whether route out and route in are both at their ends.
+  * @return BusToDecorate's bool whether route out and route in are both at
+  * their ends.
   */
   virtual bool IsTripComplete() {return BusToDecorate->IsTripComplete();}
 
@@ -52,7 +55,8 @@ class BusColorDecorator : public BusDecorator {
   * @param[in] new_passenger passenger to be added.
   * @param[out] passengers_ passenger list amended with passenger.
   *
-  * @return bool whether passenger was added to passengers_ list or not
+  * @return BusToDecorate's bool whether passenger was added to passengers_ 
+  * list or not
   */
   virtual bool LoadPassenger(Passenger * passenger ) {
     return BusToDecorate->LoadPassenger(passenger);
@@ -62,7 +66,7 @@ class BusColorDecorator : public BusDecorator {
   * @brief Moves the bus to the next stop and updates everything.
   * @param[out] passengers_ passengers updated, added, and removed appropriately
   *
-  * @return bool notifying whether bus moved or not.
+  * @return BusToDecorate's bool notifying whether bus moved or not.
   */
   virtual bool Move() {return BusToDecorate->Move();}
 
@@ -102,8 +106,9 @@ class BusColorDecorator : public BusDecorator {
   virtual void UpdateBusData() {BusToDecorate->UpdateBusData();}
 
   /**
-  * @brief gets bus_data_
-  * @return bus_data_
+  * @brief gets bus_data_ from our BusToDecorate, creates a gold color object
+  * and assigns data's color to gold.
+  * @return data a BusData object colored gold
   */
   virtual BusData GetBusData() const {
     BusData data = BusToDecorate->GetBusData();
@@ -113,12 +118,12 @@ class BusColorDecorator : public BusDecorator {
   }
   /**
   * @brief Gets the bus name.
-  * @return name_
+  * @return BustoDecorate's name_
   */
   virtual std::string GetName() const {return BusToDecorate->GetName();}
   /**
   * @brief Gets the next stop
-  * @return next_stop_
+  * @return BusToDecorate's  next_stop_
   */
   virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
   /**
@@ -130,7 +135,7 @@ class BusColorDecorator : public BusDecorator {
   }
   /**
   * @brief Gets the capacity of the bus.
-  * @return passenger_max_capacity_
+  * @return BusToDecorate's passenger_max_capacity_
   */
   virtual int GetCapacity() const {return BusToDecorate->GetCapacity();}
 

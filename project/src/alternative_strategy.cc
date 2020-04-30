@@ -10,6 +10,9 @@
 #include "src/bus_strategy.h"
 #include "src/alternative_strategy.h"
 
+/*******************************************************************************
+ * Member Functions
+ ******************************************************************************/
 // This strategy doesn't need to monitor state.
 AlternativeStrategy::AlternativeStrategy() {}
 
