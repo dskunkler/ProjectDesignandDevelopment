@@ -79,8 +79,8 @@ void VisualizationSimulator::Update() {
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
 
-            busses_.push_back(new BusIntensityDecorator(BusFactory::Generate(std::to_string(busId),
-               outbound->Clone(), inbound->Clone())));
+            busses_.push_back(BusFactory::Generate(std::to_string(busId),
+               outbound->Clone(), inbound->Clone()));
             busId++;
 
             timeSinceLastBus_[i] = busStartTimings_[i];
@@ -100,7 +100,7 @@ void VisualizationSimulator::Update() {
           busses_[i] = new BusColorDecorator(busses_[i]);
         }
 
-        // busses_[i] = new BusIntensityDecorator(busses_[i]);
+        busses_[i] = new BusIntensityDecorator(busses_[i]);
 
         if (busses_[i]->IsTripComplete()) {
           // if the bus is at the end of the line, put its stat report into the

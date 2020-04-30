@@ -114,6 +114,7 @@ public:
   * @return bus_data_
   */
    virtual BusData GetBusData() const {
+     std::cout << "Getting Intensity Bus Data\n";
      BusData data = BusToDecorate->GetBusData();
      Color color = data.color;
      float pass = data.num_passengers;
@@ -121,6 +122,7 @@ public:
      // Percent filled will depend on the size of the bus
      float percent_filled = pass/capacity_;
      color.alpha = 120 + (int)135*percent_filled;
+     std::cout << std::to_string(color.alpha) <<std::endl;
      data.color = color;
      // std::cout << "Intensity pos x: " << std::to_string(data.position.x);
      // std::cout << "    pos y: " << std::to_string(data.position.y) << std::endl;;
