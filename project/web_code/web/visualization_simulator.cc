@@ -61,7 +61,6 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
 }
 
 void VisualizationSimulator::Update() {
-
   std::ostringstream report_text;  // This will be the text of our report
   if (!paused) {
     simulationTimeElapsed_++;
@@ -78,7 +77,7 @@ void VisualizationSimulator::Update() {
         if (0 >= timeSinceLastBus_[i]) {
             Route * outbound = prototypeRoutes_[2 * i];
             Route * inbound = prototypeRoutes_[2 * i + 1];
-
+            // Generate a bus if needed from the factory
             busses_.push_back(BusFactory::Generate(std::to_string(busId),
                outbound->Clone(), inbound->Clone()));
             busId++;
@@ -95,11 +94,13 @@ void VisualizationSimulator::Update() {
     // Update busses
     for (int i = static_cast<int>(busses_.size()) - 1; i >= 0; i--) {
         busses_[i]->Update();
-        if(busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()){
+        // If our we're on the inbound route and the bus isn't decorated
+        if (busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()) {
           std::cout << "DECORATOR WRAPPED!*!*\n";
+          // store the decorated bus
           busses_[i] = new BusColorDecorator(busses_[i]);
         }
-
+        // Wrap the bus with the intensity decorator every run
         busses_[i] = new BusIntensityDecorator(busses_[i]);
 
         if (busses_[i]->IsTripComplete()) {
@@ -169,7 +170,7 @@ void VisualizationSimulator::ClearStopListeners() {
 
 void VisualizationSimulator::AddStopListener(std::string* id,
                                               IObserver<StopData*>* observer) {
-   std::cout << "Hello From StopObserver!\n";
+  std::cout << "Hello From StopObserver!\n";
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(stops_.size()); i++) {
       if (std::to_string(stops_[i]->GetId()) == *id) {

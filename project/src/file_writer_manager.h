@@ -17,12 +17,21 @@
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
+/**
+ * @brief the main class for FileWriterManager.
+ *
+ * \ref GetInstance returns a new FileWriter if one doesn't exist, or it returns
+ * the instance of Filewriter if it exists.
+ */
 class FileWriterManager {
  private:
   static FileWriter *instance;
-  FileWriter file_writer;  // %TODO : Do you actually need this?
 
  public:
+/*
+ * @brief Returns the singleton Filewriter instance.
+ * @return instance a Filewriter
+ */
   static FileWriter *GetInstance() {
     if (!instance) {
       instance = new FileWriter;
@@ -31,4 +40,4 @@ class FileWriterManager {
   }
 };
 
-#endif  // SRC_FILE_WRITER_MANAGERL_H_
+#endif  // SRC_FILE_WRITER_MANAGER_H_

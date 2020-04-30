@@ -12,7 +12,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "file_writer.h"
+#include "src/file_writer.h"
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
@@ -32,5 +32,4 @@ void FileWriter::Write(std::string filename, std::vector<std::string> text) {
   fout << std::endl;
   // close the file so we don't just keep trying to open the same one.
   fout.close();
-
 }

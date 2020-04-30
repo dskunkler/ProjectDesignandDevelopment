@@ -168,7 +168,6 @@ class Bus: public IBus {
 
 
  protected:
-
 /**
  * @brief Takes passengers off of the bus via PassengerUnloader.
  * @return passengers_unloaded int

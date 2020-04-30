@@ -15,6 +15,7 @@
  ******************************************************************************/
  /**
   * @brief IObserver Class
+  *
   * Calls to /ref IObserver create a new IObserver object
   * Calls to /ref Notify alerts vis_sim to the information passed to it.
   */
