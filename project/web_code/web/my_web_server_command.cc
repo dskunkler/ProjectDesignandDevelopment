@@ -173,7 +173,6 @@ class StopWebObserver: public IObserver<StopData*> {
   /*
    * @brief the constructor for StopWebObserver
    */
- )
   explicit StopWebObserver(MyWebServerSession* session) : session(session) {}
   // Copy of BusWebObserver with StopData as input
   // Notify is defined here for stop observers.
@@ -195,6 +194,7 @@ class StopWebObserver: public IObserver<StopData*> {
     picojson::value ret(data);
     session->sendJSON(ret);
   }
+
  private:
     MyWebServerSession* session;
 };
