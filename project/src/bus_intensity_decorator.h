@@ -10,44 +10,44 @@
  * Includes
  ******************************************************************************/
 
- #include <iostream>
- #include <list>
- #include <string>
+#include <iostream>
+#include <list>
+#include <string>
 
- #include "src/data_structs.h"
- #include "src/i_subject.h"
- #include "src/passenger.h"
- #include "src/passenger_loader.h"
- #include "src/passenger_unloader.h"
- #include "src/route.h"
- #include "src/stop.h"
- #include "src/i_observer.h"
- #include "src/i_bus.h"
- #include "src/bus.h"
- #include "src/bus_decorator.h"
+#include "src/data_structs.h"
+#include "src/i_subject.h"
+#include "src/passenger.h"
+#include "src/passenger_loader.h"
+#include "src/passenger_unloader.h"
+#include "src/route.h"
+#include "src/stop.h"
+#include "src/i_observer.h"
+#include "src/i_bus.h"
+#include "src/bus.h"
+#include "src/bus_decorator.h"
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
 /*
  * @brief BusIntesnsityDecorator
- * will set the intensity of whatever Ibus object it's passed based on the number
- * of passengers and the bus size.
+ * will set the intensity of whatever Ibus object it's passed based on the
+ * number of passengers and the bus size.
  */
 
 class BusIntensityDecorator : public BusDecorator {
-public:
+ public:
 /**
 * @brief Constructor for BusDecorator, wraps the base bus.
 */
- BusIntensityDecorator(IBus *base_bus) {
-   BusDecorator::BusToDecorate = base_bus;
- }
+  explicit BusIntensityDecorator(IBus *base_bus) {
+    BusDecorator::BusToDecorate = base_bus;
+  }
   /**
   * @brief Tells whether the entire buses route is finished
   *
   * @return bool whether route out and route in are both at their ends.
   */
-   virtual bool IsTripComplete() {return BusToDecorate->IsTripComplete();}
+  virtual bool IsTripComplete() {return BusToDecorate->IsTripComplete();}
 
   /**
   * @brief Loads passengers onto the bus.
@@ -56,9 +56,9 @@ public:
   *
   * @return bool whether passenger was added to passengers_ list or not
   */
- virtual bool LoadPassenger(Passenger * passenger ) {
-   return BusToDecorate->LoadPassenger(passenger);
- }
+  virtual bool LoadPassenger(Passenger * passenger ) {
+    return BusToDecorate->LoadPassenger(passenger);
+  }
 
   /**
   * @brief Moves the bus to the next stop and updates everything.
@@ -66,7 +66,7 @@ public:
   *
   * @return bool notifying whether bus moved or not.
   */
-   virtual bool Move() {return BusToDecorate->Move();}
+  virtual bool Move() {return BusToDecorate->Move();}
 
   /**
   * @brief calls Move and UpdateBusData.
@@ -74,13 +74,7 @@ public:
   */
   virtual void Update() {
     std::cout << "Intensity Update\n";
-    // BusToDecorate->Move();
-    // BusToDecorate->UpdateBusData();
     BusToDecorate->Update();
-    // BusData wrapped_bus_data = GetBusData();
-    // // BusToDecorate->NotifyObservers(&wrapped_bus_data);
-    // // BusToDecorate->ClearObservers();
-    // NotifyObservers(&wrapped_bus_data);
   }
 
   /**
@@ -89,17 +83,17 @@ public:
   *
   * @param[in] out std::ostream for display purposes.
   */
-   virtual void Report(std::ostream& out) {BusToDecorate->Report(out);}
+  virtual void Report(std::ostream& out) {BusToDecorate->Report(out);}
   /**
   * @brief Outputs a modified report with no passenger info except
   * total_passengers
   * @param[in] report_text std::ostringstream to write to a csv
   */
-   virtual void StatReport(std::ostream& out) {
-     BusToDecorate->StatReport(out);
-   }
+  virtual void StatReport(std::ostream& out) {
+    BusToDecorate->StatReport(out);
+  }
 
-   // Vis Getters
+  // Vis Getters
 
   /**
   * @brief Updates the bus_data_
@@ -107,44 +101,42 @@ public:
   * @param[out] bus_data_
   * @param[out] distance_remaining_
   */
-   virtual void UpdateBusData() {BusToDecorate->UpdateBusData();}
+  virtual void UpdateBusData() {BusToDecorate->UpdateBusData();}
 
   /**
   * @brief gets bus_data_
   * @return bus_data_
   */
-   virtual BusData GetBusData() const {
-     std::cout << "Getting Intensity Bus Data\n";
-     BusData data = BusToDecorate->GetBusData();
-     Color color = data.color;
-     float pass = data.num_passengers;
-     float capacity_ = data.capacity;
-     // Percent filled will depend on the size of the bus
-     float percent_filled = pass/capacity_;
-     color.alpha = 120 + (int)135*percent_filled;
-     std::cout << std::to_string(color.alpha) <<std::endl;
-     data.color = color;
-     // std::cout << "Intensity pos x: " << std::to_string(data.position.x);
-     // std::cout << "    pos y: " << std::to_string(data.position.y) << std::endl;;
-     return data;
-   }
+  virtual BusData GetBusData() const {
+    std::cout << "Getting Intensity Bus Data\n";
+    BusData data = BusToDecorate->GetBusData();
+    Color color = data.color;
+    float pass = data.num_passengers;
+    float capacity_ = data.capacity;
+    // Percent filled will depend on the size of the bus
+    float percent_filled = pass/capacity_;
+    color.alpha = 120 + static_cast<int>(135*percent_filled);
+    std::cout << std::to_string(color.alpha) <<std::endl;
+    data.color = color;
+    return data;
+  }
   /**
   * @brief Gets the bus name.
   * @return name_
   */
-   virtual std::string GetName() const {return BusToDecorate->GetName();}
+  virtual std::string GetName() const {return BusToDecorate->GetName();}
   /**
   * @brief Gets the next stop
   * @return next_stop_
   */
-   virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
+  virtual Stop * GetNextStop() const {return BusToDecorate->GetNextStop();}
   /**
   * @brief Gets the number of passengers on the bus.
   * @return passengers_.size()
   */
-   virtual size_t GetNumPassengers() const {
-     return BusToDecorate->GetNumPassengers();
-   }
+  virtual size_t GetNumPassengers() const {
+    return BusToDecorate->GetNumPassengers();
+  }
   /**
   * @brief Gets the capacity of the bus.
   * @return passenger_max_capacity_
@@ -156,16 +148,12 @@ public:
  /**
   * @brief Tells us whether our outgoing route is finished or not.
   */
-   bool OutboundComplete() { return BusToDecorate->OutboundComplete();}
+  bool OutboundComplete() { return BusToDecorate->OutboundComplete();}
 
  /**
   * @brief Tells us whether we're decorated or not.
   */
-   bool IsDecorated() { return BusToDecorate->IsDecorated();}
-
-
-protected:
-
+  bool IsDecorated() { return BusToDecorate->IsDecorated();}
 };
 
 

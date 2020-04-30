@@ -243,7 +243,6 @@ void Bus::UpdateBusData() {
 
     bus_data_.num_passengers = static_cast<int>(passengers_.size());
     bus_data_.capacity = passenger_max_capacity_;
-
 }
 
 BusData Bus::GetBusData() const {
@@ -270,5 +269,5 @@ bool Bus::PassengerRequestOff() {
 
 
 bool Bus::OutboundComplete() {
- return outgoing_route_->IsAtEnd();
+  return outgoing_route_->IsAtEnd();
 }

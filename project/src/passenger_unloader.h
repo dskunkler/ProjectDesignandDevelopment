@@ -38,6 +38,6 @@ class PassengerUnloader {
   // todo(Kunkler)  doxygen this
   void SetOutputFile(std::string);
  private:
-   std::string passenger_file_name;
+  std::string passenger_file_name;
 };
 #endif  // SRC_PASSENGER_UNLOADER_H_

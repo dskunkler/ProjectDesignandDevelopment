@@ -24,4 +24,4 @@ class FileWriter{
   std::ofstream fout;
 };
 
-#endif  // SRC_FILE_WRITERL_H_
+#endif  // SRC_FILE_WRITER_H_
