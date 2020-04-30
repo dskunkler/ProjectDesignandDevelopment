@@ -149,13 +149,21 @@
  * Above is the Decorator Pattern which I used which has decoupled the Color
  * Decorator and the Intensity Decorator. This is in contrast to a design where
  * intensity and color are both changed by the same Decorator. A pro of my
- * approach is that my version is open to extension and it is decoupled. A con
- * for my approach is that it is much more difficult to code it this way.
+ * approach is that my version is open to extension and it is decoupled. I am
+ * able to change and modify just one aspect of my decorator. I can change
+ * intensity or I can change color, or I can change both. Further, I am able to
+ * extend either individually. I don't need them to be together. A con
+ * for my approach is that it is much more difficult to code it this way. There
+ * is a lot that can go wrong and you need to time the command properly.
  * The pro of the version which alters both at the same time is that its easier
  * to create and everything is contained in one location so its easier to
  * understand and show to other people. The con of the simpiler version is that
  * it is closed to extension. If you wanted to change JUST the color or JUST the
- * intensity, this Decorator style wouldn't work for you. The way mine works is
+ * intensity, this Decorator style wouldn't work for you. You could take this
+ * simplification even further and have it so you just inherit from bus and
+ * modify everything in there. This is the worst solution as far as
+ * extensibility goes since everythign is stuck in the bus. However, this is
+ * absolutely the easiest thing to implement. The way mine works is
  * that Color structs are default instantiated to be maroon. When the bus gets
  * to the end of the outgoing route, it gets changed to gold. For this to happen
  * I needed to create two new methods. One is named OutboundComplete and returns
