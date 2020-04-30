@@ -112,7 +112,7 @@ class VisualizationSimulator {
   int numTimeSteps_;
   int simulationTimeElapsed_;
 
-  std::string bus_stats_file_name;  // this will be where we write our report to.
+  std::string bus_stats_file_name;  // this will be where we write our report to
 
   std::vector<Route *> prototypeRoutes_;
   std::vector<Stop *> stops_;  // a vector of stops for our observer

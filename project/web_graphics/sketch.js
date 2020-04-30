@@ -371,23 +371,7 @@ function dropDownSelect() {
     console.log("stop!!!");
     socket.send(JSON.stringify({command: "observeStop", id: item}))
 }
-/*
-function pause() {
-    console.log("Pause button clicked");
 
-    if (started){
-        socket.send(JSON.stringify({command: "pause"}));
-        paused = !paused;
-        if (paused) {
-          pauseButton.value = "Resume";
-          pauseButton.elt.childNodes[0].nodeValue = 'Unpause';
-        } else {
-          pauseButton.value = "Pause";
-            pauseButton.elt.childNodes[0].nodeValue = 'Pause';
-        }
-    }
-}
-*/
 function pause() {
     console.log("Pause button clicked");
 

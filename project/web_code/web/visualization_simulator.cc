@@ -61,7 +61,6 @@ void VisualizationSimulator::Start(const std::vector<int>& busStartTimings,
 }
 
 void VisualizationSimulator::Update() {
-
   std::ostringstream report_text;  // This will be the text of our report
   if (!paused) {
     simulationTimeElapsed_++;
@@ -95,7 +94,7 @@ void VisualizationSimulator::Update() {
     // Update busses
     for (int i = static_cast<int>(busses_.size()) - 1; i >= 0; i--) {
         busses_[i]->Update();
-        if(busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()){
+        if (busses_[i]->OutboundComplete() && !busses_[i]->IsDecorated()) {
           std::cout << "DECORATOR WRAPPED!*!*\n";
           busses_[i] = new BusColorDecorator(busses_[i]);
         }
@@ -169,7 +168,7 @@ void VisualizationSimulator::ClearStopListeners() {
 
 void VisualizationSimulator::AddStopListener(std::string* id,
                                               IObserver<StopData*>* observer) {
-   std::cout << "Hello From StopObserver!\n";
+  std::cout << "Hello From StopObserver!\n";
   // iterate through to find the bus
   for (int i = 0; i < static_cast<int>(stops_.size()); i++) {
       if (std::to_string(stops_[i]->GetId()) == *id) {
